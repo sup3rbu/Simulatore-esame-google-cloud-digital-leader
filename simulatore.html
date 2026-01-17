@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulatore Esame Google Cloud</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f5f5f5; padding: 20px; }
+        .container { max-width: 700px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { text-align: center; }
+        .question { margin-bottom: 20px; }
+        .options button { display: block; margin: 10px 0; padding: 10px; width: 100%; border: 1px solid #ccc; border-radius: 5px; cursor: pointer; background: #fafafa; }
+        .options button:hover { background: #e0f7fa; }
+        .hidden { display: none; }
+        .result { text-align: center; }
+        .explanation { background: #f1f8e9; padding: 10px; margin-top: 10px; border-radius: 5px; }
+        .explanation.correct { background: #dcedc8; }
+        .explanation.wrong { background: #ffcdd2; }
+        .explanation p { margin: 5px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Simulatore Esame Google Cloud Digital Leader</h1>
+        <div id="quiz">
+            <div id="question-container" class="question"></div>
+            <div class="options" id="options-container"></div>
+            <button id="next-btn" class="hidden">Prossima Domanda</button>
+        </div>
+        <div id="result" class="hidden result"></div>
+    </div>
+
+    <script>
+        // JSON delle domande integrato direttamente
+        let questions = [
+            {
+                "inputNumber": 52,
+                "question": "Your organization is developing a global multi-player game and requires a database that can consistently capture player statistics. The most critical requirement of the database is that it can serve information for game leaderboards and return consistent rankings at any given time across game players all over the world. The game is rapidly developing a following with almost unlimited growth in the number of players.",
+                "options": ["Firestore", "Cloud Spanner", "Cloud SQL", "Bare metal"],
+                "answer": 1,
+                "explanation": [
+                    "Firestore: Pro: NoSQL, scalabile; Contro: Non garantisce consistenza forte globale, quindi non ideale per leaderboards globali",
+                    "Cloud Spanner: Pro: Consistenza forte, scalabilità globale, ottimo per leaderboards in tempo reale; Contro: più complesso da configurare e costo superiore",
+                    "Cloud SQL: Pro: Relazionale, facile da usare; Contro: Non scalabile globalmente come Spanner, non ideale per miliardi di giocatori",
+                    "Bare metal: Pro: Controllo totale dell'hardware; Contro: Non gestito, manutenzione e scalabilità manuale, poco pratico per cloud"
+                ]
+            },
+            {
+                "inputNumber": 53,
+                "question": "Your company has been using a shared facility for data storage and will be migrating to Google Cloud. One of the internal applications uses Linux custom images that need to be migrated. Which Google Cloud product should you use to maintain the custom images?",
+                "options": ["App Engine flexible environment", "Compute Engine", "App Engine standard environment", "Google Kubernetes Engine"],
+                "answer": 1,
+                "explanation": [
+                    "App Engine flexible: Pro: Gestione semplificata delle app; Contro: Non supporta immagini VM personalizzate, poco controllo su OS",
+                    "Compute Engine: Pro: Controllo completo su OS e immagini personalizzate, ideale per lift-and-shift; Contro: Devi gestire patch e manutenzione",
+                    "App Engine standard: Pro: Ambiente gestito, facile deploy; Contro: Nessun controllo su OS o VM, non supporta immagini custom",
+                    "GKE: Pro: Ottimo per container e microservizi; Contro: Non adatto per VM legacy o immagini Linux personalizzate"
+                ]
+            }
+        ];
+
+        // Shuffle delle domande
+        for (let i = questions.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [questions[i], questions[j]] = [questions[j], questions[i]];
+        }
+
+        let currentQuestion = 0;
+        let score = 0;
+
+        const questionContainer = document.getElementById('question-container');
+        const optionsContainer = document.getElementById('options-container');
+        const nextBtn = document.getElementById('next-btn');
+        const quizContainer = document.getElementById('quiz');
+        const resultContainer = document.getElementById('result');
+
+        function showQuestion() {
+            const q = questions[currentQuestion];
+            questionContainer.innerHTML = `<strong>Domanda ${q.inputNumber}:</strong> ${q.question}`;
+            optionsContainer.innerHTML = '';
+            nextBtn.classList.add('hidden');
+
+            q.options.forEach((opt, index) => {
+                const button = document.createElement('button');
+                button.innerText = opt;
+                button.onclick = () => selectAnswer(index);
+                optionsContainer.appendChild(button);
+            });
+        }
+
+        function selectAnswer(index) {
+            const q = questions[currentQuestion];
+            if (index === q.answer) score++;
+
+            Array.from(optionsContainer.children).forEach(btn => btn.disabled = true);
+
+            // Mostra spiegazioni dettagliate
+            q.options.forEach((opt, i) => {
+                const explDiv = document.createElement('div');
+                explDiv.classList.add('explanation');
+                explDiv.classList.add(i === q.answer ? 'correct' : 'wrong');
+                explDiv.innerHTML = `<strong>${opt}:</strong> <p>${q.explanation[i]}</p>`;
+                optionsContainer.appendChild(explDiv);
+            });
+
+            nextBtn.classList.remove('hidden');
+        }
+
+        nextBtn.onclick = () => {
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                showQuestion();
+            } else {
+                showResult();
+            }
+        };
+
+        function showResult() {
+            quizContainer.classList.add('hidden');
+            resultContainer.classList.remove('hidden');
+            const percent = ((score / questions.length) * 100).toFixed(1);
+            resultContainer.innerHTML = `<h2>Hai risposto correttamente a ${score} di ${questions.length} domande (${percent}%).</h2>`;
+        }
+
+        // Avvia il quiz
+        showQuestion();
+    </script>
+</body>
+</html>
