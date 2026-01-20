@@ -1,0 +1,2773 @@
+[
+  {
+    "inputNumber": 1,
+    "question": "L'azienda utilizza Google Cloud Platform per ospitare dati sicuri dei clienti. In qualità di responsabile della sicurezza dei dati, desideri controllare quali autorizzazioni vengono concesse agli utenti che gestiscono i dati. Cosa dovresti fare per controllare le autorizzazioni?",
+    "options": [
+      "Assegnare ruoli (Assign roles)",
+      "Utilizzare liste di accesso (Use access lists)",
+      "Utilizzare autenticazioni (Use authentications)",
+      "Assegnare risorse (Assign resources)"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: IAM permette di definire 'chi' può fare 'cosa' tramite ruoli; Contro: Richiede una gestione strutturata.",
+      "Opzione B: Pro: Controllo a livello di oggetto; Contro: Non è il metodo principale per gestire permessi utente su larga scala.",
+      "Opzione C: Pro: Verifica l'identità; Contro: L'autenticazione non definisce i permessi di accesso alle risorse.",
+      "Opzione D: Pro: Organizza i progetti; Contro: Non specifica le azioni che un utente può compiere sui dati."
+    ]
+  },
+  {
+    "inputNumber": 2,
+    "question": "Quali dei seguenti prodotti Google Cloud possono essere utilizzati per esplorare e visualizzare i dati? (Scegline 2)",
+    "options": [
+      "Cloud Composer",
+      "Dataproc",
+      "Looker (Datalab)",
+      "Looker Studio (Data Studio)"
+    ],
+    "answer": 3,
+    "explanation": [
+      "Opzione A: Pro: Orchestrazione workflow; Contro: Non ha funzioni di visualizzazione.",
+      "Opzione B: Pro: Elaborazione Big Data; Contro: Serve per il processing, non per il reporting grafico.",
+      "Opzione C: Pro: Analisi esplorativa; Contro: Looker Studio è lo strumento primario per dashboard aziendali nell'esame.",
+      "Opzione D: Pro: Prodotto nativo per creare report visivi e dashboard interattive; Contro: Nessuno."
+    ]
+  },
+  {
+    "inputNumber": 3,
+    "question": "Stai migrando carichi di lavoro nel cloud. L'obiettivo è servire i clienti globalmente con bassa latenza, ma le normative impongono che certi dati risiedano in un'area geografica specifica. Cosa dovresti fare?",
+    "options": [
+      "Selezionare un provider pubblico attivo solo nell'area richiesta",
+      "Selezionare un provider privato con replica globale",
+      "Selezionare un provider pubblico che garantisce la posizione dei dati (Data Residency) nell'area richiesta",
+      "Selezionare un provider privato attivo solo nell'area richiesta"
+    ],
+    "answer": 2,
+    "explanation": [
+      "Opzione A: Pro: Conformità locale; Contro: Scarsa latenza per utenti nel resto del mondo.",
+      "Opzione B: Pro: Velocità; Contro: Rischio di violazione normativa se i dati escono dall'area.",
+      "Opzione C: Pro: Google Cloud permette di scegliere la 'Region' per i dati pur usando la rete globale per il traffico; Contro: Nessuno.",
+      "Opzione D: Pro: Sicurezza; Contro: Limita la scalabilità globale."
+    ]
+  },
+  {
+    "inputNumber": 4,
+    "question": "Vuoi ridurre i costi e il lavoro manuale per la modernizzazione delle app. Qual è la differenza principale tra Migrate for Compute Engine e Migrate for Anthos?",
+    "options": [
+      "Compute Engine addebita il traffico, Anthos no",
+      "Anthos migra verso container (GKE), Compute Engine verso VM",
+      "Compute Engine è solo lift-and-shift, Anthos è solo per database",
+      "Anthos richiede aggiornamenti manuali dell'OS"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Nessuno; Contro: Non è la differenza tecnica strutturale tra i due prodotti.",
+      "Opzione B: Pro: Anthos trasforma le VM in container pronti per Kubernetes; Compute Engine sposta le VM come tali; Contro: Nessuno.",
+      "Opzione C: Pro: Nessuno; Contro: Anthos non è limitato ai database.",
+      "Opzione D: Pro: Nessuno; Contro: Anthos riduce la gestione dell'OS tramite l'astrazione dei container."
+    ]
+  },
+  {
+    "inputNumber": 5,
+    "question": "Hai bisogno di molta potenza di calcolo per sole due settimane, dopodiché le risorse non serviranno più. Qual è l'opzione più economica?",
+    "options": [
+      "Committed Use Discount (CUD)",
+      "Acquisto di server fisici",
+      "Istanze On-demand (senza sconti a lungo termine)",
+      "Istanze Preemptible / Spot"
+    ],
+    "answer": 3,
+    "explanation": [
+      "Opzione A: Pro: Sconti alti; Contro: Richiede impegno di 1-3 anni, inutile per 2 settimane.",
+      "Opzione B: Pro: Proprietà; Contro: Spreco di CapEx per un uso brevissimo.",
+      "Opzione C: Pro: Flessibilità; Contro: Più costose delle Spot se il carico può tollerare interruzioni.",
+      "Opzione D: Pro: Risparmio fino al 90% per carichi di breve durata e tolleranti alle interruzioni; Contro: Possono essere terminate dal provider."
+    ]
+  },
+  {
+    "inputNumber": 10,
+    "question": "Un'azienda energetica raccoglie dati da milioni di sensori e deve gestirli in sicurezza. Quale soluzione suggerisci?",
+    "options": [
+      "Cloud IoT Core",
+      "Traffic Director",
+      "BigQuery",
+      "Cloud Armor"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Servizio gestito per connettere e gestire in sicurezza milioni di dispositivi IoT; Contro: In fase di dismissione (sostituito da partner), ma standard nell'esame.",
+      "Opzione B: Pro: Gestione traffico microservizi; Contro: Non serve per l'IoT.",
+      "Opzione C: Pro: Analisi dati; Contro: Non gestisce la connessione dei dispositivi.",
+      "Opzione D: Pro: Protezione DDoS/WAF; Contro: Non è un gateway IoT."
+    ]
+  },
+  {
+    "inputNumber": 11,
+    "question": "Gestisci licenze Windows Server on-premise in scadenza e vuoi migrare nel cloud spegnendo le macchine nel weekend. Cosa conviene fare?",
+    "options": [
+      "Rinnovare le licenze on-premise",
+      "Usare Bring Your Own License (BYOL) su Google Cloud",
+      "Usare il modello Pay-As-You-Go (PAYG) su Compute Engine",
+      "Spostare tutto su Cloud Functions"
+    ],
+    "answer": 2,
+    "explanation": [
+      "Opzione A: Pro: Familiarità; Contro: Paghi licenze anche quando non le usi.",
+      "Opzione B: Pro: Sfrutta licenze esistenti; Contro: Meno conveniente se le licenze sono in scadenza e le macchine sono spesso spente.",
+      "Opzione C: Pro: Paghi la licenza Windows solo per i minuti di utilizzo effettivo delle VM; Contro: Costo orario leggermente superiore.",
+      "Opzione D: Pro: Serverless; Contro: Windows Server non può essere spostato direttamente su Functions."
+    ]
+  },
+  {
+    "inputNumber": 14,
+    "question": "Un cliente vuole il controllo totale su sistema operativo, middleware e runtime. Quale modello scegli?",
+    "options": [
+      "IaaS",
+      "PaaS",
+      "SaaS",
+      "FaaS"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Infrastructure as a Service (VM) offre il massimo controllo sulla configurazione software; Contro: Maggiore onere di gestione.",
+      "Opzione B: Pro: Facilità d'uso; Contro: Il provider gestisce OS e runtime.",
+      "Opzione C: Pro: Zero gestione; Contro: Nessun controllo tecnico.",
+      "Opzione D: Pro: Scalabilità; Contro: Il controllo dell'ambiente è minimo."
+    ]
+  },
+  {
+    "inputNumber": 16,
+    "question": "Piano di Disaster Recovery per dati storici dove l'accesso rapido non è prioritario. Quale pattern suggerisci?",
+    "options": [
+      "Cold DR",
+      "Warm DR",
+      "Hot DR",
+      "Multi-region Active-Active"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Il più economico; ideale per archivi dove il tempo di ripristino può essere lungo; Contro: RTO (Recovery Time Objective) elevato.",
+      "Opzione B: Pro: Equilibrio; Contro: Più costoso del Cold.",
+      "Opzione C: Pro: Quasi istantaneo; Contro: Troppo costoso per dati storici.",
+      "Opzione D: Pro: Massima disponibilità; Contro: Eccessivo e molto costoso."
+    ]
+  },
+  {
+    "inputNumber": 18,
+    "question": "Dati sensibili on-premise e dati non sensibili nel cloud. Quale modello è?",
+    "options": [
+      "Cloud Pubblico",
+      "Cloud Privato",
+      "Cloud Ibrido",
+      "Multi-cloud"
+    ],
+    "answer": 2,
+    "explanation": [
+      "Opzione A: Pro: Scalabile; Contro: Non permette il mantenimento dei dati on-premise.",
+      "Opzione B: Pro: Sicurezza; Contro: Non usa risorse cloud pubbliche.",
+      "Opzione C: Pro: Combina i vantaggi del locale per la conformità con il cloud per la scalabilità; Contro: Complessità di rete.",
+      "Opzione D: Pro: Ridondanza tra provider; Contro: Non specifica la connessione con il locale."
+    ]
+  },
+  {
+    "inputNumber": 21,
+    "question": "Un'azienda ha bisogno di un database NoSQL a bassissima latenza per memorizzare dati di serie temporali (time-series) e messaggi di log provenienti da milioni di sensori. Quale servizio è il più indicato?",
+    "options": [
+      "Cloud SQL",
+      "Cloud Bigtable",
+      "BigQuery",
+      "Cloud Spanner"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Supporta SQL relazionale; Contro: Non è scalabile orizzontalmente per carichi NoSQL massivi di sensori.",
+      "Opzione B: Pro: Database NoSQL ideale per grandi volumi di dati analitici e serie temporali con latenza inferiore ai 10ms; Contro: Richiede una gestione attenta delle chiavi di riga.",
+      "Opzione C: Pro: Ottimo per analisi batch; Contro: Non è progettato per servire dati con latenza millisecondale in tempo reale.",
+      "Opzione D: Pro: Scalabilità globale; Contro: Sovradimensionato e troppo costoso per semplici dati NoSQL di sensori."
+    ]
+  },
+  {
+    "inputNumber": 22,
+    "question": "Quale servizio Google Cloud è più adatto per ospitare un database relazionale che richiede una scalabilità orizzontale globale e una forte coerenza (strong consistency)?",
+    "options": [
+      "Cloud SQL",
+      "Cloud Spanner",
+      "Cloud Bigtable",
+      "Firestore"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Facile migrazione; Contro: Scalabilità verticale limitata e non nativamente multi-regionale con coerenza forte.",
+      "Opzione B: Pro: Combina i vantaggi dei database relazionali (SQL) con la scalabilità dei sistemi NoSQL a livello globale; Contro: Costo di ingresso superiore.",
+      "Opzione C: Pro: Veloce; Contro: NoSQL, non supporta transazioni ACID relazionali.",
+      "Opzione D: Pro: Ottimo per app mobili; Contro: Database di documenti NoSQL, non puramente relazionale."
+    ]
+  },
+  {
+    "inputNumber": 25,
+    "question": "Perché un'azienda dovrebbe scegliere di utilizzare i container invece delle macchine virtuali per distribuire le proprie applicazioni?",
+    "options": [
+      "I container includono il kernel del sistema operativo",
+      "I container sono più leggeri e partono più velocemente delle VM",
+      "I container offrono un isolamento hardware superiore",
+      "I container non richiedono una connessione di rete"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Nessuno; Contro: Errato, i container condividono il kernel del sistema operativo dell'host.",
+      "Opzione B: Pro: Poiché non emulano l'hardware, i container riducono l'overhead e scalano quasi istantaneamente; Contro: Isolamento meno profondo rispetto alle VM.",
+      "Opzione C: Pro: Sicurezza; Contro: Le VM offrono un isolamento hardware più robusto tramite hypervisor.",
+      "Opzione D: Pro: Nessuno; Contro: La rete è fondamentale per il funzionamento dei container."
+    ]
+  },
+  {
+    "inputNumber": 28,
+    "question": "Un'azienda vuole analizzare petabyte di dati utilizzando SQL standard. Quale servizio è progettato specificamente come data warehouse aziendale serverless?",
+    "options": [
+      "Cloud Storage",
+      "BigQuery",
+      "Cloud Spanner",
+      "Dataproc"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Memorizzazione file; Contro: Non è un motore di calcolo SQL.",
+      "Opzione B: Pro: Permette analisi SQL massivamente parallele senza gestire server; scala fino a petabyte; Contro: Costi variabili basati sui dati analizzati.",
+      "Opzione C: Pro: Transazioni; Contro: Non è ottimizzato per carichi di lavoro analitici (OLAP).",
+      "Opzione D: Pro: Flessibilità con Spark; Contro: Richiede la gestione di cluster, a differenza di BigQuery."
+    ]
+  },
+  {
+    "inputNumber": 30,
+    "question": "In Google Cloud, come viene definita una 'Region'?",
+    "options": [
+      "Un singolo data center",
+      "Un'area geografica specifica che contiene più Zone",
+      "Un insieme di server all'interno di un rack",
+      "Una rete virtuale privata"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Semplicità; Contro: Una Region è composta da più data center fisicamente separati (Zone).",
+      "Opzione B: Pro: Definizione corretta; le Region permettono l'alta affidabilità distribuendo le risorse su più Zone; Contro: Nessuno.",
+      "Opzione C: Pro: Localizzazione; Contro: Questa è la descrizione di un cluster fisico locale.",
+      "Opzione D: Pro: Sicurezza; Contro: Quello è il VPC (Virtual Private Cloud)."
+    ]
+  },
+  {
+    "inputNumber": 32,
+    "question": "Il concetto di 'Shared Responsibility Model' (Modello di Responsabilità Condivisa) nel cloud implica che:",
+    "options": [
+      "Google è responsabile di tutto ciò che accade nel cloud",
+      "Il cliente è responsabile della sicurezza 'nel' cloud (dati, accessi)",
+      "Entrambi sono responsabili della manutenzione dei server fisici",
+      "Il cliente non ha alcuna responsabilità se usa servizi PaaS"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Comodità; Contro: Il cliente deve sempre gestire i propri dati e le identità.",
+      "Opzione B: Pro: Divide i compiti: Google protegge l'hardware e l'infrastruttura, l'utente protegge ciò che mette nel cloud; Contro: Nessuno.",
+      "Opzione C: Pro: Nessuno; Contro: L'hardware fisico è responsabilità esclusiva del provider.",
+      "Opzione D: Pro: Riduzione oneri; Contro: Anche in PaaS l'utente è responsabile per il codice e i dati."
+    ]
+  },
+  {
+    "inputNumber": 35,
+    "question": "Qual è la differenza principale tra lo storage Standard e quello Coldline in Cloud Storage?",
+    "options": [
+      "Coldline ha una durabilità inferiore",
+      "Standard ha costi di archiviazione più bassi",
+      "Coldline è per dati a cui si accede raramente (es. una volta al trimestre)",
+      "Standard non supporta oggetti di grandi dimensioni"
+    ],
+    "answer": 2,
+    "explanation": [
+      "Opzione A: Pro: Nessuno; Contro: La durabilità è identica (11 nove) per tutte le classi.",
+      "Opzione B: Pro: Nessuno; Contro: Standard costa di più per l'archiviazione ma meno per l'accesso.",
+      "Opzione C: Pro: Ottimizza i costi per dati 'freddi' (backup); Contro: Penali economiche se i dati vengono letti troppo spesso.",
+      "Opzione D: Pro: Nessuno; Contro: Entrambi supportano oggetti fino a 5 TB."
+    ]
+  },
+  {
+    "inputNumber": 38,
+    "question": "Cosa si intende per 'Elasticità' nel contesto del Cloud Computing?",
+    "options": [
+      "La possibilità di negoziare i prezzi ogni anno",
+      "La capacità di adattare le risorse automaticamente in base alla domanda",
+      "L'uso di cavi in fibra ottica flessibili",
+      "La portabilità delle app tra diversi cloud"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Risparmio; Contro: Non è una caratteristica tecnica di sistema.",
+      "Opzione B: Pro: Consente di risparmiare spegnendo le risorse inutilizzate e garantisce performance durante i picchi; Contro: Richiede configurazione di auto-scaling.",
+      "Opzione C: Pro: Nessuno; Contro: Interpretazione letterale errata.",
+      "Opzione D: Pro: Flessibilità; Contro: Questa è la definizione di 'Interoperabilità'."
+    ]
+  },
+  {
+    "inputNumber": 40,
+    "question": "La tua azienda vuole migrare un'applicazione monolitica esistente nel cloud il più velocemente possibile. Quale strategia dovresti usare?",
+    "options": [
+      "Re-platforming",
+      "Re-architecting",
+      "Re-hosting (Lift and Shift)",
+      "Retiring"
+    ],
+    "answer": 2,
+    "explanation": [
+      "Opzione A: Pro: Piccoli miglioramenti; Contro: Richiede più tempo del semplice spostamento.",
+      "Opzione B: Pro: Sfrutta le funzioni cloud; Contro: Lenta e costosa (riscrittura codice).",
+      "Opzione C: Pro: Metodo più rapido per spostare VM così come sono su Compute Engine; Contro: Non ottimizza i costi nativamente.",
+      "Opzione D: Pro: Risparmio; Contro: L'app viene dismessa."
+    ]
+  },
+  {
+    "inputNumber": 43,
+    "question": "La tua organizzazione deve creare pipeline di dati in streaming. Non vuoi gestire i singoli server e desideri che il servizio scali automaticamente. Quale prodotto Google Cloud dovresti scegliere?",
+    "options": [
+      "Pub/Sub",
+      "Dataflow",
+      "Data Catalog",
+      "Dataprep by Trifacta"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Eccellente per l'ingestione di messaggi; Contro: È un sistema di messaggistica, non una pipeline di trasformazione dati.",
+      "Opzione B: Pro: Servizio serverless basato su Apache Beam che gestisce sia dati batch che stream con scalabilità automatica; Contro: Richiede competenze di sviluppo software.",
+      "Opzione C: Pro: Gestione dei metadati; Contro: Non elabora i flussi di dati.",
+      "Opzione D: Pro: Interfaccia visiva; Contro: Più adatto per la pulizia dei dati esplorativa che per pipeline di streaming ad alta velocità."
+    ]
+  },
+  {
+    "inputNumber": 45,
+    "question": "Qual è il principale vantaggio di utilizzare Google Cloud Functions?",
+    "options": [
+      "Offre il controllo completo sul sistema operativo",
+      "Permette di eseguire codice in risposta a eventi senza gestire server",
+      "È ideale per database relazionali complessi",
+      "Garantisce che il codice giri sempre su hardware dedicato"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Controllo; Contro: Functions è una soluzione FaaS, l'OS è astratto e gestito da Google.",
+      "Opzione B: Pro: Modello serverless puro: paghi solo per il tempo di esecuzione e non ti occupi dell'infrastruttura; Contro: Non adatto per processi che richiedono molto tempo (timeout brevi).",
+      "Opzione C: Pro: Integrazione; Contro: È un servizio di calcolo, non di storage.",
+      "Opzione D: Pro: Isolamento; Contro: Gira su infrastruttura condivisa (multi-tenant) ottimizzata per la scalabilità."
+    ]
+  },
+  {
+    "inputNumber": 48,
+    "question": "Un'azienda vuole centralizzare i log di sistema di migliaia di VM per analizzare gli errori in tempo reale. Quale servizio di Google Cloud Operations Suite dovrebbe usare?",
+    "options": [
+      "Cloud Debugger",
+      "Cloud Logging",
+      "Cloud Trace",
+      "Cloud Profiler"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Ispezione codice; Contro: Serve per il debug del codice in produzione, non per l'aggregazione dei log.",
+      "Opzione B: Pro: Servizio completamente gestito per archiviare, cercare e analizzare dati dei log da GCP e on-premise; Contro: Nessuno.",
+      "Opzione C: Pro: Analisi latenza; Contro: Serve per tracciare le richieste tra microservizi.",
+      "Opzione D: Pro: Ottimizzazione CPU/Memoria; Contro: Analizza le performance del codice, non i log di sistema."
+    ]
+  },
+  {
+    "inputNumber": 50,
+    "question": "Cosa si intende per 'Machine Learning' nel contesto dei dati aziendali?",
+    "options": [
+      "L'uso di robot fisici per spostare i server",
+      "L'uso di algoritmi per trovare modelli (patterns) nei dati e fare previsioni",
+      "La traduzione automatica di documenti cartacei in PDF",
+      "L'invio automatico di email di marketing"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Automazione fisica; Contro: Non c'entra con l'intelligenza artificiale dei dati.",
+      "Opzione B: Pro: Permette di estrarre valore dai dati storici per prevedere trend futuri senza programmazione esplicita per ogni scenario; Contro: Richiede dati di alta qualità.",
+      "Opzione C: Pro: Digitalizzazione; Contro: Questo è OCR (Optical Character Recognition), una branca specifica ma limitata.",
+      "Opzione D: Pro: Efficienza; Contro: Questa è semplice automazione (Marketing Automation), non necessariamente ML."
+    ]
+  },
+  {
+    "inputNumber": 52,
+    "question": "Quale servizio di storage è più indicato per dati non strutturati come immagini, video e file di backup?",
+    "options": [
+      "Cloud SQL",
+      "Cloud Bigtable",
+      "Cloud Storage",
+      "Persistent Disk"
+    ],
+    "answer": 2,
+    "explanation": [
+      "Opzione A: Pro: Relazionale; Contro: Non progettato per file binari pesanti.",
+      "Opzione B: Pro: NoSQL veloce; Contro: Ottimo per dati analitici, non per blob di immagini.",
+      "Opzione C: Pro: Storage di oggetti altamente scalabile e durevole, ideale per dati non strutturati; Contro: Non è un file system per database.",
+      "Opzione D: Pro: Prestazioni locali; Contro: È un disco collegato a una VM specifica, non accessibile globalmente come URL."
+    ]
+  },
+  {
+    "inputNumber": 55,
+    "question": "In una strategia di migrazione, cos'è il 'Refactoring'?",
+    "options": [
+      "Spostare l'app così com'è (Lift and Shift)",
+      "Eliminare l'app e comprarne una nuova (SaaS)",
+      "Riscrivere o modificare parte del codice per sfruttare le funzionalità cloud-native",
+      "Sostituire solo l'hardware sottostante on-premise"
+    ],
+    "answer": 2,
+    "explanation": [
+      "Opzione A: Pro: Veloce; Contro: È il Rehosting.",
+      "Opzione B: Pro: Zero gestione; Contro: È la strategia 'Replace'.",
+      "Opzione C: Pro: Massimizza i vantaggi del cloud (scalabilità, microservizi); Contro: Processo lungo e costoso che richiede sviluppatori.",
+      "Opzione D: Pro: Nessuno; Contro: Questo non è un passaggio al cloud."
+    ]
+  },
+  {
+    "inputNumber": 58,
+    "question": "Qual è lo scopo principale del Google Cloud Resource Hierarchy?",
+    "options": [
+      "Aumentare il costo delle risorse",
+      "Organizzare le risorse e gestire l'ereditarietà delle policy IAM",
+      "Limitare il numero di utenti che possono accedere al cloud",
+      "Garantire che ogni dipartimento abbia un server fisico separato"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Nessuno; Contro: L'organizzazione corretta tende a ridurre i costi, non ad aumentarli.",
+      "Opzione B: Pro: Struttura le risorse (Organizzazione > Folder > Progetto > Risorsa) permettendo di applicare permessi dall'alto verso il basso in modo efficiente; Contro: Richiede una governance iniziale.",
+      "Opzione C: Pro: Sicurezza; Contro: Non limita il numero, ne organizza la qualità dell'accesso.",
+      "Opzione D: Pro: Isolamento; Contro: Il cloud è logico, non basato su separazione fisica forzata."
+    ]
+  },
+  {
+    "inputNumber": 60,
+    "question": "Un'azienda vuole addestrare un modello di machine learning per riconoscere oggetti nelle foto caricando semplicemente le immagini su una piattaforma. Quale servizio dovrebbe usare?",
+    "options": [
+      "AutoML Vision",
+      "BigQuery ML",
+      "Cloud Vision API (Pre-trained)",
+      "Compute Engine con GPU"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Permette di creare modelli personalizzati senza scrivere codice di ML, fornendo solo i dati etichettati; Contro: Costa di più rispetto alle API pre-addestrate.",
+      "Opzione B: Pro: SQL; Contro: Gestisce dati tabulari, non immagini.",
+      "Opzione C: Pro: Immediata; Contro: Riconosce categorie standard, ma non oggetti specifici dell'azienda se non istruita.",
+      "Opzione D: Pro: Potenza; Contro: Richiede esperti di data science e gestione infrastruttura."
+    ]
+  },
+  {
+    "inputNumber": 62,
+    "question": "Un'azienda vuole connettere la propria rete on-premises a Google Cloud con la massima velocità e affidabilità possibile, evitando il transito sulla rete internet pubblica. Quale soluzione dovrebbe scegliere?",
+    "options": [
+      "Cloud VPN",
+      "Dedicated Interconnect",
+      "Carrier Peering",
+      "Direct Peering"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Sicura e facile da configurare; Contro: Passa attraverso la rete internet pubblica, soggetta a latenza variabile.",
+      "Opzione B: Pro: Fornisce una connessione fisica diretta tra la rete aziendale e i data center Google con SLA elevati e massima larghezza di banda; Contro: Costo elevato e tempi di installazione lunghi.",
+      "Opzione C: Pro: Connessione tramite provider terzo; Contro: Non offre lo stesso livello di integrazione e performance di Interconnect.",
+      "Opzione D: Pro: Connessione diretta a Google; Contro: Non fornisce SLA sull'infrastruttura Google Cloud specifica."
+    ]
+  },
+  {
+    "inputNumber": 65,
+    "question": "Qual è il vantaggio principale dell'utilizzo di Google Cloud Identity?",
+    "options": [
+      "Gestire le chiavi di crittografia dei database",
+      "Gestire in modo centralizzato utenti, gruppi e dispositivi per l'accesso alle risorse Google Cloud",
+      "Creare backup automatici delle macchine virtuali",
+      "Monitorare le performance della rete"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Sicurezza; Contro: Di questo si occupa Cloud KMS.",
+      "Opzione B: Pro: Funge da Identity as a Service (IDaaS) per autenticare gli utenti aziendali in modo sicuro e uniforme; Contro: Nessuno.",
+      "Opzione C: Pro: Protezione dati; Contro: Di questo si occupano i servizi di storage e snapshot.",
+      "Opzione D: Pro: Visibilità; Contro: Di questo si occupa Cloud Monitoring."
+    ]
+  },
+  {
+    "inputNumber": 68,
+    "question": "Un'organizzazione vuole applicare il principio del 'minimo privilegio' (Least Privilege). Cosa significa in termini pratici di IAM?",
+    "options": [
+      "Dare a tutti gli utenti il ruolo di 'Owner' per evitare blocchi nel lavoro",
+      "Assegnare solo i permessi strettamente necessari a un utente per svolgere il proprio compito",
+      "Rimuovere tutti i permessi a tutti gli utenti ogni fine settimana",
+      "Permettere l'accesso solo tramite indirizzo IP aziendale"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Facilità d'uso; Contro: Gravissimo rischio di sicurezza.",
+      "Opzione B: Pro: Riduce la superficie di attacco garantendo che anche in caso di compromissione di un account, i danni siano limitati; Contro: Richiede una gestione dei ruoli più meticolosa.",
+      "Opzione C: Pro: Sicurezza estrema; Contro: Impossibile operare in scenari 24/7.",
+      "Opzione D: Pro: Controllo rete; Contro: È un controllo di accesso, non riguarda i privilegi sulle risorse."
+    ]
+  },
+  {
+    "inputNumber": 70,
+    "question": "Quale servizio Google Cloud è progettato per rilevare e prevenire minacce come attacchi DDoS e SQL injection sulle applicazioni web?",
+    "options": [
+      "Cloud Logging",
+      "Cloud Armor",
+      "Cloud IAM",
+      "Identity-Aware Proxy (IAP)"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Analisi; Contro: Registra gli eventi ma non previene gli attacchi attivamente.",
+      "Opzione B: Pro: Funziona come un firewall per applicazioni web (WAF) integrato nel bilanciatore di carico; Contro: Richiede l'uso di HTTP(S) Load Balancing.",
+      "Opzione C: Pro: Controllo accessi; Contro: Gestisce le identità, non gli attacchi a livello di rete/app.",
+      "Opzione D: Pro: Accesso remoto sicuro; Contro: Protegge l'accesso alle app, ma non le difende da attacchi volumetrici come i DDoS."
+    ]
+  },
+  {
+    "inputNumber": 72,
+    "question": "In termini di costi cloud, cos'è un 'Sustained Use Discount' (SUD)?",
+    "options": [
+      "Uno sconto che ricevi se ti impegni per 3 anni",
+      "Uno sconto automatico per l'esecuzione di istanze Compute Engine per gran parte del mese",
+      "Uno sconto per l'acquisto di grandi volumi di storage",
+      "Uno sconto per le organizzazioni no-profit"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Sconto alto; Contro: Questo è il CUD (Committed Use Discount).",
+      "Opzione B: Pro: Non richiede configurazione o impegno; Google lo applica se la VM è accesa oltre il 25% del tempo mensile; Contro: Lo sconto è inferiore ai CUD.",
+      "Opzione C: Pro: Risparmio; Contro: Non esiste uno sconto SUD automatico per lo storage.",
+      "Opzione D: Pro: Social impact; Contro: Non è un SUD."
+    ]
+  },
+  {
+    "inputNumber": 75,
+    "question": "Perché un'azienda dovrebbe preferire l'uso di 'Microservizi' rispetto a un'architettura 'Monolitica'?",
+    "options": [
+      "Perché i microservizi sono più facili da gestire per un singolo sviluppatore",
+      "Per permettere ai diversi team di scalare e aggiornare parti indipendenti dell'applicazione senza bloccare tutto",
+      "Perché occupano meno spazio su disco",
+      "Perché non richiedono l'uso di API"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Controllo; Contro: Al contrario, i microservizi aumentano la complessità di coordinamento.",
+      "Opzione B: Pro: Aumenta l'agilità e la velocità di rilascio; se un microservizio fallisce, il resto dell'app può continuare a funzionare; Contro: Complessità di rete superiore.",
+      "Opzione C: Pro: Efficienza; Contro: Spesso il volume totale dei container può essere superiore a un singolo binario.",
+      "Opzione D: Pro: Semplicità; Contro: I microservizi dipendono fortemente dalle API per comunicare tra loro."
+    ]
+  },
+  {
+    "inputNumber": 78,
+    "question": "Un'azienda ha molti dati sensibili in BigQuery e vuole assicurarsi che nessun utente possa vedere i numeri di previdenza sociale (SSN) in chiaro. Quale strumento di sicurezza è più adatto?",
+    "options": [
+      "Cloud Storage",
+      "Cloud Data Loss Prevention (DLP) API",
+      "VPC Service Controls",
+      "Cloud KMS"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Archiviazione; Contro: Non ha funzioni di mascheramento dati.",
+      "Opzione B: Pro: Permette di identificare, classificare e mascherare (redazione) dati sensibili automaticamente; Contro: Ha un costo basato sul volume di dati ispezionati.",
+      "Opzione C: Pro: Isolamento rete; Contro: Protegge i dati dall'esfiltrazione verso l'esterno, ma non nasconde i campi all'interno della tabella.",
+      "Opzione D: Pro: Crittografia; Contro: Gestisce le chiavi, ma non il contenuto specifico dei campi dei database."
+    ]
+  },
+  {
+    "inputNumber": 80,
+    "question": "Qual è il ruolo principale di un 'Cloud Architect'?",
+    "options": [
+      "Scrivere solo codice CSS per l'interfaccia utente",
+      "Progettare soluzioni cloud che soddisfino i requisiti aziendali e tecnici",
+      "Gestire il supporto tecnico telefonico di primo livello",
+      "Configurare manualmente ogni stampante in ufficio"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Estetica; Contro: Troppo limitato per un architetto.",
+      "Opzione B: Pro: Deve bilanciare costi, performance, sicurezza e scalabilità per creare architetture resilienti; Contro: Nessuno.",
+      "Opzione C: Pro: Assistenza; Contro: Ruolo operativo/supporto, non di design strategico.",
+      "Opzione D: Pro: Utilità; Contro: Fuori ambito per il cloud computing."
+    ]
+  },
+  {
+    "inputNumber": 82,
+    "question": "Un'azienda vuole automatizzare il deployment della propria infrastruttura su Google Cloud utilizzando file di configurazione dichiarativi (Infrastructure as Code). Quale strumento nativo dovrebbe usare?",
+    "options": [
+      "Cloud Console",
+      "Deployment Manager (o Terraform)",
+      "Cloud Shell",
+      "gcloud CLI"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Interfaccia visiva semplice; Contro: Richiede operazioni manuali e non è scalabile per automazione complessa.",
+      "Opzione B: Pro: Permette di definire l'intera infrastruttura in file YAML o Python/Terraform, garantendo replicabilità e controllo versione; Contro: Richiede l'apprendimento di una sintassi specifica.",
+      "Opzione C: Pro: Terminale pronto all'uso nel browser; Contro: È un ambiente di riga di comando, non uno strumento di automazione infrastrutturale.",
+      "Opzione D: Pro: Potente per script veloci; Contro: È imperativo, non dichiarativo come richiesto dall'IaC."
+    ]
+  },
+  {
+    "inputNumber": 85,
+    "question": "Qual è lo scopo della 'Cloud Interconnect' rispetto alla 'Cloud VPN'?",
+    "options": [
+      "Offrire una connessione crittografata su internet pubblica",
+      "Fornire una connessione fisica dedicata con maggiore larghezza di banda e minore latenza",
+      "Collegare solo dispositivi mobili al cloud",
+      "Ridurre il numero di progetti Google Cloud"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Economica; Contro: Questa è la funzione della Cloud VPN.",
+      "Opzione B: Pro: Ideale per trasferimenti massivi di dati e carichi di lavoro enterprise che richiedono performance costanti; Contro: Costi di installazione e canoni mensili significativamente più alti.",
+      "Opzione C: Pro: Mobilità; Contro: Cloud Interconnect collega reti (data center), non singoli dispositivi finali.",
+      "Opzione D: Pro: Pulizia; Contro: Non ha alcun impatto sulla gerarchia dei progetti."
+    ]
+  },
+  {
+    "inputNumber": 88,
+    "question": "La tua azienda desidera spostare il proprio data warehouse in BigQuery ma deve pulire e trasformare i dati prima del caricamento. Quale servizio offre un'interfaccia visiva 'no-code' per questa preparazione?",
+    "options": [
+      "Dataproc",
+      "Dataprep by Trifacta",
+      "Dataflow",
+      "Cloud Storage"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Gestione cluster Spark/Hadoop; Contro: Richiede scrittura di codice e gestione infrastrutturale.",
+      "Opzione B: Pro: Permette agli analisti di esplorare, pulire e preparare i dati visivamente senza scrivere codice; Contro: Meno flessibile per trasformazioni programmabili estremamente complesse.",
+      "Opzione C: Pro: Pipeline scalabili; Contro: Richiede lo sviluppo di codice (Java/Python).",
+      "Opzione D: Pro: Storage affidabile; Contro: Non offre funzionalità di trasformazione o pulizia dei dati."
+    ]
+  },
+  {
+    "inputNumber": 90,
+    "question": "Che cosa si intende per 'High Availability' (Alta Affidabilità) nel Cloud?",
+    "options": [
+      "Avere i server negli uffici ai piani più alti",
+      "Progettare sistemi che rimangono operativi anche in caso di guasto di un componente o di una zona",
+      "Aumentare la velocità della CPU ogni volta che il traffico aumenta",
+      "Garantire che il costo mensile non cambi mai"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Nessuno; Contro: Errata interpretazione letterale.",
+      "Opzione B: Pro: Riduce al minimo i tempi di inattività (downtime) distribuendo le risorse su più zone o regioni; Contro: Può aumentare i costi di replica delle risorse.",
+      "Opzione C: Pro: Performance; Contro: Questa è la 'Scalabilità Verticale'.",
+      "Opzione D: Pro: Budgeting; Contro: Questa è la prevedibilità dei costi, non l'affidabilità tecnica."
+    ]
+  },
+  {
+    "inputNumber": 92,
+    "question": "Quale servizio Google Cloud è più indicato per ospitare applicazioni containerizzate orchestrate tramite Kubernetes?",
+    "options": [
+      "Compute Engine",
+      "Google Kubernetes Engine (GKE)",
+      "App Engine",
+      "Cloud Functions"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Controllo totale; Contro: Richiede l'installazione e la gestione manuale di Kubernetes.",
+      "Opzione B: Pro: Servizio gestito che automatizza il deployment, la gestione e lo scaling dei cluster Kubernetes; Contro: Richiede comunque competenze operative per la configurazione del cluster.",
+      "Opzione C: Pro: Semplice; Contro: Non è progettato per l'orchestrazione complessa di cluster Kubernetes.",
+      "Opzione D: Pro: Serverless; Contro: Ideale per piccoli snippet di codice, non per interi sistemi containerizzati."
+    ]
+  },
+  {
+    "inputNumber": 94,
+    "question": "Un'azienda vuole migrare carichi di lavoro che richiedono un isolamento hardware fisico per motivi di conformità. Quale opzione di Compute Engine dovrebbe usare?",
+    "options": [
+      "Shared-core instances",
+      "Sole-tenant nodes",
+      "Preemptible VMs",
+      "Shielded VMs"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Economiche; Contro: L'hardware è condiviso tra molti utenti.",
+      "Opzione B: Pro: Fornisce un server fisico dedicato a un singolo cliente, garantendo l'isolamento dai 'noisy neighbors' e soddisfacendo requisiti legali; Contro: Costo più elevato.",
+      "Opzione C: Pro: Risparmio; Contro: Possono essere interrotte e sono su hardware condiviso.",
+      "Opzione D: Pro: Protezione boot; Contro: Si concentrano sull'integrità del software/firmware, non sull'esclusività dell'hardware fisico."
+    ]
+  },
+  {
+    "inputNumber": 96,
+    "question": "Qual è il vantaggio principale dell'approccio DevOps nel cloud?",
+    "options": [
+      "Assumere meno personale IT",
+      "Migliorare la collaborazione tra sviluppo e operazioni per rilasciare software più velocemente e con meno errori",
+      "Sostituire tutti i server fisici con quelli virtuali",
+      "Limitare l'accesso degli sviluppatori alla produzione"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Risparmio; Contro: DevOps non mira a ridurre le persone, ma a cambiare il modo in cui lavorano.",
+      "Opzione B: Pro: Riduce i silos aziendali, automatizza i test e i deployment (CI/CD) e aumenta la stabilità dei rilasci; Contro: Richiede un cambio culturale profondo.",
+      "Opzione C: Pro: Modernizzazione; Contro: Questo è un prerequisito tecnologico, non l'obiettivo finale di DevOps.",
+      "Opzione D: Pro: Sicurezza; Contro: DevOps promuove la responsabilità condivisa, non l'isolamento dei team."
+    ]
+  },
+  {
+    "inputNumber": 98,
+    "question": "In Google Cloud, i dati sono crittografati 'at rest' (a riposo) di default?",
+    "options": [
+      "No, deve essere attivato manualmente per ogni risorsa",
+      "Sì, Google crittografa automaticamente tutti i dati archiviati senza costi aggiuntivi",
+      "Solo se si utilizza Cloud Storage",
+      "Solo per i clienti con un piano di supporto Premium"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Controllo; Contro: Google gestisce la crittografia base automaticamente per tutti.",
+      "Opzione B: Pro: Garantisce la sicurezza dei dati senza sforzo per l'utente; Contro: Gli utenti avanzati potrebbero voler gestire le proprie chiavi tramite KMS.",
+      "Opzione C: Pro: Sicurezza file; Contro: La crittografia si applica a tutti i servizi di storage e database.",
+      "Opzione D: Pro: Incentivo; Contro: La sicurezza è un pilastro fondamentale incluso per tutti i livelli di servizio."
+    ]
+  },
+  {
+    "inputNumber": 100,
+    "question": "Quale strumento permette di visualizzare i costi attuali e previsti di Google Cloud, aiutando nel budgeting?",
+    "options": [
+      "Cloud Monitoring",
+      "Cloud Billing Reports",
+      "Cost-Benefit Analysis Tool",
+      "IAM Console"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Performance; Contro: Monitora lo stato delle risorse, non i costi.",
+      "Opzione B: Pro: Fornisce dashboard dettagliate sull'utilizzo e previsioni di spesa basate sui trend passati; Contro: Richiede i permessi di Billing Administrator per l'accesso.",
+      "Opzione C: Pro: Utile per pianificare; Contro: Non è un prodotto specifico della console Google Cloud.",
+      "Opzione D: Pro: Sicurezza; Contro: Gestisce chi può fare cosa, non quanto si spende."
+    ]
+  },
+  {
+    "inputNumber": 102,
+    "question": "Un'azienda vuole ridurre la latenza per gli utenti globali che accedono ai propri contenuti statici (immagini, JS, CSS). Quale servizio dovrebbe utilizzare per distribuire i contenuti da posizioni geograficamente vicine agli utenti?",
+    "options": [
+      "Cloud DNS",
+      "Cloud CDN",
+      "Cloud Router",
+      "Cloud Load Balancing"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Gestisce la risoluzione dei nomi a dominio; Contro: Non memorizza né distribuisce contenuti statici.",
+      "Opzione B: Pro: Utilizza i punti di presenza (PoP) globali di Google per memorizzare nella cache i contenuti vicino agli utenti, migliorando drasticamente la velocità di caricamento; Contro: Richiede un bilanciatore di carico HTTP(S) come origine.",
+      "Opzione C: Pro: Gestisce il routing dinamico tra reti; Contro: Non ha funzioni di caching dei contenuti.",
+      "Opzione D: Pro: Distribuisce il traffico tra le istanze; Contro: Da solo non memorizza i contenuti nella cache (anche se è necessario per attivare la CDN)."
+    ]
+  },
+  {
+    "inputNumber": 105,
+    "question": "Nella metodologia SRE, qual è lo scopo principale di un 'Error Budget' (Budget di errore)?",
+    "options": [
+      "Definire quanti soldi l'azienda può perdere a causa di bug",
+      "Bilanciare la necessità di rilasciare nuove funzionalità con l'esigenza di mantenere il sistema affidabile",
+      "Pagare gli sviluppatori per correggere gli errori",
+      "Acquistare nuovi server in caso di crash"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Analisi finanziaria; Contro: L'Error Budget è una metrica di tempo/affidabilità, non puramente monetaria.",
+      "Opzione B: Pro: Se il budget è esaurito (troppi crash), i rilasci si fermano per dare priorità alla stabilità; se è disponibile, si può rischiare di più con l'innovazione; Contro: Richiede una definizione chiara degli SLO.",
+      "Opzione C: Pro: Incentivo; Contro: Non è un concetto legato alla remunerazione.",
+      "Opzione D: Pro: Ridondanza; Contro: Non riguarda l'acquisto di hardware ma la governance dei rilasci software."
+    ]
+  },
+  {
+    "inputNumber": 108,
+    "question": "Un'organizzazione vuole migrare un database di documenti JSON altamente flessibile per un'app mobile. Quale database gestito Google Cloud è più indicato?",
+    "options": [
+      "Cloud SQL",
+      "Firestore",
+      "Cloud Spanner",
+      "Cloud Bigtable"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Relazionale; Contro: Poco flessibile per schemi di documenti che cambiano spesso.",
+      "Opzione B: Pro: Database NoSQL orientato ai documenti con sincronizzazione in tempo reale e supporto offline, ideale per app mobili e web; Contro: Meno adatto per analisi di dati massivi di tipo analitico.",
+      "Opzione C: Pro: Coerenza globale; Contro: Relazionale e troppo complesso per semplici archivi di documenti JSON.",
+      "Opzione D: Pro: Grandi volumi; Contro: Orientato alle colonne (wide-column), non specifico per documenti JSON complessi."
+    ]
+  },
+  {
+    "inputNumber": 110,
+    "question": "Qual è il vantaggio di utilizzare le 'Preemptible VMs' (o Spot VMs) per carichi di lavoro batch?",
+    "options": [
+      "Garantiscono una disponibilità del 99.99%",
+      "Offrono uno sconto significativo (fino all'80-90%) rispetto alle istanze standard",
+      "Sono le uniche VM che supportano le GPU",
+      "Non possono mai essere interrotte da Google"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Affidabilità; Contro: Al contrario, hanno disponibilità limitata perché Google può riprendersele.",
+      "Opzione B: Pro: Ideali per task che possono essere interrotti e ripresi (rendering, analisi dati batch), riducendo drasticamente i costi; Contro: Non adatte per servizi che devono essere sempre online (es. server web).",
+      "Opzione C: Pro: Potenza; Contro: Anche le VM standard supportano le GPU.",
+      "Opzione D: Pro: Stabilità; Contro: La caratteristica principale è proprio la loro natura 'interrompibile'."
+    ]
+  },
+  {
+    "inputNumber": 112,
+    "question": "Cosa fornisce il servizio 'Cloud Trace' agli sviluppatori?",
+    "options": [
+      "Un elenco di tutti i dipendenti che hanno effettuato l'accesso alla console",
+      "Informazioni dettagliate sulla latenza delle applicazioni, tracciando il percorso delle richieste tra i servizi",
+      "Il codice sorgente delle applicazioni della concorrenza",
+      "Un backup di tutti i log di sicurezza"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Audit; Contro: Di questo si occupa Cloud Audit Logs.",
+      "Opzione B: Pro: Aiuta a identificare i colli di bottiglia nelle performance in architetture a microservizi; Contro: Richiede l'integrazione nel codice dell'app.",
+      "Opzione C: Pro: Spionaggio; Contro: Ovviamente impossibile e illegale.",
+      "Opzione D: Pro: Sicurezza; Contro: Di questo si occupa Cloud Logging."
+    ]
+  },
+  {
+    "inputNumber": 115,
+    "question": "Qual è una caratteristica chiave del 'Serverless Computing'?",
+    "options": [
+      "L'utente deve installare il sistema operativo manualmente",
+      "L'infrastruttura sottostante è completamente astratta e gestita dal provider",
+      "Il costo è fisso ogni mese indipendentemente dall'uso",
+      "Non è possibile utilizzare connessioni internet"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Controllo; Contro: Contrasta con il concetto di serverless dove l'OS non è visibile.",
+      "Opzione B: Pro: Permette agli sviluppatori di concentrarsi solo sul codice; il sistema scala automaticamente in base alla domanda; Contro: Meno controllo sulla configurazione hardware specifica.",
+      "Opzione C: Pro: Prevedibilità; Contro: Il serverless si basa sul modello 'Pay-as-you-go' (paghi solo per l'esecuzione).",
+      "Opzione D: Pro: Isolamento; Contro: I servizi serverless sono nativamente pronti per il cloud e la rete."
+    ]
+  },
+  {
+    "inputNumber": 118,
+    "question": "Un'azienda vuole collegare diverse reti VPC (Virtual Private Cloud) all'interno di Google Cloud in modo che possano comunicare tra loro privatamente. Quale funzione dovrebbe usare?",
+    "options": [
+      "VPC Peering",
+      "Cloud Interconnect",
+      "Carrier Peering",
+      "Internet Gateway"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Connette due reti VPC in modo che il traffico rimanga all'interno della rete interna di Google, garantendo bassa latenza; Contro: Non è transitivo (A con B, B con C, ma A non vede C automaticamente).",
+      "Opzione B: Pro: Connessione ibrida; Contro: Serve per collegare on-premise al cloud, non VPC tra loro.",
+      "Opzione C: Pro: Provider terzi; Contro: Non è per comunicazioni interne tra VPC.",
+      "Opzione D: Pro: Accesso web; Contro: Espone il traffico su internet pubblica, che non è l'obiettivo richiesto."
+    ]
+  },
+  {
+    "inputNumber": 120,
+    "question": "Quale prodotto Google Cloud è il più indicato per gestire e analizzare i flussi di dati (log, eventi) in tempo reale prima di inviarli a un database?",
+    "options": [
+      "Cloud Storage",
+      "Pub/Sub",
+      "Cloud SQL",
+      "Persistent Disk"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Archivio file; Contro: Non adatto per la gestione di flussi di messaggi in tempo reale.",
+      "Opzione B: Pro: Servizio di messaggistica asincrona che disaccoppia i sistemi che producono dati da quelli che li elaborano; Contro: Non memorizza i dati a lungo termine.",
+      "Opzione C: Pro: Transazioni; Contro: Non è un sistema di ingestione eventi.",
+      "Opzione D: Pro: Storage VM; Contro: Hardware di storage locale, non un servizio di messaggistica."
+    ]
+  },
+  {
+    "inputNumber": 122,
+    "question": "Un'azienda ha bisogno di analizzare grandi volumi di dati provenienti da database relazionali diversi per generare report di business intelligence. Vogliono minimizzare l'impatto sulle prestazioni dei database di produzione. Quale approccio è consigliato?",
+    "options": [
+      "Eseguire le query direttamente sui database di produzione",
+      "Utilizzare un processo ETL per caricare i dati in BigQuery per l'analisi",
+      "Sostituire tutti i database relazionali con Cloud Storage",
+      "Aumentare manualmente la RAM dei server di produzione ogni volta che si esegue un report"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Dati in tempo reale; Contro: Rischia di rallentare o bloccare le transazioni dei clienti (produzione).",
+      "Opzione B: Pro: Sposta il carico analitico su BigQuery, che è progettato per query massive, lasciando i database operativi liberi di gestire le transazioni; Contro: Richiede la configurazione di una pipeline di dati.",
+      "Opzione C: Pro: Costo ridotto; Contro: Si perde la capacità di eseguire query SQL relazionali complesse sui dati operativi.",
+      "Opzione D: Pro: Soluzione temporanea; Contro: Non è scalabile e non risolve il conflitto di risorse tra OLTP e OLAP."
+    ]
+  },
+  {
+    "inputNumber": 125,
+    "question": "Quale servizio Google Cloud fornisce un ambiente di sviluppo basato su Jupyter Notebook per esplorare dati e creare modelli di Machine Learning?",
+    "options": [
+      "Vertex AI Workbench",
+      "Cloud Build",
+      "Google App Engine",
+      "Cloud Functions"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Offre un'interfaccia familiare ai data scientist (Notebooks) completamente integrata con i servizi di dati di Google; Contro: Richiede la gestione delle istanze notebook.",
+      "Opzione B: Pro: Automazione build; Contro: È un servizio di CI/CD per il codice, non per l'esplorazione dei dati.",
+      "Opzione C: Pro: Hosting app; Contro: Serve per distribuire applicazioni web, non per l'analisi dei dati interattiva.",
+      "Opzione D: Pro: Serverless; Contro: Esegue piccoli task basati su eventi, non supporta sessioni di analisi interattive."
+    ]
+  },
+  {
+    "inputNumber": 128,
+    "question": "Un'organizzazione vuole spostare i propri carichi di lavoro on-premises su Google Cloud ma deve mantenere alcuni componenti localmente per motivi legali. Quale servizio di Anthos permette di gestire container on-premises con la stessa interfaccia del cloud?",
+    "options": [
+      "Anthos on Bare Metal",
+      "Cloud SQL Proxy",
+      "Compute Engine",
+      "Transfer Appliance"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Consente di eseguire l'infrastruttura Google Cloud direttamente sull'hardware esistente del cliente, offrendo coerenza operativa; Contro: Richiede la manutenzione dell'hardware fisico locale.",
+      "Opzione B: Pro: Connessione sicura; Contro: Serve solo per collegarsi ai database, non per gestire carichi di lavoro.",
+      "Opzione C: Pro: Standard; Contro: Le VM di Compute Engine risiedono nel cloud, non on-premises.",
+      "Opzione D: Pro: Migrazione dati; Contro: È un dispositivo fisico per spedire dati, non una piattaforma di gestione."
+    ]
+  },
+  {
+    "inputNumber": 130,
+    "question": "Nel contesto dell'AI, qual è la funzione principale delle 'Pre-trained APIs' (come Vision API o Natural Language API)?",
+    "options": [
+      "Permettere agli utenti di programmare algoritmi di ML da zero",
+      "Fornire modelli già addestrati da Google per compiti comuni (es. riconoscimento volti, analisi sentiment) pronti all'uso via API",
+      "Gestire la fatturazione dei progetti AI",
+      "Aumentare la velocità dei server GPU"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Personalizzazione; Contro: Queste API servono proprio a evitare di dover programmare da zero.",
+      "Opzione B: Pro: Velocità di implementazione immediata senza bisogno di data scientist o dataset di addestramento; Contro: Meno flessibili se si hanno esigenze di dominio molto specifiche.",
+      "Opzione C: Pro: Organizzazione; Contro: Il Billing non ha legami tecnici con la logica delle API.",
+      "Opzione D: Pro: Calcolo; Contro: Le API sono servizi astratti, non gestiscono l'hardware dell'utente."
+    ]
+  },
+  {
+    "inputNumber": 132,
+    "question": "Che cosa si intende per 'TCO' (Total Cost of Ownership) nel passaggio dal data center locale al cloud?",
+    "options": [
+      "Solo il costo mensile della fattura del provider cloud",
+      "La somma di tutti i costi diretti e indiretti (hardware, energia, personale, manutenzione, licenze) legati a un sistema",
+      "Il costo dell'elettricità per far girare i server",
+      "Il prezzo di acquisto iniziale di un software"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Trasparenza; Contro: Rappresenta solo una parte della spesa totale del business.",
+      "Opzione B: Pro: Aiuta a comprendere il vero risparmio del cloud eliminando costi nascosti come il raffreddamento o la gestione fisica; Contro: Può essere complesso da calcolare accuratamente.",
+      "Opzione C: Pro: Misurabile; Contro: È solo un componente minore del TCO on-premises.",
+      "Opzione D: Pro: Chiaro; Contro: Questo è il CapEx iniziale, non il costo totale nel tempo."
+    ]
+  },
+  {
+    "inputNumber": 135,
+    "question": "Quale servizio Google Cloud è progettato per scoprire, classificare e proteggere i dati sensibili (come PII) su vasta scala?",
+    "options": [
+      "Cloud Identity",
+      "Sensitive Data Protection (Cloud DLP)",
+      "Cloud Armor",
+      "Secret Manager"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Gestione identità; Contro: Non analizza il contenuto dei dati archiviati.",
+      "Opzione B: Pro: Automatizza l'identificazione di dati come numeri di carte di credito o SSN e permette di mascherarli; Contro: L'ispezione di volumi enormi può essere costosa.",
+      "Opzione C: Pro: Protezione rete; Contro: Si occupa di attacchi esterni (WAF/DDoS), non della scansione del contenuto dei database.",
+      "Opzione D: Pro: Gestione chiavi/password; Contro: Serve per salvare segreti applicativi, non per scansionare file o database."
+    ]
+  },
+  {
+    "inputNumber": 138,
+    "question": "Perché un'organizzazione sceglierebbe una strategia 'Multi-cloud'?",
+    "options": [
+      "Per aumentare la dipendenza da un singolo fornitore",
+      "Per evitare il vendor lock-in e sfruttare le migliori funzionalità di diversi provider",
+      "Per semplificare la fatturazione",
+      "Perché è sempre l'opzione più economica"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Nessuno; Contro: Al contrario, riduce la dipendenza.",
+      "Opzione B: Pro: Aumenta la resilienza e permette di scegliere il servizio migliore per ogni specifico task; Contro: Aumenta drasticamente la complessità operativa e di rete.",
+      "Opzione C: Pro: Nessuno; Contro: La fatturazione diventa molto più complessa con più fornitori.",
+      "Opzione D: Pro: Ottimizzazione; Contro: Spesso i costi di trasferimento dati (egress) tra cloud diversi la rendono più costosa."
+    ]
+  },
+  {
+    "inputNumber": 140,
+    "question": "In Google Cloud, qual è la funzione del 'Resource Manager'?",
+    "options": [
+      "Aumentare la velocità di calcolo delle VM",
+      "Fornire una gerarchia (Organizzazione, Cartelle, Progetti) per raggruppare e gestire le risorse in modo logico",
+      "Gestire le assunzioni del personale IT",
+      "Sostituire i dischi rigidi difettosi nei data center"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Performance; Contro: Non ha funzioni hardware.",
+      "Opzione B: Pro: Essenziale per applicare policy IAM e budget a diversi livelli dell'azienda in modo centralizzato; Contro: Richiede una progettazione attenta della struttura folder.",
+      "Opzione C: Pro: HR; Contro: Fuori ambito tecnologico.",
+      "Opzione D: Pro: Manutenzione; Contro: Responsabilità esclusiva di Google dietro le quinte."
+    ]
+  },
+  {
+    "inputNumber": 142,
+    "question": "Un'organizzazione ha bisogno di trasferire centinaia di terabyte di dati da un data center on-premises a Google Cloud, ma la connessione internet esistente è troppo lenta e richiederebbe mesi. Quale soluzione suggerisci?",
+    "options": [
+      "Cloud Storage Transfer Service",
+      "Transfer Appliance",
+      "Dedicated Interconnect",
+      "Utilizzare Google Drive per caricare i file"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Ottimo per migrazioni da altri cloud o via rete; Contro: Limitato dalla larghezza di banda internet del cliente.",
+      "Opzione B: Pro: È un dispositivo hardware ad alta capacità che Google spedisce al cliente per copiare i dati localmente e poi rispedirli per il caricamento fisico nel data center; Contro: Richiede logistica fisica e tempo di spedizione.",
+      "Opzione C: Pro: Connessione veloce e stabile; Contro: Molto costosa e richiede tempo per l'attivazione, non ideale per un trasferimento una-tantum.",
+      "Opzione D: Pro: Familiare; Contro: Non è assolutamente uno strumento enterprise per migrazioni di dati su scala TB/PB."
+    ]
+  },
+  {
+    "inputNumber": 145,
+    "question": "Qual è il vantaggio di utilizzare l'identità federata (Federated Identity) con Google Cloud Identity?",
+    "options": [
+      "Permette agli utenti di usare le proprie credenziali aziendali esistenti (es. Active Directory) per accedere a Google Cloud",
+      "Garantisce che ogni utente abbia almeno tre password diverse",
+      "Disabilita automaticamente l'accesso internet per gli utenti remoti",
+      "Aumenta il numero di progetti che un utente può creare"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Migliora la sicurezza e l'esperienza utente (SSO), evitando la gestione di password duplicate; Contro: Richiede la configurazione della sincronizzazione tra i sistemi di identità.",
+      "Opzione B: Pro: Nessuno; Contro: La sicurezza moderna punta a ridurre la fatica delle password tramite l'identità unica.",
+      "Opzione C: Pro: Controllo; Contro: Non è una funzione della federazione di identità.",
+      "Opzione D: Pro: Scalabilità; Contro: Le quote di progetto sono slegate dal metodo di autenticazione."
+    ]
+  },
+  {
+    "inputNumber": 148,
+    "question": "Un team di marketing vuole analizzare il 'sentiment' dei commenti dei clienti sui social media senza dover addestrare un proprio modello di IA. Quale servizio dovrebbe usare?",
+    "options": [
+      "AutoML Natural Language",
+      "Cloud Natural Language API",
+      "Vertex AI custom training",
+      "BigQuery ML"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Personalizzabile; Contro: Richiede comunque di fornire dati etichettati per l'addestramento.",
+      "Opzione B: Pro: API pre-addestrata che offre analisi del sentiment, analisi sintattica ed estrazione di entità immediatamente; Contro: Non può essere addestrata su termini gergali molto specifici senza passare ad AutoML.",
+      "Opzione C: Pro: Massima potenza; Contro: Richiede esperti di ML e codice complesso.",
+      "Opzione D: Pro: SQL; Contro: BigQuery ML richiede che l'utente definisca e crei il modello, non è un servizio 'out-of-the-box' per il sentiment."
+    ]
+  },
+  {
+    "inputNumber": 150,
+    "question": "Quale servizio Google Cloud permette di eseguire container in modalità serverless, scalandoli automaticamente fino a zero quando non c'è traffico?",
+    "options": [
+      "Compute Engine",
+      "Google Kubernetes Engine (GKE)",
+      "Cloud Run",
+      "App Engine (Flexible Environment)"
+    ],
+    "answer": 2,
+    "explanation": [
+      "Opzione A: Pro: Controllo; Contro: Le VM rimangono attive e si pagano anche se non c'è traffico (a meno di configurare complessi gruppi di auto-scaling).",
+      "Opzione B: Pro: Potenza; Contro: Il cluster ha solitamente dei nodi sempre attivi che generano costi fissi.",
+      "Opzione C: Pro: Astrarre completamente l'infrastruttura; paghi solo quando il container elabora una richiesta; Contro: Limiti sulla durata massima delle richieste.",
+      "Opzione D: Pro: Gestito; Contro: Lo scaling a zero è più lento e meno efficiente rispetto a Cloud Run."
+    ]
+  },
+  {
+    "inputNumber": 152,
+    "question": "Che cosa si intende per 'Cloud Agnostic'?",
+    "options": [
+      "Un'applicazione progettata per funzionare su qualsiasi provider cloud senza dipendere da servizi proprietari",
+      "Un'applicazione che funziona solo su Google Cloud",
+      "Un sistema che non richiede una connessione internet",
+      "Un metodo per crittografare i dati nel cloud"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Evita il vendor lock-in e facilita la migrazione tra cloud; Contro: Impedisce di usare funzionalità avanzate specifiche di un provider (che potrebbero essere più efficienti).",
+      "Opzione B: Pro: Ottimizzazione; Contro: Questo è l'opposto del cloud agnostic (vendor lock-in).",
+      "Opzione C: Pro: Sicurezza; Contro: Non è legato al concetto di agnosticismo tecnologico.",
+      "Opzione D: Pro: Protezione; Contro: La crittografia è una funzione di sicurezza, non di portabilità."
+    ]
+  },
+  {
+    "inputNumber": 155,
+    "question": "Quale vantaggio offre Google Cloud Armor agli utenti?",
+    "options": [
+      "Rende i server fisicamente indistruttibili",
+      "Protegge le applicazioni da attacchi DDoS e minacce web come Cross-Site Scripting (XSS)",
+      "Aumenta la velocità di download dei file",
+      "Gestisce le buste paga del team di sicurezza"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Sicurezza fisica; Contro: Google gestisce la sicurezza fisica dei data center indipendentemente da Cloud Armor.",
+      "Opzione B: Pro: Fornisce filtri di sicurezza al limite della rete (edge), bloccando il traffico malevolo prima che raggiunga le app; Contro: Richiede l'uso di Google Cloud Load Balancing.",
+      "Opzione C: Pro: Performance; Contro: Di questo si occupa la Cloud CDN.",
+      "Opzione D: Pro: HR; Contro: Fuori ambito tecnologico."
+    ]
+  },
+  {
+    "inputNumber": 158,
+    "question": "In un'architettura di microservizi, perché si usano le API (Application Programming Interfaces)?",
+    "options": [
+      "Per permettere ai diversi microservizi di comunicare tra loro in modo standardizzato",
+      "Per sostituire completamente il database",
+      "Per rendere l'applicazione più lenta e sicura",
+      "Per stampare report sui costi del cloud"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Disaccoppia i componenti; ogni team può cambiare il proprio servizio purché l'interfaccia API rimanga stabile; Contro: Richiede una gestione attenta del versionamento delle API.",
+      "Opzione B: Pro: Nessuno; Contro: Le API non memorizzano dati, facilitano solo il loro scambio.",
+      "Opzione C: Pro: Nessuno; Contro: L'obiettivo delle API è l'efficienza, non il rallentamento.",
+      "Opzione D: Pro: Visibilità; Contro: Di questo si occupa il Cloud Billing."
+    ]
+  },
+  {
+    "inputNumber": 160,
+    "question": "Quale tipo di database è Cloud SQL?",
+    "options": [
+      "Database NoSQL per documenti",
+      "Database relazionale gestito (MySQL, PostgreSQL, SQL Server)",
+      "Database di oggetti per file multimediali",
+      "Database wide-column per serie temporali"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Flessibilità; Contro: Firestore è il servizio NoSQL per documenti.",
+      "Opzione B: Pro: Gestisce backup, patching e repliche automaticamente per motori SQL standard; Contro: Scalabilità orizzontale limitata rispetto a Cloud Spanner.",
+      "Opzione C: Pro: Storage; Contro: Questo è Cloud Storage.",
+      "Opzione D: Pro: Performance; Contro: Questo è Cloud Bigtable."
+    ]
+  },
+  {
+    "inputNumber": 162,
+    "question": "Un'azienda vuole automatizzare i propri flussi di lavoro (workflow) complessi che coinvolgono diversi servizi Google Cloud e sistemi esterni. Quale servizio di orchestrazione basato su Apache Airflow dovrebbe usare?",
+    "options": [
+      "Cloud Data Fusion",
+      "Cloud Composer",
+      "Cloud Functions",
+      "Workflows"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Interfaccia visiva per ETL; Contro: Più orientato allo spostamento dati che all'orchestrazione di processi complessi.",
+      "Opzione B: Pro: Servizio gestito basato su Airflow ideale per programmare e monitorare pipeline di dati e flussi di lavoro complessi; Contro: Richiede una conoscenza base di Python per definire i DAG.",
+      "Opzione C: Pro: Serverless; Contro: Esegue solo piccoli pezzi di codice isolati, non gestisce la logica di un intero workflow.",
+      "Opzione D: Pro: Serverless ad alta velocità; Contro: Ottimo per workflow HTTP, ma meno potente di Composer per pipeline di dati pesanti."
+    ]
+  },
+  {
+    "inputNumber": 165,
+    "question": "Nel cloud, cosa si intende per 'Scalabilità Orizzontale'?",
+    "options": [
+      "Aumentare la potenza (CPU/RAM) di un singolo server esistente",
+      "Aggiungere più istanze di server per gestire l'aumento del carico",
+      "Spostare i server in un'altra area geografica",
+      "Cambiare il sistema operativo dei server"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Semplice; Contro: Questa è la 'Scalabilità Verticale' e ha limiti fisici massimi.",
+      "Opzione B: Pro: Permette una crescita virtualmente illimitata distribuendo il traffico su molti server; Contro: Richiede l'uso di un Load Balancer.",
+      "Opzione C: Pro: Ridondanza; Contro: Non riguarda la capacità di calcolo ma la posizione.",
+      "Opzione D: Pro: Modernizzazione; Contro: Non ha impatto diretto sulla capacità di gestire più utenti simultanei."
+    ]
+  },
+  {
+    "inputNumber": 168,
+    "question": "Un'organizzazione vuole monitorare le prestazioni delle proprie applicazioni e ricevere avvisi (alerts) quando la latenza supera una certa soglia. Quale servizio deve configurare?",
+    "options": [
+      "Cloud Logging",
+      "Cloud Monitoring",
+      "Cloud Trace",
+      "Cloud Debugger"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Visibilità; Contro: Raccoglie i log degli eventi, non analizza le metriche di performance in tempo reale per gli avvisi.",
+      "Opzione B: Pro: Fornisce dashboard e sistemi di alerting basati su metriche di sistema e personalizzate; Contro: Richiede l'installazione di un agent per alcune metriche avanzate.",
+      "Opzione C: Pro: Analisi dettagliata; Contro: Serve per tracciare singole richieste, non per il monitoraggio continuo e l'alerting generale.",
+      "Opzione D: Pro: Risoluzione bug; Contro: Serve per ispezionare il codice, non per monitorare l'infrastruttura."
+    ]
+  },
+  {
+    "inputNumber": 170,
+    "question": "Qual è il vantaggio di utilizzare 'Cloud SQL' invece di installare un database su una VM di Compute Engine?",
+    "options": [
+      "Cloud SQL è sempre più economico",
+      "Google gestisce automaticamente il patching, i backup e l'alta affidabilità",
+      "Cloud SQL permette l'accesso root al sistema operativo",
+      "Non ci sono differenze tra le due opzioni"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Budget; Contro: Per database molto piccoli una VM potrebbe costare meno, ma richiede gestione manuale.",
+      "Opzione B: Pro: Riduce drasticamente il lavoro operativo del team IT, garantendo database sempre aggiornati e sicuri; Contro: Meno controllo sulla configurazione specifica del database server.",
+      "Opzione C: Pro: Controllo; Contro: Cloud SQL è un servizio gestito, l'accesso all'OS è precluso per garantire la stabilità.",
+      "Opzione D: Pro: Nessuno; Contro: La differenza in termini di 'Toil' (lavoro manuale) è enorme."
+    ]
+  },
+  {
+    "inputNumber": 172,
+    "question": "In termini di SRE, cos'è un 'SLI' (Service Level Indicator)?",
+    "options": [
+      "Un contratto legale con il cliente",
+      "Una misura quantitativa del livello di servizio fornito (es. tempo di attività, latenza)",
+      "L'obiettivo di performance che il team vuole raggiungere",
+      "Una penale economica in caso di disservizio"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Protezione legale; Contro: Questo è l'SLA (Service Level Agreement).",
+      "Opzione B: Pro: È il dato grezzo che indica come sta funzionando il sistema (es: il 99% delle richieste ha avuto successo); Contro: Da solo non indica se l'utente è soddisfatto senza un obiettivo (SLO).",
+      "Opzione C: Pro: Strategia; Contro: Questo è lo 'SLO' (Service Level Objective).",
+      "Opzione D: Pro: Recupero costi; Contro: Fa parte dei termini dell'SLA."
+    ]
+  },
+  {
+    "inputNumber": 175,
+    "question": "Un'azienda vuole analizzare in tempo reale i dati provenienti da una flotta di veicoli per prevedere guasti meccanici. Quale combinazione di servizi è la più appropriata?",
+    "options": [
+      "Pub/Sub + Dataflow + BigQuery ML",
+      "Cloud Storage + Cloud SQL",
+      "Compute Engine + Persistent Disk",
+      "Cloud Functions + Firestore"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Architettura moderna per l'ingestione, l'elaborazione stream e l'analisi predittiva con SQL; Contro: Richiede competenze di integrazione tra più servizi.",
+      "Opzione B: Pro: Semplice; Contro: Non è adatta per l'elaborazione di dati in tempo reale (streaming).",
+      "Opzione C: Pro: Controllo; Contro: Richiede troppa gestione manuale per scalare con milioni di eventi.",
+      "Opzione D: Pro: Serverless; Contro: Firestore non è ottimizzato per l'analisi statistica massiva necessaria per il ML predittivo."
+    ]
+  },
+  {
+    "inputNumber": 178,
+    "question": "Cosa si intende per 'Vendor Lock-in'?",
+    "options": [
+      "La sicurezza fisica dei server del fornitore",
+      "La difficoltà o l'impossibilità di spostare i propri servizi e dati da un fornitore cloud a un altro",
+      "Uno sconto speciale per i clienti fedeli",
+      "L'uso di chiavi hardware per accedere alla console"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Sicurezza; Contro: Non ha legami con la strategia di business.",
+      "Opzione B: Pro: È un rischio che le aziende cercano di mitigare usando standard aperti (es. Kubernetes, SQL); Contro: Evitarlo del tutto può impedire l'uso di servizi nativi molto efficienti.",
+      "Opzione C: Pro: Risparmio; Contro: Quello è un CUD o un programma fedeltà.",
+      "Opzione D: Pro: MFA; Contro: Questa è la sicurezza degli accessi."
+    ]
+  },
+  {
+    "inputNumber": 180,
+    "question": "Quale vantaggio offre il 'Global Load Balancing' di Google?",
+    "options": [
+      "Permette di usare un singolo indirizzo IP IP globale per distribuire il traffico verso server in diverse regioni",
+      "Aumenta la bolletta elettrica del cliente",
+      "Obbliga gli utenti a usare una VPN per accedere al sito",
+      "Permette di gestire solo traffico FTP"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Semplifica il DNS e assicura che gli utenti siano diretti al server più vicino o più sano automaticamente; Contro: Nessuno, è una delle caratteristiche d'eccellenza della rete Google.",
+      "Opzione B: Pro: Nessuno; Contro: In realtà ottimizza le risorse riducendo gli sprechi.",
+      "Opzione C: Pro: Sicurezza; Contro: Il load balancer lavora con traffico pubblico o privato senza obbligare a VPN esterne.",
+      "Opzione D: Pro: Specificità; Contro: Gestisce HTTP(S), TCP e UDP su scala globale."
+    ]
+  },
+  {
+    "inputNumber": 182,
+    "question": "Un'azienda europea deve garantire che i propri dati non lascino mai l'Unione Europea per motivi di sovranità digitale. Quale funzionalità di Google Cloud permette di applicare questo vincolo?",
+    "options": [
+      "Cloud IAM",
+      "Resource Locations Organization Policy",
+      "VPC Service Controls",
+      "Cloud Audit Logs"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Gestisce i permessi; Contro: Non limita la posizione fisica delle risorse.",
+      "Opzione B: Pro: Permette agli amministratori di limitare in quali regioni geografiche possono essere create le risorse (es. solo regioni europee); Contro: Deve essere configurata a livello di organizzazione.",
+      "Opzione C: Pro: Sicurezza perimetrale; Contro: Impedisce l'esfiltrazione dei dati ma non definisce la regione di archiviazione iniziale.",
+      "Opzione D: Pro: Tracciabilità; Contro: Registra dove sono i dati, ma non ne impedisce la creazione in aree non consentite."
+    ]
+  },
+  {
+    "inputNumber": 185,
+    "question": "Qual è il vantaggio principale dell'utilizzo di un database 'Serverless' come Firestore o BigQuery?",
+    "options": [
+      "L'utente deve decidere quanta RAM assegnare al database ogni ora",
+      "Il sistema scala automaticamente in base alla domanda e non si paga per le risorse inattive",
+      "I database serverless sono sempre relazionali",
+      "Non è necessaria una connessione internet per usarli"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Controllo; Contro: Questo è il modello 'Provisioned', l'opposto del serverless.",
+      "Opzione B: Pro: Elimina la gestione dell'infrastruttura e ottimizza i costi (Pay-as-you-go); Contro: Può essere difficile prevedere i costi esatti sotto carichi molto variabili.",
+      "Opzione C: Pro: Familiarità; Contro: BigQuery è analitico e Firestore è NoSQL; non tutti i serverless sono relazionali.",
+      "Opzione D: Pro: Offline; Contro: Sono servizi cloud nativi che richiedono connettività."
+    ]
+  },
+  {
+    "inputNumber": 188,
+    "question": "Un'azienda vuole modernizzare un'applicazione che attualmente gira su un mainframe. Qual è il primo passo consigliato secondo le best practice di Google Cloud?",
+    "options": [
+      "Spegnere il mainframe e sperare che i dati siano già nel cloud",
+      "Valutare l'architettura attuale e identificare i servizi che possono essere spostati con minor rischio (Assessment)",
+      "Riscrivere l'intera applicazione da zero in una notte",
+      "Spostare tutti i dati su nastri fisici e spedirli a Google"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Drastico; Contro: Garantisce il fallimento del business.",
+      "Opzione B: Pro: Un'analisi accurata dei costi, delle dipendenze e dei rischi è fondamentale per una migrazione di successo; Contro: Richiede tempo iniziale.",
+      "Opzione C: Pro: Velocità; Contro: Impossibile per sistemi complessi e porta a bug critici.",
+      "Opzione D: Pro: Backup; Contro: Non è una strategia di modernizzazione applicativa."
+    ]
+  },
+  {
+    "inputNumber": 190,
+    "question": "Quale servizio Google Cloud è specifico per la gestione sicura di segreti come chiavi API, password e certificati?",
+    "options": [
+      "Cloud Storage",
+      "Secret Manager",
+      "Cloud KMS",
+      "Cloud IAM"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Versatile; Contro: Non è sicuro archiviare password in file di testo su storage generico.",
+      "Opzione B: Pro: Progettato appositamente per memorizzare e gestire l'accesso a informazioni sensibili con versionamento e auditing; Contro: Ha un costo per ogni segreto gestito.",
+      "Opzione C: Pro: Crittografia; Contro: Gestisce le chiavi per crittografare i dati, ma non è ottimizzato per memorizzare stringhe come password applicative.",
+      "Opzione D: Pro: Permessi; Contro: Controlla chi può accedere al Secret Manager, ma non è il deposito stesso."
+    ]
+  },
+  {
+    "inputNumber": 192,
+    "question": "In una cultura DevOps, cosa significa 'Blameless Post-mortem'?",
+    "options": [
+      "Un documento che elenca i nomi di chi ha causato il crash per licenziarli",
+      "Un'analisi di un incidente focalizzata sul miglioramento dei sistemi piuttosto che sull'assegnazione di colpe individuali",
+      "Un modo per ignorare gli errori e non parlarne mai",
+      "Una riunione dove solo il manager può parlare"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Punizione; Contro: Distrugge il morale e impedisce alle persone di ammettere errori futuri.",
+      "Opzione B: Pro: Incoraggia la trasparenza e l'apprendimento continuo, portando a sistemi più resilienti; Contro: Richiede un cambio di mentalità aziendale.",
+      "Opzione C: Pro: Silenzio; Contro: Porta alla ripetizione degli stessi errori.",
+      "Opzione D: Pro: Ordine; Contro: Impedisce ai tecnici che hanno vissuto l'incidente di fornire dettagli cruciali."
+    ]
+  },
+  {
+    "inputNumber": 195,
+    "question": "Qual è lo scopo della 'Google Cloud Network Service Tiers'?",
+    "options": [
+      "Scegliere tra diversi colori per i cavi di rete",
+      "Permettere di scegliere tra le prestazioni elevate della rete globale Google (Premium) o i costi ridotti della rete internet pubblica (Standard)",
+      "Limitare il numero di siti web che un'azienda può ospitare",
+      "Gestire la velocità della connessione Wi-Fi negli uffici"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Estetica; Contro: Irrilevante.",
+      "Opzione B: Pro: Offre flessibilità: il livello Premium ottimizza la latenza usando la rete privata di Google, lo Standard è più economico; Contro: Il livello Standard è disponibile solo in alcune regioni.",
+      "Opzione C: Pro: Controllo; Contro: Non influisce sul numero di risorse ma sulla qualità del transito dati.",
+      "Opzione D: Pro: Comodità; Contro: Fuori ambito per la rete cloud backbone."
+    ]
+  },
+  {
+    "inputNumber": 198,
+    "question": "Un'azienda vuole utilizzare l'IA per prevedere quando i propri macchinari industriali avranno bisogno di manutenzione (manutenzione predittiva). Quale tipo di dati è più utile?",
+    "options": [
+      "Dati storici di telemetria (temperatura, vibrazioni, ore di attività) e record di guasti passati",
+      "L'elenco dei nomi dei dipendenti della fabbrica",
+      "Il prezzo delle azioni dell'azienda in borsa",
+      "Le previsioni del tempo dell'anno prossimo"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Fornisce i modelli necessari affinché l'algoritmo impari a riconoscere i segnali che precedono un guasto; Contro: Richiede sensori IoT affidabili.",
+      "Opzione B: Pro: HR; Contro: Irrilevante per la salute meccanica del macchinario.",
+      "Opzione C: Pro: Finanza; Contro: Non ha correlazione diretta con l'usura dei componenti fisici.",
+      "Opzione D: Pro: Meteo; Contro: Utile solo se i macchinari sono influenzati dal clima, ma non è il dato primario."
+    ]
+  },
+  {
+    "inputNumber": 200,
+    "question": "Quale vantaggio offre il modello 'OpEx' (Operating Expenditure) rispetto al 'CapEx' (Capital Expenditure)?",
+    "options": [
+      "Richiede un enorme pagamento anticipato",
+      "Permette di pagare solo per ciò che si usa, migliorando il flusso di cassa e l'agilità aziendale",
+      "Obbliga l'azienda a possedere fisicamente tutti i server",
+      "Non permette di detrarre le tasse"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Nessuno; Contro: Questo è il limite del CapEx.",
+      "Opzione B: Pro: Consente di scalare i costi insieme al business senza rischi di investimenti hardware sbagliati; Contro: Può portare a sorprese in fattura se il consumo non è monitorato.",
+      "Opzione C: Pro: Proprietà; Contro: Questo è il modello CapEx on-premises.",
+      "Opzione D: Pro: Nessuno; Contro: Entrambi i modelli hanno implicazioni fiscali, ma l'OpEx è spesso più semplice da gestire come spesa corrente."
+    ]
+  },
+  {
+    "inputNumber": 202,
+    "question": "Un'azienda vuole automatizzare il servizio clienti utilizzando un chatbot in grado di comprendere il linguaggio naturale e rispondere alle domande frequenti. Quale servizio Google Cloud è il più indicato?",
+    "options": [
+      "Dialogflow",
+      "Cloud Translation API",
+      "Text-to-Speech API",
+      "Recommendations AI"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Piattaforma specifica per la creazione di interfacce conversazionali (chatbot e voicebot) basate su AI; Contro: Richiede la progettazione dei flussi di conversazione (intenti).",
+      "Opzione B: Pro: Traduzione multilingue; Contro: Traduce testo ma non gestisce la logica di una conversazione.",
+      "Opzione C: Pro: Sintesi vocale; Contro: Converte testo in audio, non comprende il significato delle domande.",
+      "Opzione D: Pro: Personalizzazione vendite; Contro: Serve per suggerire prodotti, non per rispondere ai clienti."
+    ]
+  },
+  {
+    "inputNumber": 205,
+    "question": "Qual è il principale vantaggio di utilizzare Google Cloud Anthos per un'azienda che opera in un ambiente multi-cloud?",
+    "options": [
+      "Permette di gestire cluster Kubernetes su Google Cloud, AWS e Azure da un'unica console centralizzata",
+      "Riduce automaticamente il costo di internet in ufficio",
+      "Elimina la necessità di crittografare i dati",
+      "Permette di eseguire solo applicazioni scritte in linguaggio Java"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Fornisce coerenza operativa e di sicurezza tra diversi cloud e on-premises, evitando la frammentazione della gestione; Contro: Richiede una licenza specifica (GKE Enterprise).",
+      "Opzione B: Pro: Risparmio; Contro: Non ha alcun impatto sui costi dei fornitori di servizi internet (ISP).",
+      "Opzione C: Pro: Semplicità; Contro: La sicurezza è fondamentale e Anthos la rafforza, non la elimina.",
+      "Opzione D: Pro: Specificità; Contro: Supporta qualsiasi applicazione containerizzata, indipendentemente dal linguaggio."
+    ]
+  },
+  {
+    "inputNumber": 208,
+    "question": "Un analista di dati vuole eseguire query SQL su file CSV e JSON memorizzati direttamente in Cloud Storage senza doverli prima caricare in un database. Quale funzionalità di BigQuery dovrebbe usare?",
+    "options": [
+      "BigQuery Data Transfer Service",
+      "External Tables (Tabelle Esterne)",
+      "BigQuery ML",
+      "Cloud SQL Federazione"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Automazione; Contro: Serve per spostare i dati dentro BigQuery, non per interrogarli all'esterno.",
+      "Opzione B: Pro: Permette di definire una tabella che punta a dati residenti in Cloud Storage, consentendo analisi immediate 'in-place'; Contro: Le performance sono inferiori rispetto ai dati caricati nativamente in BigQuery.",
+      "Opzione C: Pro: Machine Learning; Contro: Serve per i modelli predittivi, non per la connessione ai file.",
+      "Opzione D: Pro: Connessione DB; Contro: Serve per interrogare Cloud SQL, non i file su Cloud Storage."
+    ]
+  },
+  {
+    "inputNumber": 210,
+    "question": "Quale concetto SRE descrive la quantità di tempo che un servizio può essere fuori servizio senza violare gli accordi con gli utenti?",
+    "options": [
+      "Error Budget",
+      "Latency Threshold",
+      "Throughput Rate",
+      "MTTR (Mean Time To Repair)"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Definisce matematicamente la soglia di inaffidabilità tollerabile (es. 0,1% del tempo se lo SLO è 99,9%); Contro: Se esaurito, blocca l'innovazione a favore della stabilità.",
+      "Opzione B: Pro: Misura velocità; Contro: Riguarda la rapidità di risposta, non la disponibilità totale.",
+      "Opzione C: Pro: Volume dati; Contro: Misura la capacità di carico, non il tempo di inattività.",
+      "Opzione D: Pro: Efficienza riparazione; Contro: È una misura di quanto tempo si impiega a risolvere un problema, non un budget preventivo."
+    ]
+  },
+  {
+    "inputNumber": 212,
+    "question": "Perché un'azienda sceglierebbe 'App Engine Standard Environment' rispetto a 'Flexible Environment'?",
+    "options": [
+      "Perché lo Standard Environment scala automaticamente fino a zero istanze quando non c'è traffico",
+      "Perché lo Standard Environment permette di installare software personalizzato nell'OS",
+      "Perché lo Standard Environment supporta qualsiasi linguaggio di programmazione",
+      "Perché lo Standard Environment non ha limiti di tempo per le richieste"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Ideale per risparmiare sui costi per app con traffico sporadico; Contro: Supporta solo versioni specifiche di linguaggi selezionati.",
+      "Opzione B: Pro: Controllo; Contro: Questo è possibile solo nell'ambiente Flexible (tramite container Docker).",
+      "Opzione C: Pro: Versatilità; Contro: L'ambiente Flexible è quello che offre supporto universale tramite container.",
+      "Opzione D: Pro: Performance; Contro: Entrambi hanno dei timeout, ma lo Standard è più restrittivo."
+    ]
+  },
+  {
+    "inputNumber": 215,
+    "question": "Qual è il principale vantaggio della 'Crittografia dei dati in transito'?",
+    "options": [
+      "Proteggere i dati dall'intercettazione mentre si spostano tra l'utente e il cloud o tra diversi servizi",
+      "Rendere i file più piccoli per risparmiare spazio",
+      "Assicurarsi che i dati non vengano mai cancellati",
+      "Aumentare la velocità di caricamento delle pagine web"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Garantisce che anche se i pacchetti di dati vengono catturati durante il viaggio, il contenuto rimanga illeggibile; Contro: Introduce un leggero overhead di elaborazione per cifrare/decifrare.",
+      "Opzione B: Pro: Efficienza; Contro: La crittografia solitamente aumenta leggermente la dimensione dei dati.",
+      "Opzione C: Pro: Durabilità; Contro: La crittografia non impedisce la cancellazione, solo la lettura non autorizzata.",
+      "Opzione D: Pro: User Experience; Contro: La crittografia può rallentare leggermente la velocità a causa dei protocolli di handshake (SSL/TLS)."
+    ]
+  },
+  {
+    "inputNumber": 218,
+    "question": "Un'azienda vuole centralizzare la gestione delle chiavi di crittografia (KMS) per tutte le proprie risorse cloud. Quale servizio dovrebbe usare?",
+    "options": [
+      "Cloud KMS",
+      "Cloud Storage",
+      "Cloud IAM",
+      "VPC Service Controls"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Permette di creare, ruotare e distruggere chiavi crittografiche per proteggere i dati nei vari servizi GCP; Contro: Gli utenti sono responsabili della gestione del ciclo di vita delle chiavi se scelgono chiavi gestite dal cliente (CMEK).",
+      "Opzione B: Pro: Storage; Contro: Memorizza dati, non gestisce chiavi di sistema.",
+      "Opzione C: Pro: Autorizzazioni; Contro: Gestisce chi può usare le chiavi, ma non le chiavi stesse.",
+      "Opzione D: Pro: Perimetro di sicurezza; Contro: Isola le risorse a livello di rete, non gestisce la cifratura."
+    ]
+  },
+  {
+    "inputNumber": 220,
+    "question": "Qual è la funzione principale di 'BigQuery Omni'?",
+    "options": [
+      "Permettere l'analisi di dati residenti su AWS S3 o Azure Blob Storage direttamente dall'interfaccia di BigQuery",
+      "Aumentare il numero di righe che si possono inserire in una tabella",
+      "Tradurre automaticamente le query SQL in altre lingue",
+      "Creare backup fisici di BigQuery su dischi esterni"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Consente un'analisi multi-cloud senza dover spostare (e pagare l'egress) grandi volumi di dati verso Google Cloud; Contro: Richiede l'uso di Anthos per connettere i vari cloud.",
+      "Opzione B: Pro: Scalabilità; Contro: BigQuery standard scala già a livelli enormi senza Omni.",
+      "Opzione C: Pro: Accessibilità; Contro: Omni riguarda la posizione dei dati, non il linguaggio della query.",
+      "Opzione D: Pro: Sicurezza; Contro: Google gestisce i backup internamente; Omni non è una soluzione di backup fisico."
+    ]
+  },
+  {
+    "inputNumber": 222,
+    "question": "Un'azienda ha bisogno di memorizzare file di log che devono essere conservati per 10 anni per motivi legali, ma a cui si accederà raramente (forse una volta all'anno). Qual è l'opzione di archiviazione più economica in Cloud Storage?",
+    "options": [
+      "Standard Storage",
+      "Nearline Storage",
+      "Coldline Storage",
+      "Archive Storage"
+    ],
+    "answer": 3,
+    "explanation": [
+      "Opzione A: Pro: Accesso immediato; Contro: Molto costoso per l'archiviazione a lungo termine.",
+      "Opzione B: Pro: Per dati letti una volta al mese; Contro: Più costoso di Archive.",
+      "Opzione C: Pro: Per dati letti una volta al trimestre; Contro: Meno conveniente di Archive per conservazioni decennali.",
+      "Opzione D: Pro: Costo di archiviazione minimo (il più basso in assoluto) per dati 'freddi' destinati alla conservazione a lungo termine; Contro: Costi di recupero dati più elevati e tempo di accesso leggermente superiore."
+    ]
+  },
+  {
+    "inputNumber": 225,
+    "question": "Quale servizio Google Cloud agisce come un gateway API per gestire, proteggere e analizzare le interazioni tra le applicazioni e i loro servizi backend?",
+    "options": [
+      "Apigee",
+      "Cloud Router",
+      "Cloud Pub/Sub",
+      "Cloud Endpoints"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Piattaforma completa per la gestione del ciclo di vita delle API, inclusa la monetizzazione e la sicurezza avanzata; Contro: Richiede una configurazione più complessa rispetto a Cloud Endpoints.",
+      "Opzione B: Pro: Routing di rete; Contro: Gestisce il traffico IP, non le chiamate API.",
+      "Opzione C: Pro: Messaggistica; Contro: Disaccoppia i sistemi ma non funge da gateway di gestione API.",
+      "Opzione D: Pro: Leggero e veloce; Contro: Ha meno funzionalità aziendali rispetto ad Apigee."
+    ]
+  },
+  {
+    "inputNumber": 228,
+    "question": "La tua azienda vuole eseguire un'analisi dei dati per identificare modelli di acquisto dei clienti utilizzando SQL. I dati sono sparsi in diversi database SQL Server on-premises. Quale servizio facilita la migrazione di questi database verso Google Cloud?",
+    "options": [
+      "Database Migration Service (DMS)",
+      "Cloud Transfer Service",
+      "Velostrata (Migrate for Compute Engine)",
+      "BigQuery Data Transfer Service"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Servizio serverless che semplifica la migrazione di database (come SQL Server o MySQL) verso Cloud SQL con tempi di inattività minimi; Contro: Supporta solo determinati motori di database.",
+      "Opzione B: Pro: Spostamento file; Contro: Serve per spostare oggetti in Cloud Storage, non per migrare database attivi.",
+      "Opzione C: Pro: Migrazione VM; Contro: Sposta l'intero server come macchina virtuale, non ottimizza il database come servizio gestito.",
+      "Opzione D: Pro: Automazione BigQuery; Contro: Serve per caricare dati da app SaaS (es. Google Ads) verso BigQuery."
+    ]
+  },
+  {
+    "inputNumber": 230,
+    "question": "Cosa si intende per 'Infrastruttura come Codice' (IaC) nel contesto cloud?",
+    "options": [
+      "Scrivere il codice sorgente dell'applicazione in Java",
+      "Gestire e fornire l'infrastruttura (server, reti) tramite file di configurazione leggibili dalla macchina invece di processi manuali",
+      "Assumere programmatori per costruire rack fisici",
+      "Utilizzare solo software open source"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Sviluppo app; Contro: Non riguarda la gestione dell'infrastruttura.",
+      "Opzione B: Pro: Garantisce che l'ambiente sia identico ogni volta che viene creato (evita il 'configuration drift'); Contro: Richiede strumenti come Terraform o Deployment Manager.",
+      "Opzione C: Pro: Manodopera; Contro: L'IaC mira proprio a eliminare la necessità di interventi fisici manuali.",
+      "Opzione D: Pro: Etica software; Contro: L'IaC può essere utilizzato sia con software proprietario che open source."
+    ]
+  },
+  {
+    "inputNumber": 232,
+    "question": "Qual è il vantaggio di utilizzare 'Cloud Spanner' rispetto a un database relazionale tradizionale?",
+    "options": [
+      "È l'opzione più economica per piccoli database",
+      "Offre scalabilità orizzontale illimitata con coerenza forte e disponibilità globale",
+      "Non richiede l'uso di query SQL",
+      "Può essere installato solo on-premises"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Budget; Contro: Spanner è un servizio premium con un costo di base significativo.",
+      "Opzione B: Pro: Combina la struttura dei database SQL con la scalabilità dei sistemi NoSQL a livello mondiale; Contro: Richiede una progettazione specifica delle chiavi primarie per evitare hotspot.",
+      "Opzione C: Pro: Semplicità; Contro: Spanner utilizza SQL standard per le query.",
+      "Opzione D: Pro: Localizzazione; Contro: È un servizio nativo di Google Cloud."
+    ]
+  },
+  {
+    "inputNumber": 235,
+    "question": "Un'organizzazione vuole proteggere le proprie risorse cloud assicurandosi che solo i dispositivi aziendali autorizzati possano accedervi, indipendentemente dalla posizione dell'utente. Quale modello di sicurezza sta seguendo?",
+    "options": [
+      "Sicurezza perimetrale tradizionale",
+      "Zero Trust (BeyondCorp)",
+      "Sicurezza fisica del data center",
+      "Sicurezza basata solo su password"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Semplice (VPN); Contro: Una volta superato il perimetro, l'utente ha accesso a tutto; non è adatto al lavoro remoto moderno.",
+      "Opzione B: Pro: Sposta la sicurezza dal perimetro della rete al singolo utente e dispositivo, verificando ogni richiesta di accesso; Contro: Richiede l'implementazione di Identity-Aware Proxy (IAP).",
+      "Opzione C: Pro: Protezione hardware; Contro: Non protegge l'accesso logico ai dati via internet.",
+      "Opzione D: Pro: Facilità; Contro: Metodo estremamente vulnerabile agli attacchi di phishing."
+    ]
+  },
+  {
+    "inputNumber": 238,
+    "question": "Quale strumento di Google Cloud permette di creare dashboard interattive per monitorare i KPI aziendali collegandosi direttamente a BigQuery?",
+    "options": [
+      "Looker Studio (precedentemente Data Studio)",
+      "Cloud Functions",
+      "Dataproc",
+      "Cloud Vision API"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Strumento no-code gratuito e potente per la visualizzazione dei dati e la creazione di report aziendali; Contro: Per funzionalità di data modeling più avanzate è necessario Looker (versione Enterprise).",
+      "Opzione B: Pro: Automazione; Contro: Serve per eseguire codice, non per creare grafici.",
+      "Opzione C: Pro: Processing; Contro: Serve per l'elaborazione Spark/Hadoop, non per la visualizzazione finale.",
+      "Opzione D: Pro: Analisi immagini; Contro: Non ha nulla a che fare con i KPI aziendali tabulari."
+    ]
+  },
+  {
+    "inputNumber": 240,
+    "question": "Qual è lo scopo principale del servizio 'Cloud Build'?",
+    "options": [
+      "Costruire fisicamente i data center di Google",
+      "Automatizzare l'integrazione e la distribuzione continua (CI/CD) del software",
+      "Aumentare il numero di core della CPU di una VM",
+      "Gestire le fatture mensili del cloud"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Infrastruttura; Contro: Google gestisce la costruzione fisica privatamente.",
+      "Opzione B: Pro: Permette di compilare, testare e distribuire codice in modo rapido e affidabile ogni volta che viene aggiornato il repository; Contro: Richiede la configurazione di un file `cloudbuild.yaml`.",
+      "Opzione C: Pro: Scalabilità; Contro: Di questo si occupa il pannello di controllo di Compute Engine.",
+      "Opzione D: Pro: Finanza; Contro: Di questo si occupa Cloud Billing."
+    ]
+  },
+  {
+    "inputNumber": 242,
+    "question": "Un'azienda ha bisogno di un database NoSQL in grado di gestire petabyte di dati con una latenza di lettura e scrittura estremamente bassa (millisecondi). Il database deve supportare carichi di lavoro analitici pesanti. Quale servizio è il più indicato?",
+    "options": [
+      "Firestore",
+      "Cloud Bigtable",
+      "Cloud Storage",
+      "Cloud SQL"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Ottimo per documenti; Contro: Non è progettato per carichi analitici di massa su scala petabyte come Bigtable.",
+      "Opzione B: Pro: Database NoSQL a colonna larga (wide-column) ideale per serie temporali, dati IoT e marketing tech ad alta velocità; Contro: Richiede una gestione esperta del design delle chiavi per evitare cali di performance.",
+      "Opzione C: Pro: Economico; Contro: È uno storage di oggetti, non un database per query a bassa latenza.",
+      "Opzione D: Pro: Relazionale; Contro: Non scala orizzontalmente fino a petabyte per carichi NoSQL."
+    ]
+  },
+  {
+    "inputNumber": 245,
+    "question": "Qual è il vantaggio principale dell'utilizzo di 'Cloud DNS' in Google Cloud?",
+    "options": [
+      "Proteggere i server dagli attacchi fisici",
+      "Fornire un servizio di risoluzione dei nomi di dominio (da nomi a indirizzi IP) altamente disponibile e scalabile",
+      "Aumentare la velocità dei dischi rigidi",
+      "Gestire le licenze software di Windows"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Sicurezza; Contro: Non riguarda il DNS.",
+      "Opzione B: Pro: Utilizza l'infrastruttura globale di Google per garantire che il tuo sito web o servizio sia sempre raggiungibile rapidamente; Contro: È un servizio a pagamento basato sul numero di zone e query.",
+      "Opzione C: Pro: Performance; Contro: Di questo si occupano i Persistent Disk.",
+      "Opzione D: Pro: Governance; Contro: Non è una funzione del DNS."
+    ]
+  },
+  {
+    "inputNumber": 248,
+    "question": "Un'azienda di vendita al dettaglio vuole suggerire prodotti ai propri clienti sul sito web in base alla loro cronologia di navigazione e acquisto. Quale servizio AI specializzato dovrebbe usare?",
+    "options": [
+      "Vertex AI Training",
+      "Recommendations AI",
+      "Cloud Vision API",
+      "Contact Center AI"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Personalizzazione totale; Contro: Richiede molto tempo per costruire e addestrare un modello da zero.",
+      "Opzione B: Pro: Servizio specifico per il retail che utilizza modelli di deep learning pre-addestrati da Google per fornire suggerimenti personalizzati; Contro: Richiede l'integrazione di un catalogo prodotti aggiornato.",
+      "Opzione C: Pro: Analisi immagini; Contro: Non gestisce dati di comportamento d'acquisto.",
+      "Opzione D: Pro: Customer service; Contro: Serve per i chatbot e l'assistenza telefonica."
+    ]
+  },
+  {
+    "inputNumber": 250,
+    "question": "Che cosa si intende per 'High Availability' (HA) nel contesto di una rete Cloud VPN?",
+    "options": [
+      "Utilizzare una singola connessione internet molto veloce",
+      "Configurare due tunnel VPN separati per garantire la continuità del servizio anche in caso di guasto di un tunnel",
+      "Aumentare il prezzo della VPN per avere più supporto",
+      "Usare la VPN solo durante le ore di punta"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Semplicità; Contro: Se la connessione fallisce, l'intero business si ferma.",
+      "Opzione B: Pro: L'HA VPN garantisce uno SLA del 99,99% instradando il traffico su percorsi ridondanti; Contro: Richiede la configurazione del routing dinamico via BGP.",
+      "Opzione C: Pro: Priorità; Contro: Il costo non garantisce tecnicamente la ridondanza.",
+      "Opzione D: Pro: Risparmio; Contro: Non ha nulla a che fare con l'affidabilità tecnica."
+    ]
+  },
+  {
+    "inputNumber": 252,
+    "question": "In Google Cloud, cos'è un 'Bucket'?",
+    "options": [
+      "Un tipo di processore ad alta velocità",
+      "Un contenitore logico in Cloud Storage per memorizzare i tuoi oggetti (file)",
+      "Un gruppo di sviluppatori che lavorano allo stesso progetto",
+      "Un termine per indicare un errore di sistema"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Calcolo; Contro: Definizione errata.",
+      "Opzione B: Pro: I bucket permettono di organizzare i dati e applicare permessi di accesso a livello granulare; Contro: I nomi dei bucket devono essere univoci a livello globale.",
+      "Opzione C: Pro: Team; Contro: Non è un termine tecnico per le risorse umane.",
+      "Opzione D: Pro: Debugging; Contro: Si riferisce a un errore (bug), non a un bucket."
+    ]
+  },
+  {
+    "inputNumber": 255,
+    "question": "Quale vantaggio offre 'Identity-Aware Proxy' (IAP) per la sicurezza degli accessi?",
+    "options": [
+      "Sostituisce la necessità di una VPN tradizionale per l'accesso alle app aziendali",
+      "Aumenta la luminosità dello schermo durante l'uso del cloud",
+      "Obbliga gli utenti a cambiare password ogni ora",
+      "Permette di creare account senza nome utente"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Fornisce accesso sicuro basato sull'identità e sul contesto (device, posizione) senza dover gestire client VPN complessi; Contro: Funziona meglio con applicazioni basate su web (HTTP/HTTPS).",
+      "Opzione B: Pro: Visibilità; Contro: Assurdo.",
+      "Opzione C: Pro: Sicurezza; Contro: Inefficace e frustrante per l'utente.",
+      "Opzione D: Pro: Anonimato; Contro: La sicurezza si basa proprio sulla verifica dell'identità."
+    ]
+  },
+  {
+    "inputNumber": 258,
+    "question": "Un'azienda vuole centralizzare tutti i propri dati provenienti da vendite, magazzino e marketing per eseguire analisi storiche complesse. Quale soluzione è la più adatta?",
+    "options": [
+      "Cloud SQL",
+      "BigQuery",
+      "Cloud Storage",
+      "Firestore"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Gestione transazionale; Contro: Non è ottimizzato per aggregare petabyte di dati da fonti diverse per analisi analitiche.",
+      "Opzione B: Pro: Data warehouse aziendale serverless che permette analisi SQL massivamente parallele su dataset enormi; Contro: I costi possono salire se non si ottimizzano le query.",
+      "Opzione C: Pro: Archivio dati; Contro: Richiede strumenti aggiuntivi per poter interrogare i dati in modo efficiente.",
+      "Opzione D: Pro: App mobile; Contro: Database NoSQL non adatto per la business intelligence complessa."
+    ]
+  },
+  {
+    "inputNumber": 260,
+    "question": "Qual è lo scopo principale del modello di responsabilità condivisa per quanto riguarda la conformità (compliance)?",
+    "options": [
+      "Google si occupa di tutte le certificazioni legali al posto del cliente",
+      "Google fornisce un'infrastruttura certificata, ma il cliente è responsabile della conformità delle applicazioni che vi costruisce sopra",
+      "Il cliente non deve preoccuparsi della legge se usa il cloud",
+      "Le leggi non si applicano ai dati memorizzati nel cloud"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Comodità; Contro: Google non può sapere come il cliente gestisce i dati dei propri utenti.",
+      "Opzione B: Pro: Permette alle aziende di ereditare i controlli di sicurezza di Google (SOC2, ISO, ecc.) semplificando il proprio processo di audit; Contro: Richiede comunque un impegno attivo del cliente per la governance dei dati.",
+      "Opzione C: Pro: Illusione; Contro: La responsabilità legale finale sui dati degli utenti rimane dell'azienda cliente.",
+      "Opzione D: Pro: Libertà; Contro: I dati sono sempre soggetti alle leggi della giurisdizione in cui risiedono e in cui l'azienda opera."
+    ]
+  },
+  {
+    "inputNumber": 261,
+    "question": "Un'azienda vuole monitorare le spese in tempo reale e impostare avvisi quando i costi superano una determinata soglia mensile. Quale funzione del pannello di fatturazione dovrebbe usare?",
+    "options": [
+      "Cost Table",
+      "Budgets and Alerts",
+      "Billing Export",
+      "Pricing Calculator"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Visualizzazione tabellare; Contro: Non invia notifiche automatiche.",
+      "Opzione B: Pro: Permette di impostare soglie di spesa (es. 50%, 90%, 100%) e ricevere email automatiche, evitando sorprese in fattura; Contro: Non blocca automaticamente i servizi, invia solo avvisi.",
+      "Opzione C: Pro: Analisi profonda; Contro: Esporta i dati su BigQuery per analisi storiche, non è un sistema di alert immediato.",
+      "Opzione D: Pro: Pianificazione; Contro: Serve per stimare i costi prima di creare le risorse."
+    ]
+  },
+  {
+    "inputNumber": 265,
+    "question": "Qual è lo scopo principale del servizio 'Cloud Source Repositories'?",
+    "options": [
+      "Memorizzare file video pesanti",
+      "Fornire repository Git privati ospitati su Google Cloud per la gestione del codice sorgente",
+      "Creare backup dei database SQL",
+      "Gestire le identità degli utenti"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Storage; Contro: Questo è il ruolo di Cloud Storage.",
+      "Opzione B: Pro: Permette ai team di collaborare sul codice in modo sicuro e integrato con altri servizi come Cloud Build; Contro: Meno ricco di funzionalità social rispetto a piattaforme come GitHub o GitLab.",
+      "Opzione C: Pro: Protezione; Contro: Non è destinato ai dati dei database.",
+      "Opzione D: Pro: Sicurezza; Contro: Di questo si occupa Cloud Identity."
+    ]
+  },
+  {
+    "inputNumber": 268,
+    "question": "In una strategia di 'Disaster Recovery', che cos'è il 'RTO' (Recovery Time Objective)?",
+    "options": [
+      "La quantità massima di dati che l'azienda può permettersi di perdere",
+      "Il tempo massimo accettabile per ripristinare un servizio dopo un guasto",
+      "Il costo totale della riparazione dei server",
+      "La distanza fisica tra due data center"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Misura perdita; Contro: Questo è il RPO (Recovery Point Objective).",
+      "Opzione B: Pro: Indica quanto velocemente l'azienda deve tornare operativa (es. entro 4 ore dal crash); Contro: Un RTO molto basso richiede infrastrutture costose e ridondanti.",
+      "Opzione C: Pro: Finanza; Contro: Non è un parametro tecnico di ripristino.",
+      "Opzione D: Pro: Ridondanza; Contro: La distanza influisce sulla sicurezza, ma non definisce l'obiettivo di tempo."
+    ]
+  },
+  {
+    "inputNumber": 272,
+    "question": "Quale servizio Google Cloud permette di creare ed eseguire macchine virtuali con sistemi operativi personalizzati o standard?",
+    "options": [
+      "App Engine",
+      "Compute Engine",
+      "Cloud Run",
+      "Google Kubernetes Engine"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Facile; Contro: È un servizio PaaS dove l'utente non gestisce l'OS.",
+      "Opzione B: Pro: Servizio IaaS che offre il controllo totale sulle istanze, inclusa la scelta di CPU, RAM, dischi e sistema operativo; Contro: Richiede la gestione manuale di patching e aggiornamenti.",
+      "Opzione C: Pro: Moderno; Contro: Serve per eseguire container, non intere VM.",
+      "Opzione D: Pro: Orchestrazione; Contro: Gestisce cluster di container, non singole VM isolate."
+    ]
+  },
+  {
+    "inputNumber": 275,
+    "question": "Un'azienda vuole automatizzare l'estrazione di informazioni da migliaia di fatture cartacee scannerizzate (es. data, importo totale, fornitore). Quale servizio AI è più adatto?",
+    "options": [
+      "Document AI",
+      "Cloud Vision API",
+      "AutoML Video Intelligence",
+      "Cloud Natural Language API"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Piattaforma specializzata nell'analisi di documenti (OCR avanzato) che comprende la struttura di moduli e fatture; Contro: Richiede una fase di validazione dei dati estratti.",
+      "Opzione B: Pro: Riconoscimento testo; Contro: Estrae testo generico (OCR), ma non comprende nativamente la relazione tra i campi di una fattura.",
+      "Opzione C: Pro: Analisi video; Contro: Non è adatto per documenti statici.",
+      "Opzione D: Pro: Analisi testo; Contro: Analizza il significato delle frasi, ma non è ottimizzata per l'estrazione di dati strutturati da immagini di documenti."
+    ]
+  },
+  {
+    "inputNumber": 277,
+    "question": "Qual è il vantaggio di utilizzare 'Cloud Spanner' per un'applicazione finanziaria globale?",
+    "options": [
+      "È il database più economico disponibile",
+      "Garantisce transazioni ACID su scala globale con alta disponibilità",
+      "Non richiede l'uso di chiavi primarie",
+      "Permette di memorizzare solo file di immagini"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Risparmio; Contro: È un servizio premium ad alto costo.",
+      "Opzione B: Pro: Permette a utenti in diversi continenti di leggere e scrivere dati coerenti nello stesso istante, ideale per saldi bancari; Contro: Design complesso delle tabelle.",
+      "Opzione C: Pro: Semplicità; Contro: Le chiavi primarie sono fondamentali per la distribuzione dei dati.",
+      "Opzione D: Pro: Multimedia; Contro: È un database relazionale strutturato."
+    ]
+  },
+  {
+    "inputNumber": 279,
+    "question": "Quale servizio di Google Cloud Operations Suite aiuta a capire perché un'applicazione è lenta analizzando il tempo impiegato per le chiamate RPC?",
+    "options": [
+      "Cloud Logging",
+      "Cloud Trace",
+      "Cloud Profiler",
+      "Cloud Monitoring"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Analisi eventi; Contro: I log non mostrano visivamente la latenza tra i passaggi di una richiesta.",
+      "Opzione B: Pro: Raccoglie dati sulla latenza dalle applicazioni e li visualizza in grafici a cascata per trovare i colli di bottiglia; Contro: Richiede una piccola modifica al codice o l'uso di librerie specifiche.",
+      "Opzione C: Pro: Analisi CPU; Contro: Analizza l'uso delle risorse all'interno del codice, non la comunicazione tra servizi.",
+      "Opzione D: Pro: Dashboard; Contro: Mostra metriche aggregate, non il dettaglio di una singola transazione lenta."
+    ]
+  },
+  {
+    "inputNumber": 280,
+    "question": "Perché un'azienda sceglierebbe il 'Private Google Access'?",
+    "options": [
+      "Per permettere alle VM senza indirizzo IP pubblico di accedere ai servizi Google (come Cloud Storage) via rete interna",
+      "Per nascondere il sito web ai motori di ricerca",
+      "Per navigare su internet in modo anonimo",
+      "Per connettersi a Google Cloud solo tramite cavi sottomarini privati"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Aumenta la sicurezza poiché le VM non sono esposte a internet ma possono comunque usare le API di Google; Contro: Deve essere abilitato a livello di subnet.",
+      "Opzione B: Pro: Privacy; Contro: Non riguarda l'indicizzazione SEO.",
+      "Opzione C: Pro: Anonimato; Contro: Non è un servizio di VPN consumer o Tor.",
+      "Opzione D: Pro: Hardware; Contro: Riguarda il routing logico della rete VPC, non l'infrastruttura fisica dei cavi."
+    ]
+  },
+  {
+    "inputNumber": 282,
+    "question": "Un'azienda vuole eseguire un'applicazione web che scala automaticamente in base al traffico, ma non vuole gestire né l'infrastruttura delle VM né i cluster Kubernetes. Quale servizio 'Serverless' per container dovrebbe usare?",
+    "options": [
+      "Compute Engine",
+      "Cloud Run",
+      "Bare Metal Solution",
+      "Cloud SQL"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Controllo totale; Contro: Richiede la gestione manuale del sistema operativo e dello scaling.",
+      "Opzione B: Pro: Permette di eseguire container direttamente in modalità serverless, pagando solo per il tempo di elaborazione delle richieste; Contro: Adatto solo per applicazioni stateless (senza stato locale).",
+      "Opzione C: Pro: Hardware dedicato; Contro: Per carichi di lavoro specializzati che non possono essere virtualizzati, non è serverless.",
+      "Opzione D: Pro: Database gestito; Contro: Serve per lo storage dei dati, non per l'esecuzione del codice applicativo."
+    ]
+  },
+  {
+    "inputNumber": 285,
+    "question": "In Google Cloud, che cos'è un 'Service Account'?",
+    "options": [
+      "Un account destinato a un dipendente dell'assistenza clienti",
+      "Un'identità speciale utilizzata dalle applicazioni o dalle VM per effettuare chiamate API autorizzate senza l'intervento umano",
+      "Un account che dà diritto a sconti premium",
+      "Un tipo di account Google per uso personale (Gmail)"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Supporto; Contro: Definizione errata.",
+      "Opzione B: Pro: Essenziale per la sicurezza 'machine-to-machine', permettendo di assegnare permessi specifici a un'app invece che a una persona; Contro: Se non gestito bene, può diventare un rischio di sicurezza (es. perdita delle chiavi).",
+      "Opzione C: Pro: Risparmio; Contro: Non riguarda la fatturazione.",
+      "Opzione D: Pro: Privato; Contro: I Service Account sono risorse interne ai progetti Google Cloud."
+    ]
+  },
+  {
+    "inputNumber": 288,
+    "question": "Un'azienda ha molti dati non strutturati (PDF, video, immagini) e vuole estrarre testo e metadati per renderli ricercabili. Quale combinazione di servizi è più indicata?",
+    "options": [
+      "Cloud Storage + Vision API + BigQuery",
+      "Cloud SQL + Cloud VPN",
+      "Persistent Disk + Compute Engine",
+      "Cloud Functions + Cloud Spanner"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Archiviazione scalabile, estrazione intelligente di testo (OCR) e analisi dei dati strutturati risultanti; Contro: Richiede l'integrazione di pipeline di elaborazione.",
+      "Opzione B: Pro: Connessione sicura; Contro: Cloud SQL non è adatto per l'archiviazione di file multimediali pesanti.",
+      "Opzione C: Pro: Standard; Contro: Richiede molta programmazione manuale per l'analisi dei file.",
+      "Opzione D: Pro: Serverless; Contro: Spanner è un database relazionale e non è lo strumento primario per la scansione di file binari."
+    ]
+  },
+  {
+    "inputNumber": 290,
+    "question": "Qual è lo scopo della funzione 'Live Migration' in Compute Engine?",
+    "options": [
+      "Spostare i dati da AWS a Google Cloud in tempo reale",
+      "Mantenere le VM in esecuzione anche quando Google deve eseguire la manutenzione dell'hardware sottostante",
+      "Tradurre il codice dell'app mentre viene eseguita",
+      "Cambiare la regione della VM senza spegnerla"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Migrazione; Contro: Non riguarda la migrazione tra cloud.",
+      "Opzione B: Pro: Garantisce l'uptime delle applicazioni business-critical spostando la VM su un altro host fisico in modo trasparente per l'utente; Contro: Non protegge dai crash del software interno alla VM.",
+      "Opzione C: Pro: Magia; Contro: Impossibile tecnicamente.",
+      "Opzione D: Pro: Flessibilità; Contro: La migrazione live avviene all'interno della stessa zona."
+    ]
+  },
+  {
+    "inputNumber": 292,
+    "question": "Cosa significa il termine 'Data Sovereignty' (Sovranità dei dati)?",
+    "options": [
+      "Che i dati appartengono sempre al sovrano del paese",
+      "L'idea che i dati siano soggetti alle leggi e alle strutture di governance del paese in cui sono raccolti o conservati",
+      "Che i dati non possono essere crittografati",
+      "Che solo il CEO di un'azienda può vedere i dati"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Storico; Contro: Non è un concetto legale moderno del cloud.",
+      "Opzione B: Pro: Fondamentale per la conformità (es. GDPR in Europa), richiede che il provider offra controlli sulla posizione geografica dei dati; Contro: Può limitare l'uso di alcuni servizi disponibili solo in determinate regioni.",
+      "Opzione C: Pro: Trasparenza; Contro: La sovranità spesso richiede più crittografia, non meno.",
+      "Opzione D: Pro: Controllo; Contro: La sovranità riguarda le nazioni, non la gerarchia aziendale."
+    ]
+  },
+  {
+    "inputNumber": 295,
+    "question": "Quale servizio Google Cloud è indicato per l'analisi 'Log-to-Metrics', ovvero trasformare i dati dei log in metriche monitorabili?",
+    "options": [
+      "Cloud Logging",
+      "Cloud Debugger",
+      "Cloud Trace",
+      "Cloud Deployment Manager"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Permette di creare metriche basate sui log (es. contare quante volte appare l'errore '404') e visualizzarle in Cloud Monitoring; Contro: Richiede la configurazione di filtri precisi.",
+      "Opzione B: Pro: Debug; Contro: Serve per ispezionare il codice, non per creare metriche dai log.",
+      "Opzione C: Pro: Latenza; Contro: Traccia le richieste, non analizza i log di sistema.",
+      "Opzione D: Pro: IaC; Contro: Gestisce l'infrastruttura, non l'analisi operativa."
+    ]
+  },
+  {
+    "inputNumber": 298,
+    "question": "Perché un'azienda dovrebbe utilizzare i 'VPC Service Controls'?",
+    "options": [
+      "Per impedire l'esfiltrazione accidentale o dolosa dei dati verso l'esterno del perimetro di sicurezza",
+      "Per aumentare la velocità della connessione Wi-Fi aziendale",
+      "Per creare siti web in modo automatico",
+      "Per gestire le password degli utenti Gmail"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Crea un perimetro di sicurezza attorno ai servizi Google Cloud (come BigQuery o Cloud Storage) limitando l'accesso solo a reti e progetti autorizzati; Contro: Configurazione complessa che può bloccare accessi legittimi se non testata.",
+      "Opzione B: Pro: Networking; Contro: Non ha impatto sull'hardware Wi-Fi locale.",
+      "Opzione C: Pro: Design; Contro: Non è uno strumento di sviluppo web.",
+      "Opzione D: Pro: Identità; Contro: VPC riguarda la sicurezza di rete, non la gestione delle credenziali personali."
+    ]
+  },
+  {
+    "inputNumber": 300,
+    "question": "Qual è il principale vantaggio di una strategia 'SaaS' (Software as a Service) come Google Workspace?",
+    "options": [
+      "L'azienda deve gestire l'hardware e gli aggiornamenti del software",
+      "L'utente può utilizzare il software immediatamente via web senza preoccuparsi della manutenzione sottostante",
+      "È l'opzione che offre il massimo controllo sul kernel del sistema operativo",
+      "Costa meno di una licenza cartacea"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Controllo; Contro: Questo è l'onere che il SaaS elimina.",
+      "Opzione B: Pro: Riduce i costi operativi e permette di concentrarsi sul lavoro piuttosto che sulla tecnologia; Contro: Meno possibilità di personalizzazione profonda rispetto al software installato localmente.",
+      "Opzione C: Pro: Libertà; Contro: Nel SaaS l'utente non ha alcun accesso all'infrastruttura sottostante.",
+      "Opzione D: Pro: Risparmio; Contro: Il risparmio deriva dalla gestione, non necessariamente dal costo della licenza in sé."
+    ]
+  },
+  {
+    "inputNumber": 302,
+    "question": "Un'organizzazione vuole assicurarsi che solo le immagini dei container verificate e approvate vengano distribuite nel proprio cluster GKE. Quale servizio dovrebbe usare?",
+    "options": [
+      "Binary Authorization",
+      "Cloud Armor",
+      "Container Registry",
+      "Identity-Aware Proxy"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Fornisce un controllo di sicurezza al momento della distribuzione che garantisce che solo le immagini firmate e conformi vengano eseguite; Contro: Richiede una configurazione della pipeline di CI/CD per la firma delle immagini.",
+      "Opzione B: Pro: WAF; Contro: Protegge le app web, non controlla l'integrità dei container.",
+      "Opzione C: Pro: Storage; Contro: Memorizza le immagini ma non ne impedisce la distribuzione se non sono conformi.",
+      "Opzione D: Pro: Accesso; Contro: Gestisce l'identità dell'utente, non l'origine del software."
+    ]
+  },
+  {
+    "inputNumber": 305,
+    "question": "Qual è lo scopo principale del servizio 'Eventarc'?",
+    "options": [
+      "Archiviare dati storici per 10 anni",
+      "Inviare eventi da diverse fonti Google Cloud a destinazioni come Cloud Run in modo standardizzato",
+      "Crittografare i dischi delle VM",
+      "Monitorare la temperatura dei data center"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Conservazione; Contro: Questo è il ruolo di Cloud Storage Archive.",
+      "Opzione B: Pro: Permette di costruire architetture event-driven (guidate dagli eventi) in modo semplice e scalabile; Contro: Supporta solo determinati tipi di destinazioni.",
+      "Opzione C: Pro: Sicurezza; Contro: Di questo si occupa Cloud KMS.",
+      "Opzione D: Pro: IoT; Contro: Google gestisce l'ambiente fisico internamente."
+    ]
+  },
+  {
+    "inputNumber": 308,
+    "question": "In termini di sostenibilità, che cosa misura il 'Google Cloud Carbon Footprint'?",
+    "options": [
+      "La quantità di carta consumata negli uffici del cliente",
+      "Le emissioni di gas serra associate all'uso dei servizi Google Cloud da parte di un'organizzazione",
+      "Il costo dell'energia elettrica per ogni VM",
+      "Il numero di alberi piantati dal team IT"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Ecologia; Contro: Si riferisce all'uso digitale, non alla cancelleria fisica.",
+      "Opzione B: Pro: Fornisce trasparenza sulle emissioni (Scope 3) per aiutare le aziende a raggiungere i propri obiettivi di sostenibilità (ESG); Contro: Le metriche sono stime basate sull'uso.",
+      "Opzione C: Pro: Efficienza; Contro: Misura l'impatto ambientale, non il costo monetario diretto dell'energia.",
+      "Opzione D: Pro: CSR; Contro: Non è una metrica tecnica fornita dallo strumento."
+    ]
+  },
+  {
+    "inputNumber": 312,
+    "question": "Un'azienda vuole migrare i propri carichi di lavoro SAP su Google Cloud. Qual è il vantaggio principale?",
+    "options": [
+      "Google Cloud non supporta SAP, quindi l'azienda deve cambiare software",
+      "Infrastruttura certificata SAP, scalabilità rapida e integrazione con BigQuery per l'analisi dei dati ERP",
+      "SAP su Google Cloud è gratuito",
+      "Non è possibile eseguire backup di SAP nel cloud"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Nessuno; Contro: Google Cloud ha una partnership strategica molto forte con SAP.",
+      "Opzione B: Pro: Permette di modernizzare i processi aziendali analizzando i dati SAP in tempo reale con strumenti di intelligenza artificiale; Contro: Richiede una pianificazione accurata della migrazione.",
+      "Opzione C: Pro: Risparmio; Contro: Le licenze SAP e l'infrastruttura cloud hanno costi specifici.",
+      "Opzione D: Pro: Sicurezza; Contro: Esistono soluzioni di backup e disaster recovery avanzate per SAP."
+    ]
+  },
+  {
+    "inputNumber": 315,
+    "question": "Quale strumento permette di importare grandi dataset on-premises in BigQuery in modo automatico e programmato?",
+    "options": [
+      "BigQuery Data Transfer Service",
+      "Cloud Shell",
+      "Cloud Vision API",
+      "Identity-Aware Proxy"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Automatizza il movimento dei dati da applicazioni SaaS (es. Google Ads) e cloud storage verso BigQuery; Contro: Per dati on-premises molto grandi potrebbe servire un agent dedicato.",
+      "Opzione B: Pro: Terminale; Contro: Utile per piccoli comandi, non per trasferimenti massivi di dati.",
+      "Opzione C: Pro: Analisi immagini; Contro: Non serve per il trasferimento di dati tabulari.",
+      "Opzione D: Pro: Sicurezza; Contro: Gestisce l'accesso alle app, non i flussi di dati verso il data warehouse."
+    ]
+  },
+  {
+    "inputNumber": 318,
+    "question": "Cosa significa il termine 'Toil' nell'ambito SRE (Site Reliability Engineering)?",
+    "options": [
+      "Il lavoro creativo di sviluppo di nuove funzionalità",
+      "Lavoro manuale, ripetitivo, automatizzabile e privo di valore duraturo",
+      "Il tempo trascorso in riunioni con i clienti",
+      "Il costo dell'hardware obsoleto"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Valore; Contro: Questo è il lavoro 'a valore' che SRE cerca di massimizzare.",
+      "Opzione B: Pro: Identificare il toil permette di automatizzarlo, liberando tempo per compiti più strategici; Contro: L'eliminazione totale del toil è spesso impossibile.",
+      "Opzione C: Pro: Comunicazione; Contro: Non rientra nella definizione tecnica di toil.",
+      "Opzione D: Pro: Ammortamento; Contro: Riguarda il tempo umano, non il costo dei materiali."
+    ]
+  },
+  {
+    "inputNumber": 320,
+    "question": "Quale servizio Google Cloud è progettato per analizzare il traffico di rete e rilevare intrusioni o anomalie?",
+    "options": [
+      "Cloud IDS (Intrusion Detection System)",
+      "Cloud DNS",
+      "Cloud Storage",
+      "Cloud Functions"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Fornisce visibilità completa sul traffico di rete (ispezione dei pacchetti) per rilevare malware, spyware e attacchi command-and-control; Contro: È un servizio di rilevamento, non di prevenzione attiva (come il firewall).",
+      "Opzione B: Pro: Risoluzione nomi; Contro: Non analizza il contenuto del traffico.",
+      "Opzione C: Pro: Storage; Contro: Memorizza dati, non analizza flussi di rete.",
+      "Opzione D: Pro: Serverless; Contro: Esegue codice, non è un dispositivo di sicurezza di rete."
+    ]
+  },
+  {
+    "inputNumber": 322,
+    "question": "Un'azienda vuole gestire l'accesso alle risorse Google Cloud basandosi non solo sull'identità dell'utente, ma anche sul suo indirizzo IP e sullo stato di sicurezza del dispositivo (es. crittografia del disco attiva). Quale strumento abilita questo controllo?",
+    "options": [
+      "Access Context Manager",
+      "Cloud IAM",
+      "Cloud Logging",
+      "Cloud VPN"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Permette di definire livelli di accesso basati su attributi contestuali (IP, geografia, policy del dispositivo); Contro: Richiede una configurazione attenta per non bloccare utenti legittimi.",
+      "Opzione B: Pro: Gestione ruoli; Contro: IAM si occupa di 'chi' può fare 'cosa', ma di base non analizza lo stato del dispositivo.",
+      "Opzione C: Pro: Tracciabilità; Contro: Registra gli eventi ma non applica restrizioni di accesso in tempo reale.",
+      "Opzione D: Pro: Connettività; Contro: Crea un tunnel sicuro ma non verifica la conformità del dispositivo finale."
+    ]
+  },
+  {
+    "inputNumber": 325,
+    "question": "Qual è il vantaggio di utilizzare 'Contact Center AI' (CCAI) per un'azienda con un alto volume di chiamate di supporto?",
+    "options": [
+      "Sostituire tutti gli agenti umani con robot per risparmiare il 100% dei costi",
+      "Migliorare l'esperienza del cliente con risponditori intelligenti e fornire assistenza in tempo reale agli agenti umani (Agent Assist)",
+      "Disabilitare il supporto telefonico per forzare l'uso dell'email",
+      "Registrare le chiamate solo per motivi legali"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Riduzione costi; Contro: L'IA non può ancora gestire casi complessi o empatici come un umano.",
+      "Opzione B: Pro: Riduce i tempi di attesa e aiuta gli agenti a trovare soluzioni più velocemente grazie a suggerimenti basati sulla conoscenza aziendale; Contro: Richiede un addestramento sui dati storici delle conversazioni.",
+      "Opzione C: Pro: Efficienza; Contro: Danneggia la soddisfazione del cliente che preferisce il canale vocale.",
+      "Opzione D: Pro: Compliance; Contro: CCAI fa molto di più che registrare: analizza e interagisce."
+    ]
+  },
+  {
+    "inputNumber": 328,
+    "question": "Un'organizzazione ha un'applicazione monolitica che non può essere containerizzata immediatamente. Vogliono comunque migrarla nel cloud per beneficiare della flessibilità dell'infrastruttura. Quale strategia dovrebbero usare?",
+    "options": [
+      "Refactoring",
+      "Rehosting (Lift and Shift)",
+      "Repurchasing",
+      "Retiring"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Modernizzazione; Contro: Richiede la riscrittura del codice, che l'azienda vuole evitare al momento.",
+      "Opzione B: Pro: Sposta l'applicazione così com'è su macchine virtuali (Compute Engine), minimizzando i tempi di migrazione; Contro: Non sfrutta appieno i vantaggi dei servizi cloud nativi.",
+      "Opzione C: Pro: Nuovo software; Contro: Significa abbandonare l'app attuale per un prodotto SaaS terzo.",
+      "Opzione D: Pro: Pulizia; Contro: Significa spegnere l'applicazione senza sostituirla."
+    ]
+  },
+  {
+    "inputNumber": 331,
+    "question": "Quale servizio Google Cloud permette di creare cluster di database PostgreSQL totalmente compatibili ma con prestazioni fino a 4 volte superiori rispetto al PostgreSQL standard?",
+    "options": [
+      "AlloyDB for PostgreSQL",
+      "Cloud SQL",
+      "BigQuery",
+      "Cloud Spanner"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Database relazionale di classe enterprise, completamente gestito, ottimizzato per i carichi di lavoro analitici e transazionali più esigenti; Contro: Costo superiore rispetto a un'istanza Cloud SQL standard.",
+      "Opzione B: Pro: Facilità d'uso; Contro: Offre performance standard di mercato, non ottimizzazioni spinte come AlloyDB.",
+      "Opzione C: Pro: Analisi dati; Contro: Non è un database transazionale (OLTP).",
+      "Opzione D: Pro: Scalabilità globale; Contro: Richiede modifiche alle query e allo schema per sfruttare la sua architettura specifica."
+    ]
+  },
+  {
+    "inputNumber": 334,
+    "question": "In un'architettura cloud, che cos'è un 'Microservizio'?",
+    "options": [
+      "Un piccolo server fisico che consuma poca energia",
+      "Un approccio allo sviluppo software in cui un'applicazione è composta da piccoli servizi indipendenti che comunicano tramite API",
+      "Un'applicazione scritta con caratteri molto piccoli per risparmiare memoria",
+      "Un servizio che può essere usato solo da un utente alla volta"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Risparmio; Contro: Definizione errata, riguarda il software non l'hardware fisico.",
+      "Opzione B: Pro: Permette scalabilità e aggiornamenti indipendenti; se un servizio fallisce, non necessariamente crolla l'intera app; Contro: Aumenta la complessità del monitoraggio e della rete.",
+      "Opzione C: Pro: Efficienza; Contro: Umoristico ma tecnicamente falso.",
+      "Opzione D: Pro: Esclusività; Contro: I microservizi sono progettati per gestire migliaia di utenti simultanei."
+    ]
+  },
+  {
+    "inputNumber": 336,
+    "question": "Un'azienda vuole analizzare il traffico di rete per identificare tentativi di esfiltrazione dati verso indirizzi IP malevoli conosciuti. Quale servizio offre questa protezione 'intelligence-driven'?",
+    "options": [
+      "Cloud Firewall con Threat Intelligence",
+      "Cloud DNS",
+      "Cloud Storage",
+      "Deployment Manager"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Utilizza i dati sulla sicurezza di Google per bloccare automaticamente il traffico da/verso domini e IP sospetti; Contro: Richiede un livello di licenza specifico per le funzioni avanzate.",
+      "Opzione B: Pro: Risoluzione nomi; Contro: Non analizza la reputazione degli IP di destinazione del traffico generico.",
+      "Opzione C: Pro: Storage; Contro: Non ha funzioni di monitoraggio del traffico di rete.",
+      "Opzione D: Pro: Automazione; Contro: Serve per creare risorse, non per proteggerle durante l'esecuzione."
+    ]
+  },
+  {
+    "inputNumber": 338,
+    "question": "Perché un'azienda sceglierebbe 'Google Cloud VMware Engine'?",
+    "options": [
+      "Per imparare a usare il cloud partendo da zero",
+      "Per migrare carichi di lavoro VMware esistenti nel cloud senza dover modificare le applicazioni o i processi operativi",
+      "Perché è l'unico modo per usare Windows su Google Cloud",
+      "Per eliminare completamente l'uso delle macchine virtuali"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Formazione; Contro: È una soluzione complessa per migrazioni enterprise, non per principianti.",
+      "Opzione B: Pro: Velocità di migrazione estrema (Lift and Shift) mantenendo gli stessi strumenti di gestione (vCenter); Contro: Costo potenzialmente elevato dovuto alla necessità di nodi dedicati.",
+      "Opzione C: Pro: Compatibilità; Contro: Windows gira nativamente su Compute Engine standard.",
+      "Opzione D: Pro: Modernizzazione; Contro: VMware Engine si basa proprio sulle macchine virtuali; la modernizzazione verso container avviene solitamente dopo."
+    ]
+  },
+  {
+    "inputNumber": 340,
+    "question": "Qual è lo scopo dei 'Committed Use Discounts' (CUD)?",
+    "options": [
+      "Premiare gli utenti che usano il cloud solo nel weekend",
+      "Offrire prezzi scontati in cambio di un impegno di spesa o di utilizzo di risorse per un periodo di 1 o 3 anni",
+      "Scontare i prodotti che Google sta per dismettere",
+      "Fornire crediti gratuiti alle startup"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Flessibilità; Contro: I CUD richiedono un impegno costante, non sporadico.",
+      "Opzione B: Pro: Risparmio significativo (fino al 70%) per carichi di lavoro prevedibili; Contro: L'azienda paga la quota concordata anche se non utilizza tutte le risorse impegnate.",
+      "Opzione C: Pro: Liquidazione; Contro: Google non sconta i prodotti basandosi sulla loro obsolescenza.",
+      "Opzione D: Pro: Supporto; Contro: Quelli sono programmi specifici (Google for Startups), non CUD."
+    ]
+  },
+  {
+    "inputNumber": 342,
+    "question": "Un'azienda vuole esporre i propri servizi interni a partner esterni in modo sicuro, monetizzando l'accesso alle API e monitorando chi le utilizza. Quale soluzione è la più adatta?",
+    "options": [
+      "Cloud Endpoints",
+      "Apigee",
+      "Cloud Load Balancing",
+      "VPC Service Controls"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Leggero e facile da configurare per API interne; Contro: Manca di funzionalità avanzate di monetizzazione e gestione dei partner.",
+      "Opzione B: Pro: Piattaforma leader per la gestione delle API che offre portali per sviluppatori, analisi dei ricavi e quote di utilizzo; Contro: Più costosa e complessa rispetto a soluzioni base.",
+      "Opzione C: Pro: Distribuisce il traffico; Contro: Gestisce la rete, non la logica di business o la monetizzazione delle API.",
+      "Opzione D: Pro: Sicurezza perimetrale; Contro: Impedisce l'accesso non autorizzato ai dati, non gestisce l'esposizione di servizi tramite API."
+    ]
+  },
+  {
+    "inputNumber": 345,
+    "question": "Cosa consente di fare la funzione 'Object Versioning' in Cloud Storage?",
+    "options": [
+      "Cambiare automaticamente il formato dei file da PDF a Word",
+      "Mantenere una cronologia delle versioni dei file, permettendo di recuperare oggetti sovrascritti o cancellati accidentalmente",
+      "Tradurre il contenuto del file in diverse lingue",
+      "Aumentare la velocità di download dei file multimediali"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Conversione; Contro: Non è una funzione di Cloud Storage.",
+      "Opzione B: Pro: Fondamentale per la protezione dei dati contro errori umani o attacchi ransomware; Contro: Aumenta i costi di archiviazione poiché ogni versione precedente viene conservata e fatturata.",
+      "Opzione C: Pro: Localizzazione; Contro: Di questo si occupa la Cloud Translation API.",
+      "Opzione D: Pro: Performance; Contro: Di questo si occupa la Cloud CDN."
+    ]
+  },
+  {
+    "inputNumber": 348,
+    "question": "Quale servizio di monitoraggio Google Cloud permette di simulare il comportamento degli utenti (ad esempio, tentando di accedere al sito da diverse parti del mondo) per verificare la disponibilità del servizio?",
+    "options": [
+      "Uptime Checks (in Cloud Monitoring)",
+      "Cloud Logging",
+      "Cloud Trace",
+      "Cloud Profiler"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Verifica proattivamente se l'applicazione risponde correttamente da varie località globali e invia alert se il sito è irraggiungibile; Contro: Verifica solo la raggiungibilità, non testa flussi utente complessi.",
+      "Opzione B: Pro: Storico eventi; Contro: Registra cosa è successo dopo che è accaduto, non esegue test attivi.",
+      "Opzione C: Pro: Analisi latenza; Contro: Analizza il percorso delle richieste esistenti, non ne genera di nuove.",
+      "Opzione D: Pro: Analisi codice; Contro: Misura l'uso delle risorse della CPU/Memoria all'interno dell'app."
+    ]
+  },
+  {
+    "inputNumber": 351,
+    "question": "Un'azienda vuole implementare un modello di Machine Learning per prevedere l'abbandono dei clienti (churn rate) utilizzando direttamente i dati presenti in BigQuery tramite SQL. Quale strumento deve usare?",
+    "options": [
+      "BigQuery ML",
+      "AutoML Video Intelligence",
+      "Cloud SQL Proxy",
+      "TensorFlow Enterprise"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Consente agli analisti di dati di creare e addestrare modelli di ML utilizzando semplici comandi SQL, senza dover esportare i dati; Contro: Meno flessibile rispetto alla scrittura di modelli personalizzati in Python/TensorFlow.",
+      "Opzione B: Pro: Analisi video; Contro: Non è adatto per dati tabulari dei clienti.",
+      "Opzione C: Pro: Connettività; Contro: Serve solo per collegarsi in modo sicuro a database relazionali.",
+      "Opzione D: Pro: Potenza; Contro: Richiede competenze di programmazione avanzate e gestione di infrastrutture di calcolo."
+    ]
+  },
+  {
+    "inputNumber": 354,
+    "question": "Qual è il vantaggio principale dell'architettura 'Serverless' per una startup con un budget limitato?",
+    "options": [
+      "L'azienda deve acquistare i server in anticipo",
+      "I costi sono direttamente proporzionali all'utilizzo effettivo (Pay-as-you-go), con scalabilità automatica a zero",
+      "Non è possibile scalare l'applicazione se ci sono troppi utenti",
+      "Il provider cloud gestisce il marketing dell'applicazione"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Proprietà; Contro: Questo è il modello CapEx on-premise, molto costoso per una startup.",
+      "Opzione B: Pro: Se l'app non riceve visite, il costo è zero, permettendo di risparmiare capitale prezioso durante la fase di lancio; Contro: Può soffrire del problema del 'cold start' (latenza iniziale dopo un periodo di inattività).",
+      "Opzione C: Pro: Stabilità; Contro: Il serverless scala quasi infinitamente per gestire picchi improvvisi di traffico.",
+      "Opzione D: Pro: Business; Contro: Il cloud gestisce solo la tecnologia, non le operazioni commerciali."
+    ]
+  },
+  {
+    "inputNumber": 356,
+    "question": "Quale servizio Google Cloud è progettato per proteggere i carichi di lavoro in container scansionando le vulnerabilità del software prima che vengano distribuiti?",
+    "options": [
+      "Artifact Analysis",
+      "Cloud Router",
+      "Cloud Build",
+      "Cloud Storage"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Scansiona automaticamente le immagini dei container alla ricerca di vulnerabilità note (CVE) e fornisce metadati sulla sicurezza; Contro: La scansione automatica ha un costo per ogni immagine analizzata.",
+      "Opzione B: Pro: Networking; Contro: Gestisce il routing dei pacchetti, non la sicurezza del software.",
+      "Opzione C: Pro: Automazione; Contro: Esegue la build del codice, ma l'analisi delle vulnerabilità è una funzione specifica integrata o fornita da Artifact Analysis.",
+      "Opzione D: Pro: Storage; Contro: Memorizza i file ma non esegue ispezioni di sicurezza sul codice binario."
+    ]
+  },
+  {
+    "inputNumber": 358,
+    "question": "In Google Cloud, che cos'è una 'Preemptible VM'?",
+    "options": [
+      "Una VM che non può mai essere spenta",
+      "Un'istanza di calcolo a basso costo che Google può terminare se ha bisogno di capacità altrove",
+      "Una VM progettata esclusivamente per il gaming",
+      "Un server che richiede una licenza speciale acquistata in un negozio fisico"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Affidabilità; Contro: Questa è una VM standard con alta disponibilità.",
+      "Opzione B: Pro: Offre sconti fino all'80% per carichi di lavoro tolleranti ai guasti (come rendering o batch processing); Contro: Non è adatta per applicazioni web rivolte agli utenti che devono essere sempre online.",
+      "Opzione C: Pro: Grafica; Contro: Esistono VM con GPU, ma 'Preemptible' riguarda il modello di costo/disponibilità, non l'uso.",
+      "Opzione D: Pro: Legalità; Contro: Le licenze cloud sono gestite digitalmente tramite il modello pay-as-you-go."
+    ]
+  },
+  {
+    "inputNumber": 360,
+    "question": "Qual è lo scopo principale del servizio 'Cloud Identity'?",
+    "options": [
+      "Fornire un database per le foto dei dipendenti",
+      "Gestire centralmente utenti, gruppi e dispositivi che accedono alle risorse cloud e alle app SaaS",
+      "Aumentare la velocità di internet negli uffici aziendali",
+      "Creare password casuali per gli utenti che le dimenticano"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Organizzazione; Contro: È una soluzione di Identity Access Management (IAM), non un album fotografico.",
+      "Opzione B: Pro: Funge da Identity Provider (IdP) permettendo il Single Sign-On (SSO) e la gestione della sicurezza dei dispositivi mobili; Contro: Richiede la configurazione della sincronizzazione se si usa già Active Directory.",
+      "Opzione C: Pro: Networking; Contro: Non ha alcun impatto sulla connettività fisica locale.",
+      "Opzione D: Pro: Supporto; Contro: Cloud Identity permette agli utenti di resettare le password, ma il suo scopo è la governance degli accessi."
+    ]
+  },
+  {
+    "inputNumber": 362,
+    "question": "Un'azienda vuole eseguire automaticamente un piccolo pezzo di codice ogni volta che un nuovo file viene caricato in un bucket di Cloud Storage (es. per creare una miniatura dell'immagine). Quale servizio è il più indicato?",
+    "options": [
+      "Compute Engine",
+      "Cloud Functions",
+      "BigQuery",
+      "Cloud Storage Transfer Service"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Potenza; Contro: Richiede una VM sempre accesa in attesa dell'evento, con costi inutili.",
+      "Opzione B: Pro: Servizio Functions-as-a-Service (FaaS) che si attiva solo in risposta a eventi specifici, scalando automaticamente; Contro: Ha limiti sulla durata massima di esecuzione del codice.",
+      "Opzione C: Pro: Analisi; Contro: Serve per interrogare dati, non per eseguire logica applicativa basata su file.",
+      "Opzione D: Pro: Migrazione; Contro: Sposta dati tra bucket o cloud, non esegue codice personalizzato."
+    ]
+  },
+  {
+    "inputNumber": 365,
+    "question": "Qual è lo scopo principale di 'Dataplex' all'interno di un'architettura di dati Google Cloud?",
+    "options": [
+      "Aumentare la velocità dei dischi rigidi",
+      "Fornire un tessuto di gestione dei dati (Data Fabric) per unificare, gestire e monitorare i dati distribuiti tra data lake e data warehouse",
+      "Sostituire il servizio Cloud DNS",
+      "Crittografare i file PDF memorizzati su Google Drive"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Performance; Contro: Non riguarda l'hardware di storage.",
+      "Opzione B: Pro: Consente di applicare policy di governance, sicurezza e qualità dei dati in modo centralizzato su BigQuery e Cloud Storage; Contro: Richiede una progettazione della struttura dei 'lake' e delle 'zone'.",
+      "Opzione C: Pro: Networking; Contro: Dataplex si occupa di dati, non di risoluzione nomi.",
+      "Opzione D: Pro: Documenti; Contro: Cloud Identity e DLP si occupano della protezione dei file su Drive, non Dataplex."
+    ]
+  },
+  {
+    "inputNumber": 368,
+    "question": "In un modello di 'Zero Trust', quale affermazione è corretta?",
+    "options": [
+      "Si presuppone che tutti gli utenti all'interno della rete aziendale siano affidabili",
+      "Nessun utente o dispositivo è considerato affidabile di default, indipendentemente dalla sua posizione rispetto alla rete aziendale",
+      "Si eliminano tutte le password per rendere l'accesso più veloce",
+      "L'accesso è consentito solo se l'utente si trova fisicamente in ufficio"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Facilità; Contro: È il modello perimetrale classico, vulnerabile se un attaccante entra nella rete locale.",
+      "Opzione B: Pro: Massimizza la sicurezza verificando identità, stato del dispositivo e contesto per ogni richiesta; Contro: Richiede l'implementazione di sistemi come BeyondCorp/IAP.",
+      "Opzione C: Pro: User experience; Contro: Lo Zero Trust spesso richiede l'autenticazione a più fattori (MFA), non l'eliminazione dei controlli.",
+      "Opzione D: Pro: Controllo fisico; Contro: Lo Zero Trust abilita proprio il lavoro remoto sicuro ovunque ci si trovi."
+    ]
+  },
+  {
+    "inputNumber": 371,
+    "question": "Un'azienda vuole modernizzare un database legacy IBM DB2 o Oracle spostandolo nel cloud ma ha bisogno di prestazioni garantite e hardware dedicato per conformità. Quale soluzione Google Cloud è appropriata?",
+    "options": [
+      "Bare Metal Solution",
+      "App Engine",
+      "Firestore",
+      "Cloud Functions"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Fornisce infrastruttura fisica dedicata e certificata per carichi di lavoro che non possono essere virtualizzati o che hanno licenze specifiche; Contro: Non è un servizio 'cloud-native' elastico come le VM standard.",
+      "Opzione B: Pro: Hosting app; Contro: È un servizio per codice web, non per database pesanti legacy.",
+      "Opzione C: Pro: NoSQL; Contro: Non è compatibile con database relazionali legacy come Oracle.",
+      "Opzione D: Pro: Serverless; Contro: Non può ospitare un motore di database."
+    ]
+  },
+  {
+    "inputNumber": 374,
+    "question": "Qual è il vantaggio di utilizzare 'Cloud Data Loss Prevention' (Cloud DLP) prima di inviare dati a BigQuery per l'analisi?",
+    "options": [
+      "Aumentare la dimensione dei dati per renderli più complessi",
+      "Identificare e mascherare (offuscare) automaticamente i dati sensibili come i numeri di previdenza sociale o i nomi dei clienti",
+      "Cancellare tutti i dati che non sono scritti in inglese",
+      "Ridurre il costo della bolletta elettrica"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Nessuno; Contro: Inutile e costoso.",
+      "Opzione B: Pro: Fondamentale per la conformità (Privacy by Design) permettendo analisi statistiche senza esporre PII (Personally Identifiable Information); Contro: L'ispezione dei dati aggiunge un passaggio nella pipeline ETL.",
+      "Opzione C: Pro: Filtro; Contro: Cloud DLP supporta molte lingue e non è uno strumento di filtro linguistico.",
+      "Opzione D: Pro: Risparmio; Contro: Non ha impatto diretto sull'energia fisica del data center dell'utente."
+    ]
+  },
+  {
+    "inputNumber": 377,
+    "question": "Quale servizio permette di collegare in modo sicuro la rete on-premises di un'azienda a Google Cloud tramite la rete internet pubblica, ma con traffico crittografato?",
+    "options": [
+      "Cloud Interconnect",
+      "Cloud VPN",
+      "Carrier Peering",
+      "Direct Peering"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Connessione fisica dedicata; Contro: Non usa internet pubblica e richiede l'installazione di circuiti fisici.",
+      "Opzione B: Pro: Metodo rapido ed economico per creare un tunnel sicuro (IPsec) su internet; Contro: La larghezza di banda è limitata dalla velocità della connessione internet del cliente.",
+      "Opzione C: Pro: Partner terzi; Contro: Fornisce accesso ai servizi Google (SaaS), non una connessione di rete privata VPC.",
+      "Opzione D: Pro: Connessione Google; Contro: Non fornisce crittografia IPsec integrata come la VPN."
+    ]
+  },
+  {
+    "inputNumber": 379,
+    "question": "Perché un'azienda sceglierebbe 'BigQuery' come suo data warehouse rispetto a un database tradizionale?",
+    "options": [
+      "Perché BigQuery richiede l'installazione di server fisici in ufficio",
+      "Per la sua architettura serverless che separa il calcolo (compute) dallo storage, permettendo scalabilità massiva e costi ottimizzati",
+      "Perché può essere usato solo per piccoli file Excel",
+      "Perché non supporta il linguaggio SQL"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Controllo; Contro: BigQuery è 100% cloud e non richiede hardware locale.",
+      "Opzione B: Pro: Permette di analizzare petabyte di dati in pochi secondi senza dover gestire i server; Contro: Se le query non sono ottimizzate (es. `SELECT *`), i costi possono aumentare rapidamente.",
+      "Opzione C: Pro: Semplicità; Contro: BigQuery è progettato per Big Data, non per piccoli fogli di calcolo (anche se può caricarli).",
+      "Opzione D: Pro: Innovazione; Contro: Uno dei punti di forza di BigQuery è proprio l'uso di SQL standard."
+    ]
+  },
+  {
+    "inputNumber": 380,
+    "question": "Qual è lo scopo principale del servizio 'Cloud Deployment Manager'?",
+    "options": [
+      "Monitorare le chiamate dei dipendenti",
+      "Automatizzare la creazione e la gestione delle risorse Google Cloud utilizzando file di configurazione (YAML o Python)",
+      "Gestire le licenze di Adobe Photoshop",
+      "Aumentare la velocità di caricamento delle pagine web"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Monitoraggio; Contro: Non è un centralino telefonico.",
+      "Opzione B: Pro: Implementa il concetto di Infrastruttura come Codice (IaC), permettendo di replicare interi ambienti in modo coerente; Contro: Molti utenti preferiscono oggi Terraform per il supporto multi-cloud.",
+      "Opzione C: Pro: Software; Contro: Non gestisce licenze software di terze parti esterne al cloud.",
+      "Opzione D: Pro: Performance; Contro: Di questo si occupa la rete e la CDN."
+    ]
+  },
+  {
+    "inputNumber": 382,
+    "question": "Un'azienda vuole centralizzare tutti i log di audit e di sistema provenienti da diverse organizzazioni e progetti Google Cloud in un unico bucket di Cloud Storage per scopi di conformità a lungo termine. Quale funzione dovrebbe usare?",
+    "options": [
+      "Log Sinks (Destinazioni log)",
+      "Cloud Debugger",
+      "Cloud Trace",
+      "Compute Engine Snapshot"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Permette di esportare (instradare) i log in tempo reale verso Cloud Storage, BigQuery o Pub/Sub per analisi o archiviazione; Contro: Richiede la configurazione di filtri corretti per non sovraccaricare lo storage con log inutili.",
+      "Opzione B: Pro: Debug; Contro: Serve per ispezionare il codice, non per gestire i log di sistema.",
+      "Opzione C: Pro: Performance; Contro: Analizza la latenza delle richieste, non i log di conformità.",
+      "Opzione D: Pro: Backup; Contro: Serve per creare copie dei dischi delle VM, non per l'aggregazione dei log."
+    ]
+  },
+  {
+    "inputNumber": 385,
+    "question": "Qual è il vantaggio di utilizzare 'Dataproc' rispetto alla gestione manuale di un cluster Apache Spark o Hadoop?",
+    "options": [
+      "Dataproc è un servizio gestito che permette di creare cluster in meno di 90 secondi e pagarli al secondo",
+      "Dataproc è l'unica soluzione che non richiede l'uso di internet",
+      "Dataproc impedisce agli utenti di usare il linguaggio Python",
+      "Dataproc è progettato solo per database SQL Server"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Riduce drasticamente il tempo di amministrazione dell'infrastruttura e ottimizza i costi grazie alla velocità di avvio e spegnimento; Contro: I cluster devono essere configurati correttamente per evitare sprechi se lasciati accesi.",
+      "Opzione B: Pro: Isolamento; Contro: Essendo un servizio cloud, richiede connettività di rete.",
+      "Opzione C: Pro: Controllo; Contro: Supporta pienamente PySpark (Python).",
+      "Opzione D: Pro: Specificità; Contro: È un servizio per l'elaborazione di big data (Spark/Hadoop/Hive), non per DB relazionali standard."
+    ]
+  },
+  {
+    "inputNumber": 388,
+    "question": "Un'azienda deve migrare un'applicazione critica che richiede l'uso di un modulo di sicurezza hardware (HSM) per la gestione delle chiavi crittografiche per motivi normativi. Quale servizio dovrebbe usare?",
+    "options": [
+      "Cloud HSM",
+      "Cloud Storage",
+      "Secret Manager",
+      "Cloud Identity"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Fornisce un servizio HSM certificato FIPS 140-2 Level 3 ospitato su Google Cloud, permettendo di gestire le chiavi in un ambiente hardware protetto; Contro: Ha un costo superiore rispetto al KMS software standard.",
+      "Opzione B: Pro: Archiviazione; Contro: Non è un dispositivo di gestione chiavi.",
+      "Opzione C: Pro: Gestione segreti; Contro: Memorizza password e chiavi API in modo sicuro, ma non basato su hardware dedicato HSM.",
+      "Opzione D: Pro: Identità; Contro: Gestisce utenti e gruppi, non chiavi crittografiche hardware."
+    ]
+  },
+  {
+    "inputNumber": 390,
+    "question": "Perché un'azienda sceglierebbe di utilizzare 'Looker' invece di semplici fogli di calcolo per la Business Intelligence?",
+    "options": [
+      "Perché Looker permette di creare un modello di dati unificato (LookML) garantendo che tutti in azienda vedano la 'singola fonte di verità'",
+      "Perché Looker è gratuito per tutti",
+      "Perché Looker non richiede una connessione a un database",
+      "Perché Looker sostituisce la necessità di avere un ufficio fisico"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Evita che diversi reparti abbiano metriche contrastanti (es. definizioni diverse di 'fatturato'); Contro: Richiede una curva di apprendimento per il linguaggio LookML.",
+      "Opzione B: Pro: Budget; Contro: Looker è una soluzione BI di classe enterprise a pagamento.",
+      "Opzione C: Pro: Semplicità; Contro: Looker deve essere collegato a un database (come BigQuery) per estrarre dati.",
+      "Opzione D: Pro: Remotizzazione; Contro: È uno strumento software, non una soluzione immobiliare."
+    ]
+  },
+  {
+    "inputNumber": 393,
+    "question": "Nel contesto della sicurezza cloud, che cos'è il 'Principio del minimo privilegio'?",
+    "options": [
+      "Dare a tutti gli utenti i permessi di amministratore per evitare ticket di supporto",
+      "Concedere agli utenti solo le autorizzazioni strettamente necessarie per svolgere il proprio lavoro e per il tempo necessario",
+      "Rendere il sistema talmente difficile da usare che nessuno vuole accedervi",
+      "Utilizzare la stessa password per tutti i servizi aziendali"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Velocità; Contro: Grave rischio di sicurezza; un solo errore o account compromesso può distruggere l'intera infrastruttura.",
+      "Opzione B: Pro: Riduce significativamente la 'superficie di attacco' e il rischio di danni accidentali; Contro: Richiede una gestione più granulare e costante di IAM.",
+      "Opzione C: Pro: Dissuasione; Contro: Blocca la produttività aziendale.",
+      "Opzione D: Pro: Memoria; Contro: Violazione totale delle best practice di sicurezza."
+    ]
+  },
+  {
+    "inputNumber": 395,
+    "question": "Qual è lo scopo principale del servizio 'Cloud Tasks'?",
+    "options": [
+      "Gestire la lista delle cose da fare dei dipendenti",
+      "Gestire l'esecuzione di compiti asincroni (code di messaggi) per distribuire il carico di lavoro tra diversi microservizi",
+      "Sostituire il servizio di posta elettronica aziendale",
+      "Monitorare il tempo trascorso su YouTube durante il lavoro"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Organizzazione; Contro: Non è un'app di produttività personale.",
+      "Opzione B: Pro: Permette di gestire il traffico, ritardare l'esecuzione di task pesanti e gestire i tentativi di ripristino (retry) in caso di errore; Contro: Richiede che il target del task sia raggiungibile via HTTP.",
+      "Opzione C: Pro: Comunicazione; Contro: Non invia email, gestisce chiamate tra server.",
+      "Opzione D: Pro: Sorveglianza; Contro: Non ha nulla a che fare con il monitoraggio del comportamento dell'utente."
+    ]
+  },
+  {
+    "inputNumber": 398,
+    "question": "Quale servizio Google Cloud è progettato per lo streaming di dati su larga scala e il disaccoppiamento dei sistemi in tempo reale?",
+    "options": [
+      "Pub/Sub",
+      "Cloud SQL",
+      "Google App Engine",
+      "Cloud Build"
+    ],
+    "answer": 0,
+    "explanation": [
+      "Opzione A: Pro: Servizio di messaggistica asincrono altamente scalabile che permette a diversi componenti di un'applicazione di comunicare senza essere collegati direttamente; Contro: I messaggi hanno una durata limitata (default 7 giorni) prima di essere eliminati.",
+      "Opzione B: Pro: Database; Contro: È un database relazionale, non un sistema di messaggistica.",
+      "Opzione C: Pro: Hosting; Contro: È una piattaforma per applicazioni, non un bus di messaggi.",
+      "Opzione D: Pro: CI/CD; Contro: Gestisce la compilazione del codice, non lo scambio di dati in tempo reale."
+    ]
+  },
+  {
+    "inputNumber": 400,
+    "question": "Infine, qual è il valore fondamentale dell'approccio 'Cloud-Native'?",
+    "options": [
+      "Utilizzare il cloud solo per memorizzare file di testo",
+      "Progettare applicazioni specificamente per sfruttare i vantaggi di scalabilità, resilienza e flessibilità offerti dal cloud (container, microservizi, serverless)",
+      "Assicurarsi che le applicazioni funzionino meglio su computer vecchi",
+      "Eliminare l'uso di internet"
+    ],
+    "answer": 1,
+    "explanation": [
+      "Opzione A: Pro: Semplicità; Contro: Spreca il potenziale del cloud.",
+      "Opzione B: Pro: Permette di innovare più velocemente, gestire carichi di traffico enormi e riprendersi automaticamente dai guasti; Contro: Richiede un cambio di mentalità e spesso la riscrittura di vecchi software (legacy).",
+      "Opzione C: Pro: Accessibilità; Contro: Il cloud-native si focalizza sull'infrastruttura moderna dei data center, non sull'hardware dell'utente finale.",
+      "Opzione D: Pro: Sicurezza; Contro: Il cloud-native è intrinsecamente dipendente dalla connettività internet o di rete."
+    ]
+  }
+]
