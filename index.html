@@ -2,19 +2,200 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Simulatore Esame Google Cloud</title>
+  <title>Simulatore Esame Google Cloud Digital Leader</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .hidden {
+      display: none;
+    }
+    .option-btn {
+      text-align: left;
+    }
+    .explanation {
+      margin-top: 6px;
+      padding: 8px;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+    .correct {
+      background: #dcedc8;
+    }
+    .wrong {
+      background: #ffcdd2;
+    }
+  </style>
 </head>
 
 <body>
 
-<h1>Simulatore Esame Google Cloud Digital Leader</h1>
+<div class="container">
 
-<div id="start-screen">
-  <button onclick="alert('JS FUNZIONA')">Test JS</button>
+  <!-- START SCREEN -->
+  <div id="start-screen">
+    <h1>Simulatore Esame Google Cloud Digital Leader</h1>
+    <p>Seleziona quante domande vuoi fare:</p>
+    <button onclick="startExam(10)">10 domande</button>
+    <button onclick="startExam(20)">20 domande</button>
+    <button onclick="startExam(30)">30 domande</button>
+    <button onclick="startExam(50)">50 domande</button>
+  </div>
+
+  <!-- QUIZ SCREEN -->
+  <div id="quiz-screen" class="hidden">
+    <h2 id="progress"></h2>
+    <div id="question"></div>
+    <div id="options"></div>
+    <button id="nextBtn" class="hidden">Prossima domanda</button>
+  </div>
+
+  <!-- RESULT SCREEN -->
+  <div id="result-screen" class="hidden"></div>
+
 </div>
 
+<!-- ⚠️ JS SEMPRE QUI, FONDO BODY -->
 <script>
-  console.log("JS caricato correttamente");
+console.log("JS caricato correttamente");
+
+/* ======================
+   DOMANDE DI TEST
+====================== */
+const allQuestions = [
+  {
+    inputNumber: 52,
+    question: "Your organization is developing a global multi-player game and requires a database that can return consistent global leaderboards.",
+    options: ["Firestore", "Cloud Spanner", "Cloud SQL", "Bare metal"],
+    answer: 1,
+    explanation: [
+      "Firestore: Pro: NoSQL scalabile; Contro: consistenza eventuale.",
+      "Cloud Spanner: Pro: consistenza forte globale; Contro: costo maggiore.",
+      "Cloud SQL: Pro: relazionale gestito; Contro: non globale.",
+      "Bare metal: Pro: controllo hardware; Contro: non cloud-native."
+    ]
+  },
+  {
+    inputNumber: 53,
+    question: "Which Google Cloud product supports Linux custom VM images?",
+    options: [
+      "App Engine flexible",
+      "Compute Engine",
+      "App Engine standard",
+      "Google Kubernetes Engine"
+    ],
+    answer: 1,
+    explanation: [
+      "App Engine flexible: Pro: PaaS; Contro: no immagini custom.",
+      "Compute Engine: Pro: VM e immagini custom; Contro: gestione OS.",
+      "App Engine standard: Pro: gestito; Contro: no OS control.",
+      "GKE: Pro: container; Contro: non VM."
+    ]
+  }
+];
+
+/* ======================
+   LOGICA APP
+====================== */
+let questions = [];
+let current = 0;
+let score = 0;
+
+const startScreen = document.getElementById("start-screen");
+const quizScreen = document.getElementById("quiz-screen");
+const resultScreen = document.getElementById("result-screen");
+const questionDiv = document.getElementById("question");
+const optionsDiv = document.getElementById("options");
+const nextBtn = document.getElementById("nextBtn");
+const progress = document.getElementById("progress");
+
+function startExam(count) {
+  startScreen.classList.add("hidden");
+  quizScreen.classList.remove("hidden");
+
+  questions = [...allQuestions]
+    .sort(() => Math.random() - 0.5)
+    .slice(0, count);
+
+  current = 0;
+  score = 0;
+  showQuestion();
+}
+
+function showQuestion() {
+  const q = questions[current];
+  progress.innerText = `Domanda ${current + 1} / ${questions.length} (Q${q.inputNumber})`;
+  questionDiv.innerHTML = `<strong>${q.question}</strong>`;
+  optionsDiv.innerHTML = "";
+  nextBtn.classList.add("hidden");
+
+  q.options.forEach((opt, i) => {
+    const btn = document.createElement("button");
+    btn.className = "option-btn";
+    btn.innerText = opt;
+    btn.onclick = () => selectAnswer(i);
+    optionsDiv.appendChild(btn);
+  });
+}
+
+function selectAnswer(index) {
+  const q = questions[current];
+  if (index === q.answer) score++;
+
+  Array.from(optionsDiv.children).forEach(b => b.disabled = true);
+
+  q.options.forEach((opt, i) => {
+    const div = document.createElement("div");
+    div.className = "explanation " + (i === q.answer ? "correct" : "wrong");
+    div.innerHTML = `<strong>${opt}</strong><br>${q.explanation[i]}`;
+    optionsDiv.appendChild(div);
+  });
+
+  nextBtn.classList.remove("hidden");
+}
+
+nextBtn.onclick = () => {
+  current++;
+  if (current < questions.length) {
+    showQuestion();
+  } else {
+    showResult();
+  }
+};
+
+function showResult() {
+  quizScreen.classList.add("hidden");
+  resultScreen.classList.remove("hidden");
+  const percent = ((score / questions.length) * 100).toFixed(1);
+  resultScreen.innerHTML = `
+    <h2>Risultato finale</h2>
+    <p>${score} / ${questions.length} risposte corrette</p>
+    <p><strong>${percent}%</strong></p>
+    <button onclick="location.reload()">Ricomincia</button>
+  `;
+}
 </script>
 
 </body>
