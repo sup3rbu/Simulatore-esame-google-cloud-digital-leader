@@ -6,9 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
@@ -26,20 +24,24 @@
       box-shadow: 0 4px 16px rgba(0,0,0,0.08);
     }
 
-    h1 {
-      font-size: 1.6rem;
-      text-align: center;
-      margin-bottom: 12px;
+    h1 { font-size: 1.6rem; text-align: center; margin-bottom: 12px; }
+    h2 { font-size: 1.2rem; margin-bottom: 10px; text-align: center; }
+    
+    /* PROGRESS BAR */
+    .progress-container {
+      width: 100%;
+      background-color: #e0e0e0;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      height: 10px;
+      overflow: hidden;
     }
 
-    h2 {
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-      text-align: center;
-    }
-
-    p {
-      font-size: 1rem;
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background-color: #1a73e8;
+      transition: width 0.3s ease;
     }
 
     button {
@@ -54,92 +56,71 @@
       cursor: pointer;
     }
 
-    button:active {
-      transform: scale(0.98);
-    }
-
-    button:disabled {
-      background: #cccccc;
-      cursor: not-allowed;
-    }
-
     .option-btn {
       background: #f1f3f4;
       color: #000;
       border: 1px solid #ddd;
+      text-align: left;
+      transition: all 0.2s;
     }
 
-    .hidden {
-      display: none;
+    /* Stile per la risposta selezionata */
+    .option-btn.selected {
+      background: #1a73e8 !important;
+      color: white !important;
+      border-color: #1557b0;
+      font-weight: bold;
     }
+
+    .hidden { display: none; }
 
     .explanation {
-      margin-top: 6px;
-      padding: 10px;
+      margin-top: 4px;
+      margin-bottom: 12px;
+      padding: 12px;
       border-radius: 6px;
       font-size: 0.9rem;
+      border-left: 5px solid;
     }
 
-    .correct {
-      background: #dcedc8;
-    }
+    .correct { background: #dcedc8; border-color: #558b2f; }
+    .wrong { background: #ffcdd2; border-color: #c62828; }
 
-    .wrong {
-      background: #ffcdd2;
-    }
-
-    /* DESKTOP IMPROVEMENTS */
     @media (min-width: 768px) {
-      body {
-        padding: 24px;
-      }
-
-      .container {
-        padding: 28px;
-      }
-
-      h1 {
-        font-size: 2rem;
-      }
-
-      button {
-        font-size: 1.1rem;
-      }
+      body { padding: 24px; }
+      .container { padding: 28px; }
+      h1 { font-size: 2rem; }
     }
   </style>
 </head>
-
 <body>
 
 <div class="container">
 
-  <!-- START SCREEN -->
   <div id="start-screen">
-    <h1>Simulatore Esame Google Cloud Digital Leader</h1>
-    <p>Seleziona quante domande vuoi fare:</p>
+    <h1>Simulatore Esame Cloud Digital Leader</h1>
+    <p style="text-align:center">Seleziona quante domande vuoi affrontare per questa sessione:</p>
     <button onclick="startExam(10)">10 domande</button>
     <button onclick="startExam(20)">20 domande</button>
-    <button onclick="startExam(30)">30 domande</button>
     <button onclick="startExam(50)">50 domande</button>
   </div>
 
-  <!-- QUIZ SCREEN -->
   <div id="quiz-screen" class="hidden">
-    <h2 id="progress"></h2>
-    <div id="question"></div>
+    <div class="progress-container">
+      <div id="bar" class="progress-bar"></div>
+    </div>
+    <h2 id="progress-text"></h2>
+    <div id="question" style="margin-bottom: 20px; font-size: 1.1rem;"></div>
     <div id="options"></div>
-    <button id="nextBtn" class="hidden">Prossima domanda</button>
+    <button id="nextBtn" class="hidden" style="background: #34a853; margin-top: 20px;">Prossima domanda ➔</button>
   </div>
 
-  <!-- RESULT SCREEN -->
-  <div id="result-screen" class="hidden"></div>
+  <div id="result-screen" class="hidden" style="text-align:center"></div>
 
 </div>
 
 <script>
-/* ======================
-   DOMANDE DI TEST
-====================== */
+/* Inserisci qui il tuo array allQuestions completo */
 const allQuestions = [
   {
     inputNumber: 52,
@@ -147,34 +128,27 @@ const allQuestions = [
     options: ["Firestore", "Cloud Spanner", "Cloud SQL", "Bare metal"],
     answer: 1,
     explanation: [
-      "Firestore: Pro: NoSQL scalabile; Contro: consistenza eventuale.",
-      "Cloud Spanner: Pro: consistenza forte globale; Contro: costo maggiore.",
-      "Cloud SQL: Pro: relazionale gestito; Contro: non globale.",
-      "Bare metal: Pro: controllo hardware; Contro: non cloud-native."
+      "Firestore: NoSQL scalabile; ottimo per app mobili ma con consistenza eventuale su larga scala.",
+      "Cloud Spanner: CORRETTO. Fornisce consistenza forte a livello globale e scalabilità relazionale.",
+      "Cloud SQL: Relazionale gestito, ma limitato a singole regioni per la scrittura primaria.",
+      "Bare metal: Non è una soluzione database gestita nativa per scalabilità globale."
     ]
   },
   {
     inputNumber: 53,
     question: "Which Google Cloud product supports Linux custom VM images?",
-    options: [
-      "App Engine flexible",
-      "Compute Engine",
-      "App Engine standard",
-      "Google Kubernetes Engine"
-    ],
+    options: ["App Engine flexible", "Compute Engine", "App Engine standard", "Google Kubernetes Engine"],
     answer: 1,
     explanation: [
-      "App Engine flexible: Pro: PaaS; Contro: no immagini custom.",
-      "Compute Engine: Pro: VM e immagini custom; Contro: gestione OS.",
-      "App Engine standard: Pro: gestito; Contro: no OS control.",
-      "GKE: Pro: container; Contro: non VM."
+      "App Engine flexible: Usa container, non permette il caricamento di immagini .raw di VM.",
+      "Compute Engine: CORRETTO. È il servizio IaaS che permette il caricamento di immagini custom (VHD, RAW).",
+      "App Engine standard: Ambiente sandbox chiuso, nessun controllo sull'OS.",
+      "GKE: Gestisce container Docker, non immagini di intere macchine virtuali."
     ]
   }
+  // Aggiungi le altre 398 domande qui...
 ];
 
-/* ======================
-   LOGICA APP
-====================== */
 let questions = [];
 let current = 0;
 let score = 0;
@@ -185,15 +159,15 @@ const resultScreen = document.getElementById("result-screen");
 const questionDiv = document.getElementById("question");
 const optionsDiv = document.getElementById("options");
 const nextBtn = document.getElementById("nextBtn");
-const progress = document.getElementById("progress");
+const progressText = document.getElementById("progress-text");
+const bar = document.getElementById("bar");
 
 function startExam(count) {
   startScreen.classList.add("hidden");
   quizScreen.classList.remove("hidden");
 
-  questions = [...allQuestions]
-    .sort(() => Math.random() - 0.5)
-    .slice(0, count);
+  // Mischia e seleziona
+  questions = [...allQuestions].sort(() => Math.random() - 0.5).slice(0, count);
 
   current = 0;
   score = 0;
@@ -202,7 +176,12 @@ function startExam(count) {
 
 function showQuestion() {
   const q = questions[current];
-  progress.innerText = `Domanda ${current + 1} / ${questions.length} (Q${q.inputNumber})`;
+  
+  // Aggiorna Progress Bar e Testo
+  const progressPercent = (current / questions.length) * 100;
+  bar.style.width = progressPercent + "%";
+  progressText.innerText = `Domanda ${current + 1} di ${questions.length}`;
+  
   questionDiv.innerHTML = `<strong>${q.question}</strong>`;
   optionsDiv.innerHTML = "";
   nextBtn.classList.add("hidden");
@@ -211,25 +190,36 @@ function showQuestion() {
     const btn = document.createElement("button");
     btn.className = "option-btn";
     btn.innerText = opt;
-    btn.onclick = () => selectAnswer(i);
+    btn.onclick = () => selectAnswer(i, btn);
     optionsDiv.appendChild(btn);
   });
 }
 
-function selectAnswer(index) {
+function selectAnswer(index, clickedBtn) {
   const q = questions[current];
-  if (index === q.answer) score++;
+  
+  // Impedisce click multipli
+  const buttons = optionsDiv.querySelectorAll(".option-btn");
+  buttons.forEach(b => b.onclick = null); 
 
-  Array.from(optionsDiv.children).forEach(b => b.disabled = true);
+  // Evidenzia la scelta
+  clickedBtn.classList.add("selected");
 
-  q.options.forEach((opt, i) => {
-    const div = document.createElement("div");
-    div.className = "explanation " + (i === q.answer ? "correct" : "wrong");
-    div.innerHTML = `<strong>${opt}</strong><br>${q.explanation[i]}`;
-    optionsDiv.appendChild(div);
-  });
+  if (index === q.answer) {
+    score++;
+  }
 
-  nextBtn.classList.remove("hidden");
+  // Mostra spiegazioni
+  setTimeout(() => {
+    q.options.forEach((opt, i) => {
+      const div = document.createElement("div");
+      div.className = "explanation " + (i === q.answer ? "correct" : "wrong");
+      div.innerHTML = `<strong>${opt}</strong>: ${q.explanation[i]}`;
+      optionsDiv.appendChild(div);
+    });
+    nextBtn.classList.remove("hidden");
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+  }, 300);
 }
 
 nextBtn.onclick = () => {
@@ -237,6 +227,7 @@ nextBtn.onclick = () => {
   if (current < questions.length) {
     showQuestion();
   } else {
+    bar.style.width = "100%";
     showResult();
   }
 };
@@ -245,11 +236,14 @@ function showResult() {
   quizScreen.classList.add("hidden");
   resultScreen.classList.remove("hidden");
   const percent = ((score / questions.length) * 100).toFixed(1);
+  
+  let msg = percent >= 70 ? "🥳 SUPERATO!" : "😟 NON SUPERATO. Riprova!";
+  
   resultScreen.innerHTML = `
-    <h2>Risultato finale</h2>
-    <p>${score} / ${questions.length} risposte corrette</p>
-    <p><strong>${percent}%</strong></p>
-    <button onclick="location.reload()">Ricomincia</button>
+    <h2>${msg}</h2>
+    <p style="font-size: 1.5rem; margin: 20px 0;">Punteggio: <strong>${score} / ${questions.length}</strong> (${percent}%)</p>
+    <p>Il punteggio minimo per l'esame reale è circa il 70%.</p>
+    <button onclick="location.reload()" style="background: #1a73e8">Ricomincia Simulazione</button>
   `;
 }
 </script>
