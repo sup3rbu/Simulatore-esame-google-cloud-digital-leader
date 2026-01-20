@@ -1,39 +1,250 @@
-<style>
-  /* ... (mantieni gli stili precedenti e aggiungi/modifica questi) ... */
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Simulatore Esame Google Cloud Digital Leader</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  .option-btn {
-    background: #f1f3f4;
-    color: #000;
-    border: 1px solid #ddd;
-    text-align: left;
-    transition: all 0.2s;
-    position: relative;
+  <style>
+    :root {
+      --g-blue: #1a73e8;
+      --g-red: #ea4335;
+      --g-green: #34a853;
+      --g-gray: #f1f3f4;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #f8f9fa;
+      margin: 0;
+      padding: 15px;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    /* PROGRESS BAR */
+    .progress-container {
+      width: 100%;
+      background: #eee;
+      height: 8px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+    .progress-bar {
+      height: 100%;
+      background: var(--g-blue);
+      width: 0%;
+      border-radius: 4px;
+      transition: width 0.4s ease;
+    }
+
+    h1 { font-size: 1.8rem; color: #202124; text-align: center; }
+
+    /* BOTTONI OPZIONI */
+    .option-btn {
+      width: 100%;
+      padding: 15px;
+      margin: 10px 0;
+      border: 2px solid #dadce0;
+      border-radius: 8px;
+      background: white;
+      text-align: left;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .option-btn:hover:not(:disabled) { background: var(--g-gray); border-color: #bdc1c6; }
+
+    /* FEEDBACK COLORI */
+    .option-btn.is-correct {
+      background: #e6f4ea !important;
+      border-color: var(--g-green) !important;
+      color: #137333;
+      font-weight: 600;
+    }
+    .option-btn.is-wrong {
+      background: #fce8e6 !important;
+      border-color: var(--g-red) !important;
+      color: #c5221f;
+    }
+
+    .hidden { display: none; }
+
+    .explanation-box {
+      margin-top: 20px;
+      padding: 15px;
+      background: #f8f9fa;
+      border-left: 4px solid var(--g-blue);
+      border-radius: 4px;
+      font-size: 0.95rem;
+    }
+
+    #nextBtn {
+      background: var(--g-blue);
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div id="start-screen">
+    <h1>GCP Digital Leader Quiz</h1>
+    <p style="text-align: center;">Metti alla prova la tua preparazione per l'esame ufficiale.</p>
+    <button onclick="startExam(10)" class="option-btn" style="justify-content: center; background: var(--g-blue); color: white;">Inizia Quiz (10 domande)</button>
+    <button onclick="startExam(allQuestions.length)" class="option-btn" style="justify-content: center;">Tutte le domande</button>
+  </div>
+
+  <div id="quiz-screen" class="hidden">
+    <div class="progress-container"><div id="bar" class="progress-bar"></div></div>
+    <div id="status" style="font-weight: bold; color: #5f6368; margin-bottom: 10px;"></div>
+    <div id="question" style="font-size: 1.2rem; margin-bottom: 20px; color: #202124;"></div>
+    <div id="options"></div>
+    <div id="explanation" class="hidden"></div>
+    <button id="nextBtn" class="hidden">Prossima Domanda ➔</button>
+  </div>
+
+  <div id="result-screen" class="hidden" style="text-align: center;">
+    <h2 id="res-title"></h2>
+    <p id="res-score" style="font-size: 1.5rem;"></p>
+    <button onclick="location.reload()" style="background: var(--g-blue); color: white; padding: 15px; border: none; border-radius: 8px; cursor: pointer;">Riprova</button>
+  </div>
+</div>
+
+<script>
+// DATABASE DOMANDE
+const allQuestions = [
+  {
+    inputNumber: 52,
+    question: "Your organization is developing a global multi-player game and requires a database that can return consistent global leaderboards.",
+    options: ["Firestore", "Cloud Spanner", "Cloud SQL", "Bare metal"],
+    answer: 1,
+    explanation: [
+      "Firestore è ottimo per app mobili, ma ha limiti di consistenza su larga scala globale.",
+      "Cloud Spanner fornisce consistenza forte a livello globale e scalabilità orizzontale.",
+      "Cloud SQL è un servizio regionale e non scala globalmente per scritture.",
+      "Bare metal non è una soluzione database gestita scalabile."
+    ]
+  },
+  {
+    inputNumber: 222,
+    question: "Qual è l'opzione di archiviazione più economica in Cloud Storage per file che devono essere conservati per 10 anni e letti raramente?",
+    options: ["Standard", "Nearline", "Coldline", "Archive"],
+    answer: 3,
+    explanation: [
+      "Standard è per dati ad accesso frequente.",
+      "Nearline è per dati letti una volta al mese.",
+      "Coldline è per dati letti una volta al trimestre.",
+      "Archive è il più economico per conservazioni a lungo termine (>365 giorni)."
+    ]
+  }
+];
+
+let selectedQuestions = [];
+let currentIdx = 0;
+let score = 0;
+
+function startExam(num) {
+  document.getElementById('start-screen').classList.add('hidden');
+  document.getElementById('quiz-screen').classList.remove('hidden');
+  
+  selectedQuestions = [...allQuestions].sort(() => Math.random() - 0.5).slice(0, num);
+  showQuestion();
+}
+
+function showQuestion() {
+  const q = selectedQuestions[currentIdx];
+  const bar = document.getElementById('bar');
+  const status = document.getElementById('status');
+  const optionsDiv = document.getElementById('options');
+  const nextBtn = document.getElementById('nextBtn');
+  const explDiv = document.getElementById('explanation');
+
+  // Update UI
+  bar.style.width = `${(currentIdx / selectedQuestions.length) * 100}%`;
+  status.innerText = `DOMANDA ${currentIdx + 1} DI ${selectedQuestions.length}`;
+  document.getElementById('question').innerText = q.question;
+  
+  optionsDiv.innerHTML = '';
+  explDiv.classList.add('hidden');
+  nextBtn.classList.add('hidden');
+
+  q.options.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'option-btn';
+    btn.innerText = opt;
+    btn.onclick = () => handleSelection(i, btn);
+    optionsDiv.appendChild(btn);
+  });
+}
+
+function handleSelection(idx, btn) {
+  const q = selectedQuestions[currentIdx];
+  const buttons = document.querySelectorAll('.option-btn');
+  const nextBtn = document.getElementById('nextBtn');
+  const explDiv = document.getElementById('explanation');
+
+  // Disabilita bottoni
+  buttons.forEach(b => b.disabled = true);
+
+  // Colora scelta
+  if (idx === q.answer) {
+    btn.classList.add('is-correct');
+    btn.innerHTML += ' <span>✔</span>';
+    score++;
+  } else {
+    btn.classList.add('is-wrong');
+    btn.innerHTML += ' <span>✘</span>';
+    buttons[q.answer].classList.add('is-correct');
+    buttons[q.answer].innerHTML += ' <span>✔</span>';
   }
 
-  /* Risposta corretta (evidenziata dopo il click) */
-  .option-btn.is-correct {
-    background: #34a853 !important; /* Verde Google */
-    color: white !important;
-    border-color: #2d8945;
-  }
+  // Mostra spiegazione
+  explDiv.innerHTML = `<div class="explanation-box">
+    <strong>Perché?</strong><br>${q.explanation[idx] || q.explanation[q.answer]}
+  </div>`;
+  explDiv.classList.remove('hidden');
+  nextBtn.classList.remove('hidden');
+}
 
-  /* Risposta sbagliata selezionata dall'utente */
-  .option-btn.is-wrong {
-    background: #ea4335 !important; /* Rosso Google */
-    color: white !important;
-    border-color: #c53929;
+document.getElementById('nextBtn').onclick = () => {
+  currentIdx++;
+  if (currentIdx < selectedQuestions.length) {
+    showQuestion();
+  } else {
+    showFinalResults();
   }
+};
 
-  /* Icone di feedback */
-  .option-btn.is-correct::after { content: " ✔"; font-weight: bold; float: right; }
-  .option-btn.is-wrong::after { content: " ✘"; font-weight: bold; float: right; }
-
-  .explanation {
-    margin-top: 8px;
-    padding: 12px;
-    border-radius: 6px;
-    font-size: 0.9rem;
-    border-left: 5px solid #1a73e8;
-    background: #f8f9fa;
-  }
-</style>
+function showFinalResults() {
+  document.getElementById('quiz-screen').classList.add('hidden');
+  const resScreen = document.getElementById('result-screen');
+  resScreen.classList.remove('hidden');
+  
+  const pct = (score / selectedQuestions.length) * 100;
+  document.getElementById('res-title').innerText = pct >= 70 ? "Ottimo lavoro! 🎉" : "Devi ripassare ancora 📚";
+  document.getElementById('res-score').innerText = `${score} / ${selectedQuestions.length} (${pct.toFixed(1)}%)`;
+}
+</script>
+</body>
+</html>
