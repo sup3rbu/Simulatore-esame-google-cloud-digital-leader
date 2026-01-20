@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Simulatore Esame Google Cloud Digital Leader</title>
+  <title>Simulatore Google Cloud Digital Leader</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
@@ -11,97 +11,103 @@
       --g-red: #ea4335;
       --g-green: #34a853;
       --g-gray: #f1f3f4;
+      --g-text: #202124;
     }
 
     * { box-sizing: border-box; }
     body {
-      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-family: 'Segoe UI', Roboto, Arial, sans-serif;
       background: #f8f9fa;
       margin: 0;
-      padding: 15px;
-      line-height: 1.5;
+      padding: 10px;
+      color: var(--g-text);
     }
 
     .container {
-      max-width: 800px;
-      margin: 20px auto;
+      max-width: 850px;
+      margin: 15px auto;
       background: white;
       padding: 25px;
       border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
     /* PROGRESS BAR */
     .progress-container {
       width: 100%;
       background: #eee;
-      height: 8px;
-      border-radius: 4px;
+      height: 10px;
+      border-radius: 5px;
       margin-bottom: 20px;
+      overflow: hidden;
     }
     .progress-bar {
       height: 100%;
       background: var(--g-blue);
       width: 0%;
-      border-radius: 4px;
       transition: width 0.4s ease;
     }
 
-    h1 { font-size: 1.8rem; color: #202124; text-align: center; }
+    h1 { font-size: 1.8rem; text-align: center; margin-bottom: 20px; }
 
-    /* BOTTONI OPZIONI */
-    .option-btn {
+    /* BOTTONI */
+    .btn {
       width: 100%;
       padding: 15px;
-      margin: 10px 0;
-      border: 2px solid #dadce0;
+      margin: 8px 0;
       border-radius: 8px;
-      background: white;
-      text-align: left;
+      border: 1px solid #dadce0;
       font-size: 1rem;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.2s;
+      text-align: left;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      background: white;
     }
 
-    .option-btn:hover:not(:disabled) { background: var(--g-gray); border-color: #bdc1c6; }
+    .btn:hover:not(:disabled) { background: var(--g-gray); }
+    
+    .btn-main {
+      background: var(--g-blue);
+      color: white;
+      justify-content: center;
+      font-weight: bold;
+    }
 
     /* FEEDBACK COLORI */
-    .option-btn.is-correct {
+    .is-correct {
       background: #e6f4ea !important;
       border-color: var(--g-green) !important;
-      color: #137333;
-      font-weight: 600;
+      color: #137333 !important;
+      font-weight: bold;
     }
-    .option-btn.is-wrong {
+    .is-wrong {
       background: #fce8e6 !important;
       border-color: var(--g-red) !important;
-      color: #c5221f;
+      color: #c5221f !important;
     }
-
-    .hidden { display: none; }
 
     .explanation-box {
       margin-top: 20px;
       padding: 15px;
       background: #f8f9fa;
-      border-left: 4px solid var(--g-blue);
+      border-left: 5px solid var(--g-blue);
       border-radius: 4px;
       font-size: 0.95rem;
     }
 
+    .hidden { display: none; }
+
     #nextBtn {
-      background: var(--g-blue);
+      background: var(--g-green);
       color: white;
       border: none;
-      padding: 15px 30px;
-      border-radius: 8px;
+      padding: 16px;
       font-weight: bold;
-      cursor: pointer;
-      width: 100%;
-      margin-top: 20px;
+      margin-top: 15px;
+      justify-content: center;
     }
   </style>
 </head>
@@ -109,30 +115,43 @@
 
 <div class="container">
   <div id="start-screen">
-    <h1>GCP Digital Leader Quiz</h1>
-    <p style="text-align: center;">Metti alla prova la tua preparazione per l'esame ufficiale.</p>
-    <button onclick="startExam(10)" class="option-btn" style="justify-content: center; background: var(--g-blue); color: white;">Inizia Quiz (10 domande)</button>
-    <button onclick="startExam(allQuestions.length)" class="option-btn" style="justify-content: center;">Tutte le domande</button>
+    <h1>Cloud Digital Leader Simulator</h1>
+    <p style="text-align: center; margin-bottom: 30px;">Pronto per la certificazione? Scegli la durata del test:</p>
+    
+    <button onclick="startExam(10)" class="btn btn-main">Test Rapido (10 domande)</button>
+    <button onclick="startExam(20)" class="btn">Test Standard (20 domande)</button>
+    <button onclick="startExam(50)" class="btn">Simulazione Completa (50 domande)</button>
+    <button onclick="startExam(allQuestions.length)" class="btn" style="border-style: dashed; justify-content: center;">
+      Tutte le domande (${allQuestions.length})
+    </button>
   </div>
 
   <div id="quiz-screen" class="hidden">
     <div class="progress-container"><div id="bar" class="progress-bar"></div></div>
-    <div id="status" style="font-weight: bold; color: #5f6368; margin-bottom: 10px;"></div>
-    <div id="question" style="font-size: 1.2rem; margin-bottom: 20px; color: #202124;"></div>
+    <div id="status" style="font-weight: bold; color: #70757a; margin-bottom: 5px;"></div>
+    
+    <div id="question" style="font-size: 1.25rem; font-weight: 500; margin-bottom: 25px;"></div>
+    
     <div id="options"></div>
+    
     <div id="explanation" class="hidden"></div>
-    <button id="nextBtn" class="hidden">Prossima Domanda ➔</button>
+    
+    <button id="nextBtn" class="btn hidden">Prossima Domanda ➔</button>
   </div>
 
   <div id="result-screen" class="hidden" style="text-align: center;">
     <h2 id="res-title"></h2>
-    <p id="res-score" style="font-size: 1.5rem;"></p>
-    <button onclick="location.reload()" style="background: var(--g-blue); color: white; padding: 15px; border: none; border-radius: 8px; cursor: pointer;">Riprova</button>
+    <p id="res-score" style="font-size: 2rem; margin: 20px 0;"></p>
+    <p id="res-feedback"></p>
+    <button onclick="location.reload()" class="btn btn-main" style="margin-top: 30px;">Ricomincia</button>
   </div>
 </div>
 
 <script>
-// DATABASE DOMANDE
+/**
+ * DATABASE DOMANDE
+ * Incolla qui le altre domande seguendo lo stesso formato.
+ */
 const allQuestions = [
   {
     inputNumber: 52,
@@ -140,24 +159,30 @@ const allQuestions = [
     options: ["Firestore", "Cloud Spanner", "Cloud SQL", "Bare metal"],
     answer: 1,
     explanation: [
-      "Firestore è ottimo per app mobili, ma ha limiti di consistenza su larga scala globale.",
-      "Cloud Spanner fornisce consistenza forte a livello globale e scalabilità orizzontale.",
-      "Cloud SQL è un servizio regionale e non scala globalmente per scritture.",
-      "Bare metal non è una soluzione database gestita scalabile."
+      "Firestore: NoSQL scalabile, ma con consistenza eventuale su scala globale.",
+      "Cloud Spanner: CORRETTO. Fornisce consistenza forte e scalabilità relazionale globale.",
+      "Cloud SQL: Limitato a singole regioni per le operazioni di scrittura primaria.",
+      "Bare metal: Non è una soluzione database gestita per questo caso d'uso."
     ]
   },
   {
-    inputNumber: 222,
-    question: "Qual è l'opzione di archiviazione più economica in Cloud Storage per file che devono essere conservati per 10 anni e letti raramente?",
-    options: ["Standard", "Nearline", "Coldline", "Archive"],
-    answer: 3,
+    inputNumber: 280,
+    question: "Perché un'azienda sceglierebbe il 'Private Google Access'?",
+    options: [
+      "Per permettere alle VM senza indirizzo IP pubblico di accedere ai servizi Google via rete interna",
+      "Per nascondere il sito web ai motori di ricerca",
+      "Per navigare su internet in modo anonimo",
+      "Per connettersi a Google Cloud solo tramite cavi sottomarini privati"
+    ],
+    answer: 0,
     explanation: [
-      "Standard è per dati ad accesso frequente.",
-      "Nearline è per dati letti una volta al mese.",
-      "Coldline è per dati letti una volta al trimestre.",
-      "Archive è il più economico per conservazioni a lungo termine (>365 giorni)."
+      "CORRETTO. Consente alle VM con solo IP interno di raggiungere le API di Google.",
+      "Non ha alcuna relazione con l'indicizzazione SEO.",
+      "Non è un servizio di VPN per l'anonimato dell'utente.",
+      "Riguarda il routing logico della VPC, non l'infrastruttura fisica dei cavi."
     ]
   }
+  // Aggiungi qui le altre domande...
 ];
 
 let selectedQuestions = [];
@@ -168,7 +193,12 @@ function startExam(num) {
   document.getElementById('start-screen').classList.add('hidden');
   document.getElementById('quiz-screen').classList.remove('hidden');
   
-  selectedQuestions = [...allQuestions].sort(() => Math.random() - 0.5).slice(0, num);
+  // Mescola e limita
+  const shuffled = [...allQuestions].sort(() => Math.random() - 0.5);
+  selectedQuestions = shuffled.slice(0, Math.min(num, allQuestions.length));
+  
+  currentIdx = 0;
+  score = 0;
   showQuestion();
 }
 
@@ -177,21 +207,20 @@ function showQuestion() {
   const bar = document.getElementById('bar');
   const status = document.getElementById('status');
   const optionsDiv = document.getElementById('options');
-  const nextBtn = document.getElementById('nextBtn');
   const explDiv = document.getElementById('explanation');
+  const nextBtn = document.getElementById('nextBtn');
 
-  // Update UI
+  // UI Reset
   bar.style.width = `${(currentIdx / selectedQuestions.length) * 100}%`;
   status.innerText = `DOMANDA ${currentIdx + 1} DI ${selectedQuestions.length}`;
   document.getElementById('question').innerText = q.question;
-  
   optionsDiv.innerHTML = '';
   explDiv.classList.add('hidden');
   nextBtn.classList.add('hidden');
 
   q.options.forEach((opt, i) => {
     const btn = document.createElement('button');
-    btn.className = 'option-btn';
+    btn.className = 'btn';
     btn.innerText = opt;
     btn.onclick = () => handleSelection(i, btn);
     optionsDiv.appendChild(btn);
@@ -200,14 +229,12 @@ function showQuestion() {
 
 function handleSelection(idx, btn) {
   const q = selectedQuestions[currentIdx];
-  const buttons = document.querySelectorAll('.option-btn');
-  const nextBtn = document.getElementById('nextBtn');
+  const buttons = document.querySelectorAll('#options .btn');
   const explDiv = document.getElementById('explanation');
+  const nextBtn = document.getElementById('nextBtn');
 
-  // Disabilita bottoni
   buttons.forEach(b => b.disabled = true);
 
-  // Colora scelta
   if (idx === q.answer) {
     btn.classList.add('is-correct');
     btn.innerHTML += ' <span>✔</span>';
@@ -219,12 +246,16 @@ function handleSelection(idx, btn) {
     buttons[q.answer].innerHTML += ' <span>✔</span>';
   }
 
-  // Mostra spiegazione
+  // Mostra Spiegazione
   explDiv.innerHTML = `<div class="explanation-box">
-    <strong>Perché?</strong><br>${q.explanation[idx] || q.explanation[q.answer]}
+    <strong>Dettaglio risposta corretta:</strong><br>
+    ${q.explanation[q.answer]}
   </div>`;
   explDiv.classList.remove('hidden');
   nextBtn.classList.remove('hidden');
+  
+  // Auto-scroll
+  setTimeout(() => nextBtn.scrollIntoView({ behavior: 'smooth' }), 100);
 }
 
 document.getElementById('nextBtn').onclick = () => {
@@ -242,8 +273,11 @@ function showFinalResults() {
   resScreen.classList.remove('hidden');
   
   const pct = (score / selectedQuestions.length) * 100;
-  document.getElementById('res-title').innerText = pct >= 70 ? "Ottimo lavoro! 🎉" : "Devi ripassare ancora 📚";
+  document.getElementById('res-title').innerText = pct >= 70 ? "Esame Superato! 🏆" : "Non superato 📚";
   document.getElementById('res-score').innerText = `${score} / ${selectedQuestions.length} (${pct.toFixed(1)}%)`;
+  document.getElementById('res-feedback').innerText = pct >= 70 
+    ? "Ottima preparazione! Sei pronto per affrontare il test ufficiale." 
+    : "Ti consigliamo di ripassare i concetti base e riprovare la simulazione.";
 }
 </script>
 </body>
