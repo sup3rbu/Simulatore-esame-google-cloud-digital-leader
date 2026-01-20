@@ -49,7 +49,6 @@
 
     h1 { font-size: 1.8rem; text-align: center; margin-bottom: 20px; }
 
-    /* BOTTONI UNIFORMATI */
     .btn {
       width: 100%;
       padding: 15px;
@@ -59,7 +58,7 @@
       font-size: 1rem;
       cursor: pointer;
       transition: all 0.2s;
-      text-align: left; /* Allineamento a sinistra di default */
+      text-align: left;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -75,7 +74,6 @@
       font-weight: bold;
     }
 
-    /* FEEDBACK COLORI */
     .is-correct {
       background: #e6f4ea !important;
       border-color: var(--g-green) !important;
@@ -115,23 +113,20 @@
 <div class="container">
   <div id="start-screen">
     <h1>Cloud Digital Leader Simulator</h1>
-    <p style="text-align: center; margin-bottom: 30px;">Pronto per la certificazione? Scegli la durata del test:</p>
+    <p style="text-align: center; margin-bottom: 30px;">Scegli la durata del test:</p>
     
     <button onclick="startExam(10)" class="btn">Test Rapido (10 domande)</button>
     <button onclick="startExam(20)" class="btn">Test Standard (20 domande)</button>
     <button onclick="startExam(50)" class="btn">Simulazione Completa (50 domande)</button>
+    <button id="btn-all" onclick="startExam(allQuestions.length)" class="btn" style="border-style: dashed;"></button>
   </div>
 
   <div id="quiz-screen" class="hidden">
     <div class="progress-container"><div id="bar" class="progress-bar"></div></div>
     <div id="status" style="font-weight: bold; color: #70757a; margin-bottom: 5px;"></div>
-    
     <div id="question" style="font-size: 1.25rem; font-weight: 500; margin-bottom: 25px;"></div>
-    
     <div id="options"></div>
-    
     <div id="explanation" class="hidden"></div>
-    
     <button id="nextBtn" class="btn hidden">Prossima Domanda ➔</button>
   </div>
 
@@ -139,7 +134,10 @@
     <h2 id="res-title"></h2>
     <p id="res-score" style="font-size: 2rem; margin: 20px 0;"></p>
     <p id="res-feedback"></p>
-    <button onclick="location.reload()" class="btn btn-blue" style="justify-content: center;">Ricomincia</button>
+    <div id="result-actions">
+        <button id="retry-errors-btn" class="btn btn-blue" style="justify-content: center; margin-bottom: 10px;">Riesamina Errori</button>
+        <button onclick="location.reload()" class="btn" style="justify-content: center; border-color: var(--g-blue); color: var(--g-blue);">Ricomincia da Capo</button>
+    </div>
   </div>
 </div>
 
@@ -176,17 +174,28 @@ const allQuestions = [
   }
 ];
 
+document.getElementById('btn-all').innerText = `Tutte le domande (${allQuestions.length})`;
+
 let selectedQuestions = [];
+let wrongQuestions = []; // Archivio per la gamification
 let currentIdx = 0;
 let score = 0;
 
-function startExam(num) {
+function startExam(num, subset = null) {
   document.getElementById('start-screen').classList.add('hidden');
+  document.getElementById('result-screen').classList.add('hidden');
   document.getElementById('quiz-screen').classList.remove('hidden');
   
-  const shuffled = [...allQuestions].sort(() => Math.random() - 0.5);
-  selectedQuestions = shuffled.slice(0, Math.min(num, allQuestions.length));
+  if (subset) {
+    // Se stiamo rifacendo gli errori
+    selectedQuestions = [...subset];
+  } else {
+    // Test nuovo: mescola tutto
+    const shuffled = [...allQuestions].sort(() => Math.random() - 0.5);
+    selectedQuestions = shuffled.slice(0, Math.min(num, allQuestions.length));
+  }
   
+  wrongQuestions = [];
   currentIdx = 0;
   score = 0;
   showQuestion();
@@ -233,9 +242,11 @@ function handleSelection(idx, btn) {
     btn.innerHTML += ' <span>✘</span>';
     buttons[q.answer].classList.add('is-correct');
     buttons[q.answer].innerHTML += ' <span>✔</span>';
+    // Aggiungi ai "da rifare"
+    wrongQuestions.push(q);
   }
 
-  // Costruiamo il box con TUTTE le spiegazioni
+  // Box con TUTTE le spiegazioni
   let detailedExpl = `<div class="explanation-box"><strong>Analisi delle opzioni:</strong><br><ul style="padding-left: 20px; margin-top: 10px;">`;
   q.options.forEach((opt, i) => {
     const isCorrect = (i === q.answer);
@@ -265,6 +276,7 @@ document.getElementById('nextBtn').onclick = () => {
 function showFinalResults() {
   document.getElementById('quiz-screen').classList.add('hidden');
   const resScreen = document.getElementById('result-screen');
+  const retryBtn = document.getElementById('retry-errors-btn');
   resScreen.classList.remove('hidden');
   
   const pct = (score / selectedQuestions.length) * 100;
@@ -273,6 +285,15 @@ function showFinalResults() {
   document.getElementById('res-feedback').innerText = pct >= 70 
     ? "Ottima preparazione! Sei pronto per il test ufficiale." 
     : "Ti consigliamo di ripassare i concetti e riprovare la simulazione.";
+
+  // Mostra il tasto Riesamina solo se ci sono errori
+  if (wrongQuestions.length > 0) {
+    retryBtn.classList.remove('hidden');
+    retryBtn.innerText = `Riesamina i tuoi errori (${wrongQuestions.length})`;
+    retryBtn.onclick = () => startExam(wrongQuestions.length, wrongQuestions);
+  } else {
+    retryBtn.classList.add('hidden');
+  }
 }
 </script>
 </body>
