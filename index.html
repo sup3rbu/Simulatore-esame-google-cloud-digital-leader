@@ -178,7 +178,7 @@ let selectedQuestions = [];
 let wrongQuestions = [];
 let currentIdx = 0;
 let score = 0;
-let currentSelection = []; // MODIFICA: Per tracciare le selezioni multiple
+let currentSelection = [];
 
 // Caricamento asincrono del JSON
 async function loadQuestions() {
@@ -191,7 +191,7 @@ async function loadQuestions() {
         document.getElementById('btn-all').innerText = `Tutte le domande (${allQuestions.length})`;
     } catch (err) {
         console.error(err);
-        document.getElementById('loading-status').innerText = "Errore nel caricamento delle domande. Controlla il file questions.json.";
+        document.getElementById('loading-status').innerText = "Errore nel caricamento: " + err.message;
     }
 }
 
@@ -217,7 +217,6 @@ function startExam(num, subset = null) {
   showQuestion();
 }
 
-// MODIFICA: Aggiornata logica visualizzazione
 function showQuestion() {
   const q = selectedQuestions[currentIdx];
   const bar = document.getElementById('bar');
@@ -234,15 +233,21 @@ function showQuestion() {
   explDiv.classList.add('hidden');
   nextBtn.classList.add('hidden');
   confirmBtn.classList.add('hidden');
-  currentSelection = []; // Reset selezione
+  currentSelection = [];
 
-  // Verifica se Multipla (array) o Singola (numero)
-  const isMulti = Array.isArray(q.answer);
+  // --- ADATTAMENTO JSON ---
+  // Supporta sia "correctAnswers" (nuovo) che "answer" (vecchio)
+  const rawAnswers = q.correctAnswers || q.answer;
+  // Ci assicuriamo che sia sempre un array per fare il controllo length
+  const correctArr = Array.isArray(rawAnswers) ? rawAnswers : [rawAnswers];
+
+  // Se c'è più di una risposta giusta, è Multipla. Altrimenti è Singola.
+  const isMulti = correctArr.length > 1;
   
   let qText = q.question;
   if (isMulti) {
-      qText += ` <br><span style="font-size:0.9rem; color: var(--g-blue)">(Seleziona ${q.answer.length} risposte)</span>`;
-      confirmBtn.classList.remove('hidden'); // Mostra bottone conferma
+      qText += ` <br><span style="font-size:0.9rem; color: var(--g-blue)">(Seleziona ${correctArr.length} risposte)</span>`;
+      confirmBtn.classList.remove('hidden');
   }
   document.getElementById('question').innerHTML = qText;
 
@@ -250,20 +255,19 @@ function showQuestion() {
     const btn = document.createElement('button');
     btn.className = 'btn';
     btn.innerText = opt;
-    // Passiamo isMulti alla funzione handleSelection
-    btn.onclick = () => handleSelection(i, btn, isMulti);
-    btn.id = `opt-btn-${i}`; // ID utile per il recupero successivo
+    // Passiamo isMulti e l'array corretto pulito
+    btn.onclick = () => handleSelection(i, btn, isMulti, correctArr);
+    btn.id = `opt-btn-${i}`;
     optionsDiv.appendChild(btn);
   });
 }
 
-// MODIFICA: Gestione selezione ibrida (singola/multipla)
-function handleSelection(idx, btn, isMulti) {
+function handleSelection(idx, btn, isMulti, correctArr) {
   if (!isMulti) {
-    // LOGICA SINGOLA (Legacy)
-    validateSingleAnswer(idx, btn);
+    // Risposta Singola (passiamo il primo elemento dell'array come risposta corretta)
+    validateSingleAnswer(idx, btn, correctArr[0]);
   } else {
-    // LOGICA MULTIPLA (Toggle)
+    // Risposta Multipla (toggle selezione)
     const pos = currentSelection.indexOf(idx);
     if (pos === -1) {
       currentSelection.push(idx);
@@ -275,44 +279,48 @@ function handleSelection(idx, btn, isMulti) {
   }
 }
 
-// Funzione originale rinominata
-function validateSingleAnswer(idx, btn) {
+function validateSingleAnswer(idx, btn, correctVal) {
   const q = selectedQuestions[currentIdx];
   const buttons = document.querySelectorAll('#options .btn');
   buttons.forEach(b => b.disabled = true);
 
-  if (idx === q.answer) {
+  // Confronto debole (==) per gestire stringa "0" vs numero 0
+  if (idx == correctVal) {
     btn.classList.add('is-correct');
     btn.innerHTML += ' <span>✔</span>';
     score++;
   } else {
     btn.classList.add('is-wrong');
     btn.innerHTML += ' <span>✘</span>';
-    // Evidenzia quella giusta
-    const correctBtn = document.getElementById(`opt-btn-${q.answer}`);
+    
+    const correctBtn = document.getElementById(`opt-btn-${correctVal}`);
     if(correctBtn) {
         correctBtn.classList.add('is-correct');
         correctBtn.innerHTML += ' <span>✔</span>';
     }
     wrongQuestions.push(q);
   }
-  showExplanation([q.answer]);
+  // Passiamo un array per coerenza con la funzione showExplanation
+  showExplanation([correctVal]);
 }
 
-// MODIFICA: Nuova funzione per validare le multiple
+// Funzione richiamata dal bottone "Conferma"
 function checkMultipleAnswers() {
     const q = selectedQuestions[currentIdx];
-    const correctAnswers = q.answer.sort(); // es: [0, 2]
-    const userAnswers = currentSelection.sort(); // es: [0, 3]
-    const buttons = document.querySelectorAll('#options .btn');
     
-    // Disabilita tutto
+    // Recuperiamo le risposte corrette dal JSON (gestione compatibilità)
+    const rawAnswers = q.correctAnswers || q.answer;
+    const correctArr = Array.isArray(rawAnswers) ? rawAnswers : [rawAnswers];
+
+    // Normalizzazione per confronto (tutto numeri, ordinati)
+    const correctNums = correctArr.map(Number).sort((a, b) => a - b);
+    const userNums = currentSelection.map(Number).sort((a, b) => a - b);
+    
+    const buttons = document.querySelectorAll('#options .btn');
     buttons.forEach(b => b.disabled = true);
     document.getElementById('confirmBtn').classList.add('hidden');
 
-    // Controllo esatto (Devono essere tutte giuste e nessuna sbagliata)
-    // Trasformiamo in stringa per confronto rapido array vs array
-    const isPerfect = JSON.stringify(correctAnswers) === JSON.stringify(userAnswers);
+    const isPerfect = JSON.stringify(correctNums) === JSON.stringify(userNums);
 
     if (isPerfect) {
         score++;
@@ -320,42 +328,48 @@ function checkMultipleAnswers() {
         wrongQuestions.push(q);
     }
 
-    // Colorazione pulsanti
     buttons.forEach((btn, i) => {
+        const isCorrect = correctNums.includes(i); 
         const isSelected = currentSelection.includes(i);
-        const isCorrect = correctAnswers.includes(i);
 
-        btn.classList.remove('is-selected'); // Rimuovi stile temporaneo
+        btn.classList.remove('is-selected');
 
         if (isCorrect) {
             btn.classList.add('is-correct');
             btn.innerHTML += ' <span>✔</span>';
-        } else if (isSelected && !isCorrect) {
-            btn.classList.add('is-wrong'); // Hai selezionato una sbagliata
+        } 
+        if (isSelected && !isCorrect) {
+            btn.classList.add('is-wrong');
             btn.innerHTML += ' <span>✘</span>';
         }
-        // Se non era selezionata e non era corretta, resta neutra
     });
 
-    showExplanation(correctAnswers);
+    showExplanation(correctNums);
 }
 
-// MODIFICA: Helper per mostrare spiegazione (adattato per array)
 function showExplanation(correctIndices) {
   const q = selectedQuestions[currentIdx];
   const explDiv = document.getElementById('explanation');
   const nextBtn = document.getElementById('nextBtn');
 
-  // Adattamento array per single choice
+  // --- ADATTAMENTO JSON ---
+  // Supporta "explanations" (nuovo) o "explanation" (vecchio)
+  const explSource = q.explanations || q.explanation;
+  
   if (!Array.isArray(correctIndices)) correctIndices = [correctIndices];
 
   let detailedExpl = `<div class="explanation-box"><strong>Analisi delle opzioni:</strong><br><ul style="padding-left: 20px; margin-top: 10px;">`;
   
   q.options.forEach((opt, i) => {
-    const isCorrect = correctIndices.includes(i);
+    // Convertiamo l'indice in numero per sicurezza
+    const isCorrect = correctIndices.map(Number).includes(Number(i));
+    
+    // Recuperiamo il testo della spiegazione se esiste
+    const explText = explSource && explSource[i] ? explSource[i] : "Nessuna spiegazione disponibile.";
+
     detailedExpl += `<li style="margin-bottom: 8px;">
       <span style="color: ${isCorrect ? 'var(--g-green)' : 'var(--g-red)'}; font-weight: bold;">${opt}:</span> 
-      ${q.explanation[i]}
+      ${explText}
     </li>`;
   });
   detailedExpl += `</ul></div>`;
